@@ -7,15 +7,16 @@ import SendEmail from "./resend";
 export async function generateCodeByType(prevState, data) {
     try {
         const codeType = data.get("type");
+        console.log(codeType)
         const randomCode = Math.floor(Math.random() * 100000);
         const resultCode = randomCode.toString();
         const usesLeft = data.get("uses");
         const singerRol = data.get("rol");
 
-        if (typeof singerRol === "undefined") {
+        if (singerRol === "undefined" || codeType === "undefined") {
             return `¡Elige un rol válido!`;
         }
-
+        
         const hashedResultCode = await bcrypt.hash(resultCode, 10);
 
         await prisma.codigoActivacion.create({
@@ -49,7 +50,7 @@ export async function generateCodeByType(prevState, data) {
 
         return `Código generado: ${resultCode}`;
     } catch (error) {
-        return `¡Vaya! Algo salió mal`;
+        return `¡Vaya! Algo salió mal, ${error}`;
     }
 }
 
