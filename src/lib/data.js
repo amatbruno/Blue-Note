@@ -61,10 +61,28 @@ export async function codeAuthorization(prevState, data) {
 
             for (const storedCode of allStoredCodes) {
                 const match = await bcrypt.compare(code, storedCode.cod_activacion);
-
+        
                 if (match) {
                     const userType = storedCode.type;
-                    storedCode.usesLeft -1;
+                    const usesCodeLeft = storedCode.usesLeft-1;
+ 
+                    if(usesCodeLeft === 0) {
+                        await prisma.codigoActivacion.delete({
+                            where: {
+                                id: storedCode.id
+                            }
+                        });                        
+                    }else{
+                        await prisma.codigoActivacion.update({
+                            where: {
+                                id: storedCode.id
+                            },
+                            data: {
+                                usesLeft: usesCodeLeft
+                            }
+                        });
+                    }
+
                     switch(userType) {
                         case 'ADMIN':
                             return 'es admin'
@@ -88,5 +106,4 @@ export async function codeAuthorization(prevState, data) {
     }
 }
 
-//falta que se borre el codigo si usesLeft === 0 
-// que se reste usesLeft
+//optimizacion del codigo
