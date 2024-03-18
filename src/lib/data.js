@@ -21,7 +21,7 @@ export async function generateCodeByType(prevState, data) {
 
         await prisma.codigoActivacion.create({
             data: {
-                cod_activacion: hashedResultCode,
+                activationCode: hashedResultCode,
                 type: codeType.toUpperCase(),
                 singer_rol: singerRol,
                 usesLeft: parseInt(usesLeft, 10),
@@ -61,10 +61,11 @@ export async function codeAuthorization(prevState, data) {
             const allStoredCodes = await prisma.codigoActivacion.findMany();
 
             for (const storedCode of allStoredCodes) {
-                const match = await bcrypt.compare(code, storedCode.cod_activacion);
+                const match = await bcrypt.compare(code, storedCode.activationCode);
         
                 if (match) {
                     const userType = storedCode.type;
+                    const singerRol = storedCode.singer_rol
                     const usesCodeLeft = storedCode.usesLeft-1;
  
                     if(usesCodeLeft === 0) {
@@ -84,18 +85,7 @@ export async function codeAuthorization(prevState, data) {
                         });
                     }
 
-                    switch(userType) {
-                        case 'ADMIN':
-                            return 'es admin'
-                        case 'DIRECTOR':
-                            return 'es director'
-                        case 'SINGER':
-                            return 'es singer'
-                        case 'TEMP':
-                            return 'es temp'
-                        default:
-                            return 'no se a encontrado el typo de usuario'
-                    }
+                    return `${userType}`
                 }
             }
 

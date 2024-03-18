@@ -4,34 +4,50 @@ import Button from "@/components/ui/button";
 import Input from "@/components/ui/input";
 import { useFormState } from "react-dom";
 import { codeAuthorization } from "@/lib/data";
+import { useState } from "react";
+import { useEffect } from "react";
+import Register from "./register";
 
 export default function VerificationCode({
     verificationCode
-    
 }) {
-    const [state, dispatch] = useFormState(codeAuthorization, undefined)
+    const [state, dispatch] = useFormState(codeAuthorization, undefined);
+    const [showAdditionalInputs, setShowAdditionalInputs] = useState(true);
+    
+    useEffect(() => {
+        if (state) {
+            if (state === "ADMIN" || state === "DIRECTOR" || state === "SINGER" || state === "TEMP") {
+                setShowAdditionalInputs(false);
+            }
+        }
+    }, [state]);
+
+
     return (
         <article>
-            <form action={dispatch}>
-                
-                {
-                    state && <p className="text-red-500">
-                        * {state}
-                    </p>
-                }
+            {showAdditionalInputs ? (
+                <form action={dispatch}>
 
-                <Input
-                    placeholder="Código de verificación"
-                    value={verificationCode}
-                    name="code"
-                />
+                    {state && <p className="text-red-500">* {state}</p>}
 
-                <Button
-                    type="submit"
-                >
-                    Activar Código
-                </Button>
-            </form>
+                    <div className="mb-4">
+                        <Input
+                            placeholder="Código de verificación"
+                            value={verificationCode}
+                            name="code"
+                        />
+                        <Button type="submit">
+                        Activar Código
+                    </Button>
+                    </div>
+                </form>
+            ) : (
+                <div>
+                    {state && <h1>Bienvenido {state}</h1>}
+                    <Register userType={state}/>
+                </div>
+
+            )}
         </article>
     );
 }

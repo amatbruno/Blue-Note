@@ -15,7 +15,7 @@ datasource db {
 
 model codigoActivacion {
   id             Int      @id @default(autoincrement())
-  cod_activacion String   @unique
+  activationCode String   @unique
   type           CODE_TYPE
   singer_rol     CODE_ROL?
   usesLeft       Int
@@ -33,4 +33,19 @@ enum CODE_ROL {
   ALTO
   TENOR
   BAJO
+}
+
+model User {
+  id             Int        @id @unique
+  firstName      String
+  lastName       String
+  identification String
+  email          String
+  type           CODE_TYPE
+  rope           CODE_ROL?
+  color          String
+  gender         String
+  height         Int
+  birthDate      DateTime
+  photo          Bytes?
 }
