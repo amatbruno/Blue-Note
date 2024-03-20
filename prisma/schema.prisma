@@ -36,16 +36,16 @@ enum CODE_ROL {
 }
 
 model User {
-  id             Int        @id @unique
+  id             Int      @id @default(autoincrement())
   firstName      String
   lastName       String
-  identification String
-  email          String
+  email          String   @unique
+  password       String
   type           CODE_TYPE
   rope           CODE_ROL?
   color          String
   gender         String
-  height         Int
+  height         String
   birthDate      DateTime
   photo          Bytes?
 }

@@ -3,11 +3,11 @@
 import prisma from "./prisma";
 import bcrypt from 'bcrypt';
 import SendEmail from "./resend";
+import { redirect } from "next/navigation";
 
 export async function generateCodeByType(prevState, data) {
     try {
         const codeType = data.get("type");
-        console.log(codeType)
         const randomCode = Math.floor(Math.random() * 100000);
         const resultCode = randomCode.toString();
         const usesLeft = data.get("uses");
@@ -95,6 +95,108 @@ export async function codeAuthorization(prevState, data) {
     } catch (error) {
         return `¡Vaya! Algo salió mal: ${error}`;
     }
+}
+
+
+export async function registerForm(prevState, data) {
+    let route;
+
+    try {
+        const name = data.get("name");
+        const secondName = data.get("secondName");
+        const email = data.get("email");
+        const password = data.get("password");
+        const repeatPassword = data.get("repeatPassword");
+        const type = data.get("userType");
+        const gender = data.get("gender");
+        const height = data.get("height");
+        const birthDate = data.get("birthDate");
+        const birthDateWithTime = `${birthDate}T00:00:00Z`;
+
+        if (!name || !secondName || !email || !password || !repeatPassword || !type || !gender || !height || !birthDate) {
+            return 'Por favor rellene todos los campos'
+        }
+
+        if (height > 2.5) {
+            return 'Por favor sea realista con la estatura'
+        }
+
+        if (height.toString().includes('.')) {
+            return 'Por favor represente la estatura con una ","'
+        }
+
+        if (password != repeatPassword) {
+            return "Las contraseñas no coinciden"
+        }
+
+        const emailMatch = await prisma.user.findFirst({
+            where: {
+                email: email,
+            },
+        });
+
+        if (emailMatch) {
+            return `Email: ${email} ya esta registrado`
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const user = await prisma.user.create({
+            data: {
+                firstName: name,
+                lastName: secondName,
+                email: email,
+                password: hashedPassword,
+                type: type,
+                gender: gender,
+                height: height,
+                birthDate: birthDateWithTime,
+                color: 'amarillo',
+            }
+        });
+
+        route = user.type.toLowerCase();
+    } catch (error) {
+        return `Error al registrar usuario: ${error.message}`;
+    }
+
+    redirect('/' + route);
+}
+
+
+export async function loginForm(prevState, data) {
+    let route;
+
+    try {
+        const email = data.get("email");
+        const password = data.get("password");
+       
+        if (!email || !password) {
+            return 'Por favor rellene todos los campos';
+        }
+
+        const user = await prisma.user.findFirst({
+            where: {
+                email: email,
+            },
+        });
+
+        if (!user) {
+            return 'Usuario no encontrado';
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+
+        if (!isPasswordValid) {
+            return 'Contraseña incorrecta';
+        }
+
+        route = user.type.toLowerCase(); 
+    } catch (error) {
+        return `Error al iniciar sesion`
+    }
+
+    redirect('/' + route)
 }
 
 //optimizacion del codigo
