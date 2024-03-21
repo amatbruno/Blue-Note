@@ -10,42 +10,30 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("mysql://root:12345@host:3306/blue-note")
+  url      = env("DATABASE_URL")
 }
 
-model codigoActivacion {
-  id             Int      @id @default(autoincrement())
-  activationCode String   @unique
-  type           CODE_TYPE
-  singer_rol     CODE_ROL?
-  usesLeft       Int
+model Usuario {
+  id_usuario       Int              @id @default(autoincrement())
+  nombre           String
+  apellidos        String
+  identificacion   String
+  email            String
+  rol              String
+  cuerda           String
+  color            String
+  sexo             String
+  estatura         Int
+  fecha_nacimiento DateTime
+  foto             Bytes?
+  id_codigo_act    Int
+  codigoActivacion CodigoActivacion @relation(fields: [id_codigo_act], references: [id_codigo_act])
+
+  @@unique([id_usuario, id_codigo_act])
 }
 
-enum CODE_TYPE {
-  ADMIN
-  DIRECTOR
-  SINGER
-  TEMP
-}
-
-enum CODE_ROL {
-  SOPRANO
-  ALTO
-  TENOR
-  BAJO
-}
-
-model User {
-  id             Int      @id @default(autoincrement())
-  firstName      String
-  lastName       String
-  email          String   @unique
-  password       String
-  type           CODE_TYPE
-  role           CODE_ROL?
-  color          String
-  gender         String
-  height         String
-  birthDate      DateTime
-  photo          Bytes?
+model CodigoActivacion {
+  id_codigo_act  Int       @id @default(autoincrement())
+  cod_activacion String
+  usuarios       Usuario[]
 }

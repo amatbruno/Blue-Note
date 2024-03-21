@@ -1,33 +1,30 @@
 "use client"
 
-import React from 'react'
-import { useEffect, useState } from 'react';
+import { main } from '@/app/api/users';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function usersCard() {
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState(null);
 
     useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const response = await fetch('/api/users');
-                if (response.ok) {
-                    const data = await response.json();
-                    setUsers(data);
-                } else {
-                    throw new Error('Failed to fetch users');
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        };
+        const apiURL = "http://localhost:3000/app/api/users";
 
-        fetchUsers();
+        axios.get(apiURL)
+            .then((res) => {
+                setUsers(res.data);
+            });
     }, []);
+
+    if (!users) return null;
+
     return (
         <div>
             <ul>
-                {users.map((user) => (
-                    <li key={user.id}>{user.name}</li>
+                {users.map(user => (
+                    <li key={user.id_usuario}>
+                        {user.nombre}
+                    </li>
                 ))}
             </ul>
         </div>
