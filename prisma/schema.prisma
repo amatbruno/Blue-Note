@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = env("mysql://root:12345@host:3306/blue-note")
 }
 
 model codigoActivacion {
@@ -42,7 +42,7 @@ model User {
   email          String   @unique
   password       String
   type           CODE_TYPE
-  rope           CODE_ROL?
+  role           CODE_ROL?
   color          String
   gender         String
   height         String
