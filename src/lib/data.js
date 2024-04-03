@@ -4,6 +4,8 @@ import prisma from "./prisma";
 import bcrypt from 'bcrypt';
 import SendEmail from "./resend";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
+import { decodeToken, generateAccessToken } from "./jwt";
 
 export async function generateCodeByType(prevState, data) {
     try {
@@ -98,7 +100,7 @@ export async function codeAuthorization(prevState, data) {
 }
 
 
-export async function registerForm(prevState, data) {
+export async function registerForm(prevState, data, res) {
     let route;
 
     try {
@@ -156,6 +158,26 @@ export async function registerForm(prevState, data) {
         });
 
         route = user.type.toLowerCase();
+
+        const cookieStore = cookies(); 
+        const token = await generateAccessToken(user.id);
+
+        cookieStore.set({
+            name: "access-token", 
+            value: token,
+            secure: false, 
+            httpOnly: false
+        })
+
+        if (res) {
+            const accessToken = generarToken(user); // Genera el token como prefieras
+            res.setHeader('Set-Cookie', serialize('tokenCookie', accessToken, {
+                maxAge: 1000 * 60 * 40, // Duración de la cookie (40 minutos en este ejemplo)
+                httpOnly: true, // La cookie solo es accesible en el servidor
+                secure: process.env.NODE_ENV === 'production', // Se establece a true en producción para conexiones HTTPS
+                sameSite: 'lax' // Restringe cómo se envía la cookie en las solicitudes de terceros
+            }));
+        }
     } catch (error) {
         return `Error al registrar usuario: ${error.message}`;
     }
@@ -164,7 +186,7 @@ export async function registerForm(prevState, data) {
 }
 
 
-export async function loginForm(prevState, data) {
+export async function loginForm(prevState, data, res) {
     let route;
 
     try {
@@ -192,11 +214,59 @@ export async function loginForm(prevState, data) {
         }
 
         route = user.type.toLowerCase(); 
+
+        const cookieStore = cookies(); 
+        const token = await generateAccessToken(user.id);
+
+        cookieStore.set({
+            name: "access-token", 
+            value: token,
+            secure: false, 
+            httpOnly: false
+        })
     } catch (error) {
-        return `Error al iniciar sesion`
+        return `Error al iniciar sesion ${error}`
     }
 
     redirect('/' + route)
+}
+
+export async function getUserSession() {
+    try {
+        const userId = await getUserId(); 
+
+        if(!userId) return false; 
+    
+        const user = await prisma.user.findFirst({
+            where: {
+                id: userId
+            }
+        })
+
+        if(!user) return false; 
+
+        return user; 
+    } catch (error) {
+        return false
+    }
+}
+
+export async function getUserId() {
+    try {
+        const cookieStore = cookies(); 
+
+        if(!cookieStore.has('access-token')) return false
+
+        const { value } = cookieStore.get('access-token'); 
+
+        const decoded = await decodeToken(value);
+
+        if(!decoded.userId) return false; 
+        
+        return decoded.userId
+    } catch (error) {
+        return false
+    }
 }
 
 //optimizacion del codigo

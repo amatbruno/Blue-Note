@@ -1,0 +1,50 @@
+
+export default function AboutUS() {
+    return (
+        <main id='aboutUs'>
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+
+
+            <p>hola</p>
+            <p>hola</p><p>hola</p>
+            <p>hola</p>
+
+
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+
+
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+
+
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+
+
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+
+
+            <p>hola</p>
+            <p>hola</p>
+
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+            
+        </main>
+    );
+}
