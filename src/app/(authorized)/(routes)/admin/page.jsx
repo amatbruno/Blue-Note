@@ -13,5 +13,13 @@ export default async function Page() {
                 Generar códigos de enlace
             </Button>
         </Link>
+        <Link
+            href="/admin/users"
+        >
+            <Button>
+                Generar códigos de enlace
+            </Button>
+        </Link>
+        
     </section>
 }

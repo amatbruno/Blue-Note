@@ -269,4 +269,16 @@ export async function getUserId() {
     }
 }
 
+export async function getAllUsers() {
+    try {
+        const users = await prisma.user.findMany() 
+        console.log(users)
+        return users;
+
+    }catch(error) {
+        console.log(error)
+        return "Error"
+    }
+}
+
 //optimizacion del codigo

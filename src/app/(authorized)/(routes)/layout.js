@@ -9,7 +9,7 @@ export default async function Layout({
 
     if(!user) {
         return redirect('/');
-    } 
+    }
 
     return <main>
         <Navigator />
