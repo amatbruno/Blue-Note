@@ -1,31 +1,31 @@
-"use client"
+import React from 'react';
+import prisma from '@/lib/prisma';
+import Voice from '@/components/usuarios/Voice';
 
-import { main } from '@/app/api/users';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+async function getVoices() {
+    const voices = await prisma.usuario.findMany()
 
-export default function usersCard() {
-    const [users, setUsers] = useState(null);
+    return voices;
+}
 
-    useEffect(() => {
-        const apiURL = "http://localhost:3000/app/api/users";
-
-        axios.get(apiURL)
-            .then((res) => {
-                setUsers(res.data);
-            });
-    }, []);
-
-    if (!users) return null;
-
+export default async function usersCard() {
+    const voice = await getVoices();
+    console.log(voice)
     return (
         <div>
             <ul>
-                {users.map(user => (
-                    <li key={user.id_usuario}>
-                        {user.nombre}
-                    </li>
-                ))}
+                {
+                    voice.map((el) => {
+                        return <Voice 
+                            key={el.id_usuario}
+                            id={el.id_usuario}
+                            nombre={el.nombre}
+                            apellidos={el.apellidos}
+                            cuerda={el.cuerda}
+                            email={el.email}
+                        />
+                    })
+                }
             </ul>
         </div>
     )
