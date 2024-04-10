@@ -111,7 +111,8 @@ export async function registerForm(prevState, data, res) {
         const repeatPassword = data.get("repeatPassword");
         const type = data.get("userType");
         const gender = data.get("gender");
-        const height = data.get("height");
+        const heightString = data.get("height");
+        const height = parseFloat(heightString);
         const birthDate = data.get("birthDate");
         const birthDateWithTime = `${birthDate}T00:00:00Z`;
 
@@ -123,8 +124,8 @@ export async function registerForm(prevState, data, res) {
             return 'Por favor sea realista con la estatura'
         }
 
-        if (height.toString().includes('.')) {
-            return 'Por favor represente la estatura con una ","'
+        if (height.toString().includes(',')) {
+            return 'Por favor represente la estatura con una "."'
         }
 
         if (password != repeatPassword) {

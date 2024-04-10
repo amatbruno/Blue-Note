@@ -13,8 +13,6 @@ export default async function Layout({
         return redirect('/' + user.type.toLowerCase())
     }
     return <main>
-        <Navigator />
-
         { children }
     </main>
 }

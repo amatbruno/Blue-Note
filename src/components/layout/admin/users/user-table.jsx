@@ -12,13 +12,13 @@ export default function UserTable() {
     const [selectedUser, setSelectedUser] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const hola = async (userid) => {
+    const handleEdit = async (userid) => {
         const selected = users.find(user => user.id === userid);
         setSelectedUser(selected);
         isEdit(true)
     }
 
-    const adios = async (userid) => {
+    const handleDelete = async (userid) => {
         deleteUser(userid);
         await deleteUser()
         fetchData()
@@ -85,8 +85,8 @@ export default function UserTable() {
                                     <td className="p-2 border">{user.gender}</td>
                                     <div className='p-2'>
 
-                                        <span className="cursor-pointer" onClick={() => hola(user.id)}>✏️</span>
-                                        <span className="mr-2 cursor-pointer" onClick={() => adios(user.id)}>🗑️</span>
+                                        <span className="cursor-pointer" onClick={() => handleEdit(user.id)}>✏️</span>
+                                        <span className="mr-2 cursor-pointer" onClick={() => handleDelete(user.id)}>🗑️</span>
                                     </div>
                                 </tr>
                             ))}

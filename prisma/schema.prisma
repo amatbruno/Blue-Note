@@ -45,7 +45,7 @@ model User {
   rope           CODE_ROL?
   color          String
   gender         String
-  height         String
+  height         Float
   birthDate      DateTime
   photo          Bytes?
 }
