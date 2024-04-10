@@ -272,12 +272,65 @@ export async function getUserId() {
 export async function getAllUsers() {
     try {
         const users = await prisma.user.findMany() 
-        console.log(users)
         return users;
 
     }catch(error) {
-        console.log(error)
-        return "Error"
+        return "Error al cargar usuarios"
+    }
+}
+
+export async function updateUser(prevState, data, res) {
+    try {
+        const id = parseInt(data.get("id"));
+        const name = data.get("firstName");
+        const secondName = data.get("secondName");
+        const email = data.get("email");
+        const gender = data.get("gender");
+
+        const user = await prisma.user.findFirst({
+            where: {
+                id: id
+            }
+        })
+
+        if (gender !== "" && gender !== 'femenino' && gender !== 'masculino') {
+            return 'añada femenino o masculino';
+        }
+
+        if (email !== "" && !email.includes('@')) {
+            return "El correo electrónico debe contener '@'";
+        }
+
+        const updatedUser = await prisma.user.update({
+            where: { 
+                id: id 
+            },
+            data: {
+                firstName: name !== "" ? name : user.firstName,
+                lastName: secondName !== "" ? secondName : user.lastName,
+                email: email !== "" ? email : user.email,
+                type: user.type,
+                gender: gender.toLowerCase() !== "" ? gender : user.gender
+            }            
+        });
+
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
+
+export async function deleteUser(userId) {
+    try {
+        await prisma.user.delete({
+            where: {
+                id: userId
+            }
+        });
+
+        return 'usuario borrado';
+    }catch(error) {
+        return `Error al borrar usuario con el id: ${userId}`
     }
 }
 
