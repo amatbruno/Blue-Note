@@ -335,4 +335,7 @@ export async function deleteUser(userId) {
     }
 }
 
+export async function handleLogout(req, res) {
+    cookies().delete('access-token');
+  }
 //optimizacion del codigo

@@ -1,4 +1,3 @@
-import Navigator from "@/components/layout/navigator"
 import { getUserSession } from "@/lib/data";
 import { redirect } from "next/navigation";
 
