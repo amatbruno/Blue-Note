@@ -2,7 +2,7 @@ import React from 'react';
 
 const Spinner = () => {
   return (
-      <div className="spinner-inner"></div>
+      <span class="loader"></span>
   );
 };
 

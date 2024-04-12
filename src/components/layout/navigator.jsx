@@ -3,9 +3,16 @@
 import { useState } from 'react';
 import Button from '../ui/button';
 import { handleLogout } from '@/lib/data';
+import Link from "next/link";
 
-export default function Navigator() {
+export default function Navigator({ user }) {
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const userName = user.firstName;
+
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
 
     return (
         <nav className="p-5 border-b flex gap-5">
@@ -26,7 +33,12 @@ export default function Navigator() {
                 </Button>
                 {menuOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg rounded">
-                        <a className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">Ajustes</a>
+                        <Link
+                            href={`/settings/${userName}`} 
+                        >
+                            <button onClick={closeMenu} className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">Ajustes</button>
+                        </Link>
+
                         <a onClick={() => handleLogout()} className="block px-4 py-2 text-gray-800 hover:bg-red-500 hover:text-white">Cerrar Sesión</a>
                     </div>
                 )}

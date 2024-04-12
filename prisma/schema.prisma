@@ -17,7 +17,6 @@ model codigoActivacion {
   id             Int      @id @default(autoincrement())
   activationCode String   @unique
   type           CODE_TYPE
-  singer_rol     CODE_ROL?
   usesLeft       Int
 }
 
