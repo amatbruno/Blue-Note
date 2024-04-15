@@ -7,7 +7,6 @@ import { codeAuthorization } from "@/lib/data";
 import { useState } from "react";
 import { useEffect } from "react";
 import Register from "./register";
-import Login from "./login";
 
 export default function VerificationCode({
     verificationCode
@@ -25,10 +24,7 @@ export default function VerificationCode({
 
     return (
         <article>
-            <div className="fixed left-0 flex items-center justify-center ml-10">
-                <Login />
-            </div>
-            <div className="fixed right-0 bottom-0 flex items-center justify-center ml-10">
+            <div className="flex justify-center">
                 {showAdditionalInputs ? (
                     <form action={dispatch}>
 
@@ -52,7 +48,6 @@ export default function VerificationCode({
                     </div>
                 )}
             </div>
-
         </article>
     );
 }

@@ -5,12 +5,16 @@ import { getAllUsers } from '@/lib/data';
 import UserEditTable from './user-edit';
 import { deleteUser } from '@/lib/data';
 import Spinner from '@/components/ui/spinner';
+import AWN from 'awesome-notifications';
+
+const notifier = new AWN();
 
 export default function UserTable() {
     const [users, setUsers] = useState([]);
     const [edit, isEdit] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [showNotification, setShowNotification] = useState(false)
 
     const handleEdit = async (userid) => {
         const selected = users.find(user => user.id === userid);
@@ -22,6 +26,12 @@ export default function UserTable() {
         deleteUser(userid);
         await deleteUser()
         fetchData()
+        setShowNotification(true);
+    }
+
+    if(showNotification) {
+        notifier.success('Usuario borrado');
+        setShowNotification(false);
     }
 
     useEffect(() => {
@@ -42,6 +52,7 @@ export default function UserTable() {
 
     const fetchData = async () => {
         setLoading(true);
+
         try {
             const usersData = await getAllUsers();
             setUsers(usersData);
@@ -54,7 +65,7 @@ export default function UserTable() {
     };
 
     const handleEditSuccess = () => {
-        fetchData(); // Recargar los datos cuando se complete la edición
+        fetchData();
     };
 
     return (

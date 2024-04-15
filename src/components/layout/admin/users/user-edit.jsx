@@ -1,19 +1,33 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFormState } from "react-dom";
 import Button from '@/components/ui/button';
 import { updateUser } from "@/lib/data";
+import AWN from 'awesome-notifications';
+
+const notifier = new AWN();
 
 export default function UserEditTable({
     selectedUser,
     onEditSuccess,
 }) {
     const [state, dispatch] = useFormState(updateUser, undefined);
+    const [showNotification, setShowNotification] = useState(false)
 
-    if(state === true) {
-       onEditSuccess();
-    }
+    useEffect(() => {
+        if (state === true) {
+            onEditSuccess();
+            setShowNotification(true);
+        }
+    }, [state, onEditSuccess]);
+
+    useEffect(() => {
+        if (showNotification) {
+            notifier.success('User edited');
+            setShowNotification(false);
+        }
+    }, [showNotification]);
 
     return (
         <div>

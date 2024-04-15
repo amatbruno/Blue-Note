@@ -38,6 +38,8 @@ export async function generateCodeByType(prevState, data) {
             </div>
             <p style="font-size:1.1em">Hi,</p>
             <p>Thank you for choosing Your Brand. Use the following OTP to complete your Sign Up procedures. OTP is valid for 5 minutes</p>
+            <span>Utilice este codigo para completar su registro en <a style={{ color: "#EF4444", marginLeft: "0.25rem", textDecoration: "none" }}
+            href="http://localhost:3000/auth/verificationCode" >el siguiente enlace</a></span>
             <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">${ resultCode }</h2>
             <p style="font-size:0.9em;">Regards,<br />Your Brand</p>
             <hr style="border:none;border-top:1px solid #eee" />
@@ -46,7 +48,7 @@ export async function generateCodeByType(prevState, data) {
                 <p>1600 Amphitheatre Parkway</p>
                 <p>California</p>
             </div>
-            </div>
+            </div>verification-code
         </div>
         `)
 
@@ -352,10 +354,16 @@ export async function settingsUser(prevState, data, res) {
                 id: id
             }
         })
-
-        if(password != repeatPassword && password != "") {
+        
+        if(password != repeatPassword) {
             return "Las contraseñas no coinciden"
         }
+
+        if(email === user.email) {
+            return "Los gmail conciden"
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
 
         const updatedUser = await prisma.user.update({
             where: { 
@@ -363,14 +371,14 @@ export async function settingsUser(prevState, data, res) {
             },
             data: {
                 email: email !== "" ? email : user.email,
-                password: password !== "" ? password : user.password,
-                rope: rope !== "" ? rope : undefined,
+                password: password !== "" ? hashedPassword : user.password,
+                rope: user.rope !== null ? user.rope : rope,
             }            
         });
 
         return 'Usuario modificado';
     } catch (error) {
-        return 'Error intentelo de nuevo';
+        return `Error eliga una cuerda`;
     }
 }
 //optimizacion del codigo
