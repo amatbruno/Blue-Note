@@ -1,7 +1,7 @@
 import { SignJWT, decodeJwt, jwtVerify  } from "jose";
 
 export function getJwtSecret() {
-    return process.env.JWT_SECRET || ''
+    return process.env.JWT_SECRET || '';
 }
 
 export async function generateAccessToken(userId) {

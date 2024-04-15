@@ -17,7 +17,7 @@ export default async function Page() {
             href="/admin/users"
         >
             <Button>
-                Generar códigos de enlace
+                Ir al panel de admin
             </Button>
         </Link>
         

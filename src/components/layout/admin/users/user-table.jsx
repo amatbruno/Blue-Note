@@ -5,6 +5,7 @@ import { getAllUsers } from '@/lib/data';
 import UserEditTable from './user-edit';
 import { deleteUser } from '@/lib/data';
 import Spinner from '@/components/ui/spinner';
+import userCard from '@/components/layout/admin/users/userCard';
 
 export default function UserTable() {
     const [users, setUsers] = useState([]);
@@ -54,52 +55,45 @@ export default function UserTable() {
     };
 
     const handleEditSuccess = () => {
-        fetchData(); // Recargar los datos cuando se complete la edición
+        fetchData();
     };
 
     return (
-        <article className="border p-5 rounded flex flex-col gap-5 rounded">
-            {loading ? (
-                <Spinner />
-            ) : (
-                <table className="table-fixed">
-                    <thead>
-                        <tr>
-                            <th className="p-2 border">ID</th>
-                            <th className="p-2 border">Nombre</th>
-                            <th className="p-2 border">Apellido</th>
-                            <th className="p-2 border">Correo</th>
-                            <th className="p-2 border">Tipo de Usuario</th>
-                            <th className="p-2 border">Género</th>
-                        </tr>
-                    </thead>
+        <div className="flex justify-start gap-5">
+            <article className="border p-5 rounded flex flex-col gap-5">
+                {loading ? (
+                    <Spinner />
+                ) : (
                     <Suspense fallback={<Spinner />}>
                         <tbody>
-                            {users.map((user) => (
-                                <tr key={user.id}>
-                                    <td className="p-2 border">{user.id}</td>
-                                    <td className="p-2 border">{user.firstName}</td>
-                                    <td className="p-2 border">{user.lastName}</td>
-                                    <td className="p-2 border">{user.email}</td>
-                                    <td className="p-2 border">{user.type}</td>
-                                    <td className="p-2 border">{user.gender}</td>
-                                    <div className='p-2'>
+                            {
+                                users.map((user) => (
+                                    <tr key={user.id}>
+                                        <userCard name={user.firstName} type={user.type} />
+                                        {/* <td className="p-2 border">{user.firstName}</td>
+                                        <td className="p-2 border">{user.lastName}</td>
+                                        <td className="p-2 border">{user.email}</td>
+                                        <td className="p-2 border">{user.type}</td>
+                                        <td className="p-2 border">{user.gender}</td> */}
 
-                                        <span className="cursor-pointer" onClick={() => hola(user.id)}>✏️</span>
-                                        <span className="mr-2 cursor-pointer" onClick={() => adios(user.id)}>🗑️</span>
-                                    </div>
-                                </tr>
-                            ))}
+                                        <div className='p-2'>
+                                            <span className="cursor-pointer" onClick={() => hola(user.id)}>✏️</span>
+                                            <span className="mr-2 cursor-pointer" onClick={() => adios(user.id)}>🗑️</span>
+                                        </div>
+                                    </tr>
+                                ))
+                            }
                         </tbody>
                     </Suspense>
-                </table>
-            )}
-            {
-                edit &&
-                <Suspense fallback={<Spinner />}>
-                    <UserEditTable selectedUser={selectedUser} onEditSuccess={handleEditSuccess}/>
-                </Suspense>
-            }
-        </article >
+                )}
+                {
+                    edit &&
+                    <Suspense fallback={<Spinner />}>
+                        <UserEditTable selectedUser={selectedUser} onEditSuccess={handleEditSuccess} />
+                    </Suspense>
+                }
+            </article >
+        </div >
+
     );
 }

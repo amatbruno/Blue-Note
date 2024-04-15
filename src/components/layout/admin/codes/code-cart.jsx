@@ -17,7 +17,7 @@ export default function CodeCart({
         setType(event.target.value);
     };
 
-    return <article className="border p-5 rounded flex flex-col gap-5 rounded">
+    return <article className="border p-5 flex flex-col gap-5 rounded">
 
         <form
             action={dispatch}
