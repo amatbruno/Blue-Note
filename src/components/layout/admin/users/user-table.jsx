@@ -13,13 +13,13 @@ export default function UserTable() {
     const [selectedUser, setSelectedUser] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const hola = async (userid) => {
+    const handleEdit = async (userid) => {
         const selected = users.find(user => user.id === userid);
         setSelectedUser(selected);
         isEdit(true)
     }
 
-    const adios = async (userid) => {
+    const handleDelete = async (userid) => {
         deleteUser(userid);
         await deleteUser()
         fetchData()

@@ -34,22 +34,6 @@ export default function CodeCart({
                     </select>
                 </label>
             </div>
-
-            <div>
-                {type === "singer" &&
-                    <label>
-                        ¿Que tipo de cantate es?:
-                        <select value={singerRol} name="rol">
-                            <option value="undefined">Undefined</option>
-                            <option value="SOPRANO">Soprano</option>
-                            <option value="ALTO">Alto</option>
-                            <option value="TENOR">Tenor</option>
-                            <option value="BAJO">Bajo</option>
-                        </select>
-                    </label>
-                }
-            </div>
-
             <div>
                 <label>
                     Veces util:

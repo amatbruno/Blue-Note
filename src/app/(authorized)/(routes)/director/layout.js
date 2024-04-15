@@ -14,8 +14,6 @@ export default async function Layout({
     }
 
     return <main>
-        <Navigator />
-
         { children }
     </main>
 }

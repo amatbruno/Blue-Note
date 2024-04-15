@@ -111,7 +111,8 @@ export async function registerForm(prevState, data, res) {
         const repeatPassword = data.get("repeatPassword");
         const type = data.get("userType");
         const gender = data.get("gender");
-        const height = data.get("height");
+        const heightString = data.get("height");
+        const height = parseFloat(heightString);
         const birthDate = data.get("birthDate");
         const birthDateWithTime = `${birthDate}T00:00:00Z`;
 
@@ -123,8 +124,8 @@ export async function registerForm(prevState, data, res) {
             return 'Por favor sea realista con la estatura'
         }
 
-        if (height.toString().includes('.')) {
-            return 'Por favor represente la estatura con una ","'
+        if (height.toString().includes(',')) {
+            return 'Por favor represente la estatura con una "."'
         }
 
         if (password != repeatPassword) {
@@ -334,4 +335,42 @@ export async function deleteUser(userId) {
     }
 }
 
+export async function handleLogout(req, res) {
+    cookies().delete('access-token');
+}
+
+export async function settingsUser(prevState, data, res) {
+    try {
+        const id = parseInt(data.get("id"));
+        const email = data.get("email");
+        const password = data.get("password");
+        const repeatPassword = data.get("repeatPassword");
+        const rope = data.get("rope");
+
+        const user = await prisma.user.findFirst({
+            where: {
+                id: id
+            }
+        })
+
+        if(password != repeatPassword && password != "") {
+            return "Las contraseñas no coinciden"
+        }
+
+        const updatedUser = await prisma.user.update({
+            where: { 
+                id: id 
+            },
+            data: {
+                email: email !== "" ? email : user.email,
+                password: password !== "" ? password : user.password,
+                rope: rope !== "" ? rope : undefined,
+            }            
+        });
+
+        return 'Usuario modificado';
+    } catch (error) {
+        return 'Error intentelo de nuevo';
+    }
+}
 //optimizacion del codigo

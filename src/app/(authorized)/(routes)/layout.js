@@ -12,7 +12,7 @@ export default async function Layout({
     }
 
     return <main>
-        <Navigator />
+        <Navigator user={user}/>
 
         { children }
     </main>

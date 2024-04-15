@@ -8,8 +8,6 @@ export default async function Layout({
 
     if(!user) {
         return redirect('/');
-    } else if (user.type != 'SINGER') {
-        return redirect('/' + user.type.toLowerCase())
     }
 
     return <main>

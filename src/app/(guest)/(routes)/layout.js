@@ -1,3 +1,4 @@
+import Navigator from "@/components/layout/navigator"
 import { getUserSession } from "@/lib/data";
 import { redirect } from "next/navigation";
 
@@ -6,10 +7,8 @@ export default async function Layout({
 }) {
     const user = await getUserSession(); 
 
-    if(!user) {
-        return redirect('/');
-    } else if (user.type != 'SINGER') {
-        return redirect('/' + user.type.toLowerCase())
+    if(user) {
+      return redirect('/' + user.type.toLowerCase())
     }
 
     return <main>
