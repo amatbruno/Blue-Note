@@ -285,6 +285,7 @@ export async function getAllUsers() {
 export async function updateUser(prevState, data, res) {
     try {
         const id = parseInt(data.get("id"));
+        const photo = data.get("photo")
         const name = data.get("firstName");
         const secondName = data.get("secondName");
         const email = data.get("email");
@@ -309,6 +310,7 @@ export async function updateUser(prevState, data, res) {
                 id: id 
             },
             data: {
+                photo: user.photo,
                 firstName: name !== "" ? name : user.firstName,
                 lastName: secondName !== "" ? secondName : user.lastName,
                 email: email !== "" ? email : user.email,

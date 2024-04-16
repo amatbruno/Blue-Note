@@ -29,7 +29,7 @@ export default function UserTable() {
         setShowNotification(true);
     }
 
-    if(showNotification) {
+    if (showNotification) {
         notifier.success('Usuario borrado');
         setShowNotification(false);
     }
@@ -68,34 +68,27 @@ export default function UserTable() {
         fetchData();
     };
 
+    var rawData, base64Image;
+
     return (
-        <article className="border p-5 rounded flex flex-col gap-5 rounded">
+        <article className="border p-5 flex flex-col gap-5 rounded">
             {loading ? (
                 <Spinner />
             ) : (
                 <table className="table-fixed">
-                    <thead>
-                        <tr>
-                            <th className="p-2 border">ID</th>
-                            <th className="p-2 border">Nombre</th>
-                            <th className="p-2 border">Apellido</th>
-                            <th className="p-2 border">Correo</th>
-                            <th className="p-2 border">Tipo de Usuario</th>
-                            <th className="p-2 border">Género</th>
-                        </tr>
-                    </thead>
                     <Suspense fallback={<Spinner />}>
                         <tbody>
                             {users.map((user) => (
-                                <tr key={user.id}>
-                                    <td className="p-2 border">{user.id}</td>
-                                    <td className="p-2 border">{user.firstName}</td>
-                                    <td className="p-2 border">{user.lastName}</td>
-                                    <td className="p-2 border">{user.email}</td>
-                                    <td className="p-2 border">{user.type}</td>
-                                    <td className="p-2 border">{user.gender}</td>
+                                <tr className='border' key={user.id}>
+                                    {rawData = user.photo.data}
+                                    {base64Image = Buffer.from(rawData).toString('base64')}
+                                    <td className=''><img src={`data:image/jpeg;base64,${user.photo}`} alt={user.firstName} /></td>
+                                    <td className="">{user.firstName}</td>
+                                    <td className="">{user.lastName}</td>
+                                    <td className="">{user.email}</td>
+                                    <td className="">{user.type}</td>
+                                    <td className="">{user.gender}</td>
                                     <div className='p-2'>
-
                                         <span className="cursor-pointer" onClick={() => handleEdit(user.id)}>✏️</span>
                                         <span className="mr-2 cursor-pointer" onClick={() => handleDelete(user.id)}>🗑️</span>
                                     </div>
@@ -108,7 +101,7 @@ export default function UserTable() {
             {
                 edit &&
                 <Suspense fallback={<Spinner />}>
-                    <UserEditTable selectedUser={selectedUser} onEditSuccess={handleEditSuccess}/>
+                    <UserEditTable selectedUser={selectedUser} onEditSuccess={handleEditSuccess} />
                 </Suspense>
             }
         </article >
