@@ -12,36 +12,48 @@ export default function Register({
     const [state, dispatch] = useFormState(loginForm, undefined);
 
     return (
-        <article>
-            <form action={dispatch}>
-            <h1 className="text-3xl font-bold mb-6">Login</h1>
-            {state && <p className="text-red-500">* {state}</p>}
+        <div className="flex items-center justify-center h-screen ">
+            <article className="z-10">
+                <form action={dispatch}>
+                    {state && <p className="text-red-600 text-xl text-center mb-4">* {state}</p>}
 
-                <div className="mb-4">
-                    <label htmlFor="email">Email</label>
-                    <Input
-                        placeholder="Email"
-                        value={email}
-                        name="email"
-                        type="email"
-                    />
-                </div>
+                    <div className="mb-4 ml-10">
+                        <label htmlFor="email" className="block text-3xl mb-4">Correo electronico</label>
+                        <Input
+                            placeholder="Email"
+                            value={email}
+                            name="email"
+                            type="email"
+                            className="text-red-500"
+                        />
+                    </div>
 
-                <div className="mb-4">
-                    <label htmlFor="email">Contraseña</label>
-                    <Input
-                        placeholder="password"
-                        value={password}
-                        name="password"
-                        type="password"
-                    />
-                </div>
-                <Button
-                    type="submit"
-                >
-                    Login
-                </Button>
-            </form>
-        </article>
+                    <div className="mb-3 ml-10">
+                        <label htmlFor="password" className="block text-3xl mb-4 ml-7">Contraseña</label>
+                        <Input
+                            placeholder="Password"
+                            value={password}
+                            name="password"
+                            type="password"
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <a className="auth-a-password text-xl hover:text-blue-400 cursor-pointer hover:underline transition-colors duration-300 ease-in-out">
+                            haz clic aqui
+                        </a>
+                        <span> para restablecer la contraseña</span>
+                    </div>
+
+                    <div className="ml-14">
+                        <Button
+                            type="submit"
+                            className="w-full"
+                        >
+                            <p className="text-2xl font-bold">Iniciar session</p>
+                        </Button>
+                    </div>
+                </form>
+            </article>
+        </div>
     );
 }

@@ -481,3 +481,20 @@ html {
 [class^=awn-] {
     box-sizing: border-box
 }
+
+@font-face {
+    font-family: "Nexa";
+    src: url('/fonts/nexaLight.otf');
+}
+
+h1, p, a, label, input {
+    font-family: Nexa;
+}
+
+.home-text {
+    color: #860012;
+}
+
+.auth-a-password {
+    color: #860012;
+}

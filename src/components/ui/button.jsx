@@ -4,7 +4,8 @@ export default function Button({
 }) {
     return <button
         {...props}
-        className="border border-blue-500 text-blue-500 bg-blue-500/20"
+        className="w-6/6 p-4 text-white rounded-full"
+        style={{ background: "#860012" }}
     >
         { children }
     </button>
