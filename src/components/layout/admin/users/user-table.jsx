@@ -68,30 +68,28 @@ export default function UserTable() {
         fetchData();
     };
 
-    var rawData, base64Image;
-
     return (
-        <article className="border p-5 flex flex-col gap-5 rounded">
+        <article className="border p-5 flex gap-5 rounded">
             {loading ? (
                 <Spinner />
             ) : (
                 <table className="table-fixed">
                     <Suspense fallback={<Spinner />}>
-                        <tbody>
+                        <tbody className='flex gap-10'>
                             {users.map((user) => (
-                                <tr className='border' key={user.id}>
-                                    {rawData = user.photo.data}
-                                    {base64Image = Buffer.from(rawData).toString('base64')}
-                                    <td className=''><img src={`data:image/jpeg;base64,${user.photo}`} alt={user.firstName} /></td>
-                                    <td className="">{user.firstName}</td>
-                                    <td className="">{user.lastName}</td>
-                                    <td className="">{user.email}</td>
-                                    <td className="">{user.type}</td>
-                                    <td className="">{user.gender}</td>
-                                    <div className='p-2'>
-                                        <span className="cursor-pointer" onClick={() => handleEdit(user.id)}>✏️</span>
-                                        <span className="mr-2 cursor-pointer" onClick={() => handleDelete(user.id)}>🗑️</span>
+                                <tr className='border h-fit w-[150px]' key={user.id}>
+                                    <td className='w-[500px]'>
+                                        <img src={user.photo === null ? `data:image/jpeg;base64,${user.photo}` : "/images/Hombre.png"} alt={user.firstName} />
+                                    </td>
+                                    <div className='flex flex-col justify-center items-center border h-fit py-5'>
+                                        <td className="">{user.firstName + ' ' + user.lastName}</td>
+                                        <td className="">{user.type}</td>
+                                        <div id='opt-container' className='fixed p-2 justify-start items-start top-8'>
+                                            <span id='pencil' className="cursor-pointer" onClick={() => handleEdit(user.id)}>✏️</span>
+                                            <span id='trash' className="mr-2 cursor-pointer" onClick={() => handleDelete(user.id)}>🗑️</span>
+                                        </div>
                                     </div>
+
                                 </tr>
                             ))}
                         </tbody>
