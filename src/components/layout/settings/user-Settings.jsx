@@ -78,7 +78,7 @@ export default function UserSettings() {
                     {user.gender === 'masculino' ? (
                         <table className="table-fixed border-8 border-blue-300 shadow-lg rounded-xl">
                             <tbody>
-                                <img src="/images/Hombre.png" className="h-2/6 z-3" />
+                                <img src="/images/masculino.png" className="h-2/6 z-3" />
                                 <tr className='row'>
                                     <td className="text-left px-4 py-2 text-center">Sr. {user.firstName} {user.lastName}</td>
                                 </tr>
@@ -95,7 +95,7 @@ export default function UserSettings() {
                     ) : (
                         <table className="table-fixed border-8 border-green-300 shadow-lg rounded-xl">
                             <tbody>
-                                <img src="/images/Mujer.png" className="h-2/6 z-3" />
+                                <img src="/images/femenino.png" className="h-2/6 z-3" />
                                 <tr className='row'>
                                     <td className="text-left px-4 py-2 text-center">Sra. {user.firstName} {user.lastName}</td>
                                 </tr>

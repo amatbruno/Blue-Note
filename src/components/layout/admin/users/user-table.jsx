@@ -79,12 +79,12 @@ export default function UserTable() {
                             {users.map((user) => (
                                 <tr className='border h-fit w-[150px]' key={user.id}>
                                     <td className='w-[500px]'>
-                                        <img src={user.photo === null ? `data:image/jpeg;base64,${user.photo}` : "/images/Hombre.png"} alt={user.firstName} />
+                                        <img src={user.photo === null ? `data:image/jpeg;base64,${user.photo}` : `/images/${user.gender}.png`} alt={user.firstName} />
                                     </td>
-                                    <div className='flex flex-col justify-center items-center border h-fit py-5'>
+                                    <div className='flex flex-col justify-center items-center border h-full py-5'>
                                         <td className="">{user.firstName + ' ' + user.lastName}</td>
                                         <td className="">{user.type}</td>
-                                        <div id='opt-container' className='fixed p-2 justify-start items-start top-8'>
+                                        <div id='opt-container' className='mt-2'>
                                             <span id='pencil' className="cursor-pointer" onClick={() => handleEdit(user.id)}>✏️</span>
                                             <span id='trash' className="mr-2 cursor-pointer" onClick={() => handleDelete(user.id)}>🗑️</span>
                                         </div>

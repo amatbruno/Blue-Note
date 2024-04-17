@@ -489,12 +489,17 @@ html {
 
 h1, p, a, label, input {
     font-family: Nexa;
+
 }
 
 .home-text {
-    color: #860012;
+    color: white;
 }
 
 .auth-a-password {
     color: #860012;
+}
+
+.no-scroll {
+    overflow-y: hidden;
 }
