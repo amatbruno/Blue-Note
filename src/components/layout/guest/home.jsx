@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Home() {
     return (
         <main className="no-scroll relative h-screen">
-            <img src="/images/imagen.png" className="absolute z-0 inset-0 object-cover w-full " />
+            <img src="/images/imagen.png" draggable="false" className="absolute z-0 inset-0 object-cover w-full " />
             <div className="flex justify-between ml-20">
                 <div className="flex justify-center items-center">
                     <Link href="/aboutus" className='z-10'>
