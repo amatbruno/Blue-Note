@@ -27,7 +27,5 @@ export default async function Page() {
                 <p className="py-10 text-2xl w-52">GESTIONAR FORMACIONES</p>
             </DashboardBtn>
         </Link>
-
-
     </section>
 }

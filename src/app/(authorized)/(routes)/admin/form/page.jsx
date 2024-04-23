@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { getAllUsers } from '@/lib/data';
+import Draggable from '@/components/layout/admin/positions/Draggable';
 
 
 export default function page() {
@@ -22,13 +23,16 @@ export default function page() {
 
 
     return (
-        <>
-            {voices.map((v) => (
-                <article className='border hover:border-black transition-all w-[120px] py-10 px-2'>
-                    <h1 className='text-center text-xl font-bold'>{v.firstName}</h1>
-                    <p className='text-center'>{v.color}</p>
-                </article>
-            ))}
-        </>
+        <main>
+            <section className='flex justify-center items-end'>
+                ESCENARIO
+            </section>
+
+            <section className='flex justify-center items-end gap-5'>
+                {voices.map((v) => (
+                    <Draggable voiceName={v.firstName} voiceColor={v.color} />
+                ))}
+            </section>
+        </main>
     )
 }
