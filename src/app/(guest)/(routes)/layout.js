@@ -5,13 +5,13 @@ import { redirect } from "next/navigation";
 export default async function Layout({
     children
 }) {
-    const user = await getUserSession(); 
+    const user = await getUserSession();
 
-    if(user) {
-      return redirect('/' + user.type.toLowerCase())
+    if (user) {
+        return redirect('/' + user.type.toLowerCase())
     }
 
     return <main>
-        { children }
+        {children}
     </main>
 }
