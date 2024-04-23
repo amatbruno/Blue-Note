@@ -1,12 +1,9 @@
 import DashboardBtn from "@/components/ui/DashboardBtn";
-
 import Link from "next/link";
-
 
 export default async function Page() {
 
     return <section className="flex justify-center items-center border h-screen gap-10">
-
         <Link
             href="/admin/codes"
         >
