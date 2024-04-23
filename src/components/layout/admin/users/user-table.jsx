@@ -93,31 +93,6 @@ export default function UserTable() {
                             <label className="text-lg" htmlFor="bajo">Bajo</label>
                         </div>
                     </div>
-
-                    <div className="flex items-center gap-5 mt-8">
-                        <label htmlFor="height-range">Altura min</label>
-                        <input type="range" name="height-range" id="" />
-                        <label htmlFor="height-range">Altura max</label>
-                    </div>
-
-                    <div className='flex flex-col justify-center gap-3 mt-8'>
-                        <div className="flex justify-start gap-3">
-                            <input type="checkbox" name="soprano" id="soprano" className="w-4" />
-                            <label className="text-lg" htmlFor="soprano">Soprano</label>
-                        </div>
-                        <div className="flex justify-start gap-3">
-                            <input type="checkbox" name="tenor" id="tenor" className="w-4" />
-                            <label className="text-lg" htmlFor="tenor">Tenor</label>
-                        </div>
-                        <div className="flex justify-start gap-3">
-                            <input type="checkbox" name="contralto" id="contralto" className="w-4" />
-                            <label className="text-lg" htmlFor="contralto">Contralto</label>
-                        </div>
-                        <div className="flex justify-start gap-3">
-                            <input type="checkbox" name="bajo" id="bajo" className="w-4" />
-                            <label className="text-lg" htmlFor="bajo">Bajo</label>
-                        </div>
-                    </div>
                 </article>
             </section>
             <article className="border p-5 flex gap-5 rounded">

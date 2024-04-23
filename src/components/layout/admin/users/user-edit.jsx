@@ -16,18 +16,18 @@ export default function UserEditTable({
     const [showNotification, setShowNotification] = useState(false);
     const [photo, setPhoto] = useState(null);
 
-    const handlePhotoChange = (event) => {
-        const file = event.target.files[0];
-        const reader = new FileReader();
+    // const handlePhotoChange = (event) => {
+    //     const file = event.target.files[0];
+    //     const reader = new FileReader();
 
-        reader.onloadend = () => {
-            setPhoto(reader.result);
-        };
+    //     reader.onloadend = () => {
+    //         setPhoto(reader.result);
+    //     };
 
-        if (file) {
-            reader.readAsDataURL(file);
-        }
-    };
+    //     if (file) {
+    //         reader.readAsDataURL(file);
+    //     }
+    // };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -69,12 +69,13 @@ export default function UserEditTable({
                 onSubmit={handleSubmit}
                 id="user_table_form"
                 encType="multipart/form-data"
+                className='m-auto'
             >
                 <div className="flex flex-col">
-                    <div className='flex flex-col'>
+                    {/* <div className='flex flex-col'>
                         <img src="#" alt='user_photo' />
                         <input type="file" name="photo" onChange={handlePhotoChange} />
-                    </div>
+                    </div> */}
 
                     <div className="flex flex-col">
                         <label htmlFor="firstName">ID:</label>
