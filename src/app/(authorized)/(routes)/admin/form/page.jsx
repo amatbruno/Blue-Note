@@ -21,7 +21,7 @@ export default function page() {
         fetchData();
     }, []);
 
-    const handleDrop = (e, index) => {
+    const handleDrop = (e) => {
         e.preventDefault();
         const voiceName = e.dataTransfer.getData('text/plain');
     };
@@ -32,10 +32,10 @@ export default function page() {
 
 
     return (
-        <main className='flex flex-col justify-around w-auto items-center gap-8 h-[500px]'>
-            <h1 className=''>ESCENARIO</h1>
+        <main className='flex flex-col justify-center m-auto w-[1000px] items-center h-[600px] border'>
+            <h1 className='text-2xl font-bold py-10'>ESCENARIO</h1>
             <section className='flex justify-center items-end gap-5'>
-                {voices.map((v, index) => (
+                {voices.map((index) => (
                     <Droppable
                         key={index}
                         id={`droppable-${index}`}
@@ -45,7 +45,7 @@ export default function page() {
                 ))}
             </section>
 
-            <section className='flex justify-center items-end gap-5'>
+            <section className='flex justify-center items-end gap-5 mt-10'>
                 {voices.map((v) => (
                     <Draggable voiceName={v.firstName} voiceColor={v.color} />
                 ))}
