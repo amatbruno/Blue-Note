@@ -503,3 +503,11 @@ h1, p, a, label, input {
 .no-scroll {
     overflow-y: hidden;
 }
+
+.section-about {
+    background-color: #1E2126;
+}
+
+.logo_navbar {
+    filter: invert(1);
+}

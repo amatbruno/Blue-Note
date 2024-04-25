@@ -1,5 +1,7 @@
+import Contact from "@/components/layout/guest/contact/contact";
+
 export default function Page() {
-    return <section className="flex items-start justify-center gap-5 mt-20">
-        contacto
+    return <section>
+        <Contact />
     </section>
 }

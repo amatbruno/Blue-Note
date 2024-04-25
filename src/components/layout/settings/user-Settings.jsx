@@ -117,8 +117,8 @@ export default function UserSettings() {
                         >
                             <div>
                                 <div className="flex flex-col">
-                                    <label htmlFor="email">Correo: {user.email}</label>
-                                    <input className="p-2 border" name="email" type='email'/>
+                                    <label htmlFor="email">Correo: </label>
+                                    <input className="p-2 border" name="email" placeholder={user.email} type='email'/>
                                 </div>
                                 {user.type === 'SINGER' && isRope && (
                                     <div className="flex flex-col mt-2 mb-2">

@@ -16,9 +16,12 @@ export default function Navigator({ user }) {
 
     return (
         <nav className="p-5 border-b flex gap-5">
-            <Button>
-                Hola esto es mi botón
-            </Button>
+            <Link
+                href={`/`}
+            >            <Button>
+                    Home
+                </Button>
+            </Link>
 
             <Button>
                 Hola esto es mi botón
@@ -34,7 +37,7 @@ export default function Navigator({ user }) {
                 {menuOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg rounded">
                         <Link
-                            href={`/settings/${userName}`} 
+                            href={`/settings/${userName}`}
                         >
                             <button onClick={closeMenu} className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">Ajustes</button>
                         </Link>
