@@ -26,11 +26,7 @@ export default async function NavBar() {
                     <h1 className="home-text m-8 font-bold text-xl hover:text-orange-600 cursor-pointer focus:text-orange-600 hover:underline transition-colors duration-300 ease-in-out">Contacto</h1>
                 </Link>
                 <div className="flex flex-end">
-                    {!user ? (
-                        <Link href="/auth" className='z-10'>
-                            <h1 className="home-text text-red-700 m-8  font-bold text-xl hover:text-red-700 cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Login</h1>
-                        </Link>
-                    ) : (
+                    {user && (
                         <Link href={`/${user.type.toLowerCase()}`} className='z-10'>
                             <h1 className="home-text text-red-700 m-8 font-bold text-xl hover:text-red-700 cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Portal</h1>
                         </Link>
