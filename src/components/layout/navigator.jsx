@@ -36,13 +36,13 @@ export default function Navigator({ user }) {
         <nav className="flex justify-between h-28 section-about w-screen">
             <div className="flex items-center columns-2 w-full text-center">
                 <div className="ml-10">
-                    <img src="/images/Logo-negro.png" draggable="false" className="h-20 left-0 logo_navbar" />
+                    <Link href="/">
+                        <img src="/images/Logo-negro.png" draggable="false" className="h-20 left-0 logo_navbar" />
+                    </Link>
                 </div>
                 <div className="absolute right-0 justify-between flex flex-row items-center">
                     <div className="flex ml-10">
-                        <Link href={`/`}>
-                            <h1 className="home-text m-12 ml-1 font-bold text-xl hover:text-yellow-600 cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Home</h1>
-                        </Link>
+                        {/* va todo los nav */}
                     </div>
                     <a
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -59,7 +59,6 @@ export default function Navigator({ user }) {
                         </div>
                     )}
                 </div>
-
             </div>
         </nav>
     );
