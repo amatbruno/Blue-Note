@@ -52,7 +52,7 @@ export default function Home() {
                     <Link href="/aboutus" className='z-10'>
                         <h1 className="home-text m-12 ml-1 font-bold text-xl hover:text-yellow-600 cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Sobre nosotros</h1>
                     </Link>
-                    <Link href="/calendar" className='z-10'>
+                    <Link href="/events" className='z-10'>
                         <h1 className="home-text m-12 mr-10 font-bold text-xl hover:text-red-600 cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Eventos</h1>
                     </Link>
                     <Link href="/contact" className='z-10'>

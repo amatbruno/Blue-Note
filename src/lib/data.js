@@ -18,7 +18,7 @@ export async function generateCodeByType(prevState, data) {
         if (singerRol === "undefined" || codeType === "undefined") {
             return `¡Elige un rol válido!`;
         }
-        
+
         const hashedResultCode = await bcrypt.hash(resultCode, 10);
 
         await prisma.codigoActivacion.create({
@@ -40,7 +40,7 @@ export async function generateCodeByType(prevState, data) {
             <p>Thank you for choosing Your Brand. Use the following OTP to complete your Sign Up procedures. OTP is valid for 5 minutes</p>
             <span>Utilice este codigo para completar su registro en <a style={{ color: "#EF4444", marginLeft: "0.25rem", textDecoration: "none" }}
             href="http://localhost:3000/verificationCode" >el siguiente enlace</a></span>
-            <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">${ resultCode }</h2>
+            <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">${resultCode}</h2>
             <p style="font-size:0.9em;">Regards,<br />Your Brand</p>
             <hr style="border:none;border-top:1px solid #eee" />
             <div style="float:right;padding:8px 0;color:#aaa;font-size:0.8em;line-height:1;font-weight:300">
@@ -66,19 +66,19 @@ export async function codeAuthorization(prevState, data) {
 
             for (const storedCode of allStoredCodes) {
                 const match = await bcrypt.compare(code, storedCode.activationCode);
-        
+
                 if (match) {
                     const userType = storedCode.type;
                     const singerRol = storedCode.singer_rol
-                    const usesCodeLeft = storedCode.usesLeft-1;
- 
-                    if(usesCodeLeft === 0) {
+                    const usesCodeLeft = storedCode.usesLeft - 1;
+
+                    if (usesCodeLeft === 0) {
                         await prisma.codigoActivacion.delete({
                             where: {
                                 id: storedCode.id
                             }
-                        });                        
-                    }else{
+                        });
+                    } else {
                         await prisma.codigoActivacion.update({
                             where: {
                                 id: storedCode.id
@@ -162,13 +162,13 @@ export async function registerForm(prevState, data, res) {
 
         route = user.type.toLowerCase();
 
-        const cookieStore = cookies(); 
+        const cookieStore = cookies();
         const token = await generateAccessToken(user.id);
 
         cookieStore.set({
-            name: "access-token", 
+            name: "access-token",
             value: token,
-            secure: false, 
+            secure: false,
             httpOnly: false
         })
 
@@ -195,7 +195,7 @@ export async function loginForm(prevState, data, res) {
     try {
         const email = data.get("email");
         const password = data.get("password");
-       
+
         if (!email || !password) {
             return 'Por favor rellene todos los campos';
         }
@@ -216,15 +216,15 @@ export async function loginForm(prevState, data, res) {
             return 'Contraseña incorrecta';
         }
 
-        route = user.type.toLowerCase(); 
+        route = user.type.toLowerCase();
 
-        const cookieStore = cookies(); 
+        const cookieStore = cookies();
         const token = await generateAccessToken(user.id);
 
         cookieStore.set({
-            name: "access-token", 
+            name: "access-token",
             value: token,
-            secure: false, 
+            secure: false,
             httpOnly: false
         })
     } catch (error) {
@@ -236,19 +236,19 @@ export async function loginForm(prevState, data, res) {
 
 export async function getUserSession() {
     try {
-        const userId = await getUserId(); 
+        const userId = await getUserId();
 
-        if(!userId) return false; 
-    
+        if (!userId) return false;
+
         const user = await prisma.user.findFirst({
             where: {
                 id: userId
             }
         })
 
-        if(!user) return false; 
+        if (!user) return false;
 
-        return user; 
+        return user;
     } catch (error) {
         return false
     }
@@ -256,16 +256,16 @@ export async function getUserSession() {
 
 export async function getUserId() {
     try {
-        const cookieStore = cookies(); 
+        const cookieStore = cookies();
 
-        if(!cookieStore.has('access-token')) return false
+        if (!cookieStore.has('access-token')) return false
 
-        const { value } = cookieStore.get('access-token'); 
+        const { value } = cookieStore.get('access-token');
 
         const decoded = await decodeToken(value);
 
-        if(!decoded.userId) return false; 
-        
+        if (!decoded.userId) return false;
+
         return decoded.userId
     } catch (error) {
         return false
@@ -274,10 +274,10 @@ export async function getUserId() {
 
 export async function getAllUsers() {
     try {
-        const users = await prisma.user.findMany() 
+        const users = await prisma.user.findMany()
         return users;
 
-    }catch(error) {
+    } catch (error) {
         return "Error al cargar usuarios"
     }
 }
@@ -306,8 +306,8 @@ export async function updateUser(prevState, data, res) {
         }
 
         const updatedUser = await prisma.user.update({
-            where: { 
-                id: id 
+            where: {
+                id: id
             },
             data: {
                 photo: user.photo,
@@ -316,7 +316,7 @@ export async function updateUser(prevState, data, res) {
                 email: email !== "" ? email : user.email,
                 type: user.type,
                 gender: gender.toLowerCase() !== "" ? gender : user.gender
-            }            
+            }
         });
 
         return true;
@@ -334,7 +334,7 @@ export async function deleteUser(userId) {
         });
 
         return 'usuario borrado';
-    }catch(error) {
+    } catch (error) {
         return `Error al borrar usuario con el id: ${userId}`
     }
 }
@@ -356,31 +356,54 @@ export async function settingsUser(prevState, data, res) {
                 id: id
             }
         })
-        
-        if(password != repeatPassword) {
+
+        if (password != repeatPassword) {
             return "Las contraseñas no coinciden"
         }
 
-        if(email === user.email) {
+        if (email === user.email) {
             return "Los gmail conciden"
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const updatedUser = await prisma.user.update({
-            where: { 
-                id: id 
+            where: {
+                id: id
             },
             data: {
                 email: email !== "" ? email : user.email,
                 password: password !== "" ? hashedPassword : user.password,
                 rope: user.rope !== null ? user.rope : rope,
-            }            
+            }
         });
 
         return 'Usuario modificado';
     } catch (error) {
         return `Error eliga una cuerda`;
+    }
+}
+
+export async function getAllEvents() {
+    try {
+        const event = await prisma.event.findMany()
+        return event;
+
+    } catch (error) {
+        return "Error al cargar eventos"
+    }
+}
+
+export async function getEventById(eventId) {
+    try {
+        const event = await prisma.event.findFirst({
+            where: {
+                id: eventId
+            }
+        });
+        return event;
+    } catch (error) {
+        return "Error al cargar evento"
     }
 }
 //optimizacion del codigo

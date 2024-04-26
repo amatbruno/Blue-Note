@@ -49,12 +49,11 @@ model User {
   photo     Bytes?
 }
 
-model Events {
-  id Int @id @default(autoincrement())
-  titleEvent String
-  descriptionEvent String?
+model eventos {
+  event_id Int @id @default(autoincrement())
+  event_title String
+  event_description String?
   date DateTime
   eventTime String
   streetAddres String
-  eventType String
 }

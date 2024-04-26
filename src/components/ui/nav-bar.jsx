@@ -20,7 +20,7 @@ export default async function NavBar() {
                     <h1 className="home-text m-8 font-bold text-xl hover:text-red-600 cursor-pointer focus:bg-violet-700 hover:underline transition-colors duration-300 ease-in-out">Eventos</h1>
                 </Link>
                 <Link href="/shows" className='z-10'>
-                    <h1 className="home-text m-8 font-bold text-xl hover:text-orange-600 cursor-pointer focus:text-orange-600 hover:underline transition-colors duration-300 ease-in-out">shows</h1>
+                    <h1 className="home-text m-8 font-bold text-xl hover:text-orange-600 cursor-pointer focus:text-orange-600 hover:underline transition-colors duration-300 ease-in-out">Shows</h1>
                 </Link>
                 <Link href="/contact" className='z-10'>
                     <h1 className="home-text m-8 font-bold text-xl hover:text-orange-600 cursor-pointer focus:text-orange-600 hover:underline transition-colors duration-300 ease-in-out">Contacto</h1>
