@@ -386,7 +386,7 @@ export async function settingsUser(prevState, data, res) {
 
 export async function getAllEvents() {
     try {
-        const event = await prisma.event.findMany()
+        const event = await prisma.events.findMany()
         return event;
 
     } catch (error) {
@@ -396,7 +396,7 @@ export async function getAllEvents() {
 
 export async function getEventById(eventId) {
     try {
-        const event = await prisma.event.findFirst({
+        const event = await prisma.events.findFirst({
             where: {
                 id: eventId
             }
