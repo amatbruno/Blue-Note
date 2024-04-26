@@ -5,9 +5,8 @@ hambruguesa cunado esta mas pèqueño
 añadir colores buenos en home y todos https://tailwindcss.com/docs/customizing-colors
 
 mañana
-acabar nav 
 acabar login 
-acabar verifcation code (imagenes blanco negro) https://www.facebook.com/photo/?fbid=748833970575189&set=pcb.748834107241842&locale=es_ES 
+acabar verifcation code (imagenes blanco negro) https://www.facebook.com/photo/?fbid=748833970575189&set=pcb.748834107241842&locale=es_ES santi
 añadir nueva seccion shows que son los videos (no hacerla por lo menos estructurar un poco)
 
 lunes

@@ -12,8 +12,8 @@ export default function Register({
     const [state, dispatch] = useFormState(loginForm, undefined);
 
     return (
-        <div className="flex items-center justify-center h-screen ">
-            <article className="z-10">
+        <div className="flex items-center justify-center h-screen">
+            <article className="z-10 bg-white bg-opacity-75 rounded-lg p-6">
                 <form action={dispatch}>
                     {state && <p className="text-red-600 text-xl text-center mb-4">* {state}</p>}
 
@@ -43,14 +43,13 @@ export default function Register({
                         </a>
                         <span> para restablecer la contraseña</span>
                     </div>
-
-                    <div className="ml-14">
-                        <Button
+                    <div className="flex justify-center">
+                        <button
                             type="submit"
-                            className="w-full"
+                            className="font-bold py-2 px-4 rounded"
                         >
-                            <p className="text-2xl font-bold">Iniciar session</p>
-                        </Button>
+                            <p className="text-2xl font-bold">Iniciar sesión</p>
+                        </button>
                     </div>
                 </form>
             </article>
