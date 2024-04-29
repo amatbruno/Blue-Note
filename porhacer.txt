@@ -5,16 +5,11 @@ cambiar logo por seccion
 hambruguesa cunado esta mas pèqueño
 
 lunes:
-acabar login
-mirar nav cambiar show contactos
-justificar textos eventos
 imagen passwordUpdate Santi
-admin crea los eventos
-
 
 extra
-sobre nosotros 
-contacto
+sobre nosotros
+contacto (falta mandar el email necesito dominio)
 
 mas adelante
 sacar calendario y correo electronico

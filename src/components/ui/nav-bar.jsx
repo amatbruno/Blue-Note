@@ -1,14 +1,16 @@
 import Link from 'next/link';
 import { getUserSession } from "@/lib/data";
 
-export default async function NavBar() {
+export default async function NavBar({color}) {
     const user = await getUserSession();
+    const logoSrc = `/images/Logo-${color}.png`;
+
     return (
         <div className="flex justify-between h-28 section-about w-screen">
             <div className="flex items-center">
                 <div className="ml-10">
                     <Link href="/" className='z-10'>
-                        <img src="/images/Logo-negro.png" draggable="false" className="h-20 left-0 logo_navbar" />
+                        <img src={logoSrc} draggable="false" className="h-20 left-0" />
                     </Link>
                 </div>
             </div>

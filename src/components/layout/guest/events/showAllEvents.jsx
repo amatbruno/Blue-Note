@@ -1,4 +1,5 @@
 "use client"
+
 import { getAllEvents } from '@/lib/data';
 import { React, useEffect, useState } from 'react';
 import Spinner from '@/components/ui/spinner';
@@ -12,8 +13,9 @@ export default function ShowAllEvents() {
       try {
         setLoading(true);
         const eventData = await getAllEvents();
-        setEvents(eventData);
-        console.log('Events:', eventData);
+        const filteredEvents = eventData.filter(event => new Date(event.date) >= new Date()); // Filtrar eventos a partir de la fecha de hoy
+        setEvents(filteredEvents);
+        console.log('Events:', filteredEvents);
       } catch (error) {
         console.error('Error fetching events:', error);
       } finally {
@@ -66,7 +68,7 @@ export default function ShowAllEvents() {
                       <div className="">
                         <p className="font-bold text-xl">{event.event_title}</p>
                         <hr className="border-white w-full mb-2" />
-                        <div className="opacity-80 mb-2">{event.event_description}</div>
+                        <div className="opacity-80 mb-2 text-justify mr-2">{event.event_description}</div>
                         <div className="flex">
                           <span className="fa-regular fa-clock text-lg mt-1 text-white hover:text-yellow-600 cursor-pointer text-2xl transition-colors duration-300 ease-in-out hover:scale-110"></span>
                           <div className="ml-2">{event.eventTime}</div>
@@ -88,4 +90,4 @@ export default function ShowAllEvents() {
       )}
     </div>
   );
-}  
+}
