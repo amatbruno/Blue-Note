@@ -13,7 +13,7 @@ export default function Register({
 
     return (
         <div className="flex items-center justify-center h-screen">
-            <article className="z-10 bg-black bg-opacity-30 rounded-lg p-6">
+            <article className="z-10 bg-black border border-white bg-opacity-30 rounded-lg p-6">
                 <form action={dispatch}>
                     {state && <p className="text-red-600 text-xl text-center mb-4">* {state}</p>}
 

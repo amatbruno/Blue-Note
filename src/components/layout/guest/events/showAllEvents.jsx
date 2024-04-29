@@ -53,7 +53,7 @@ export default function ShowAllEvents() {
                 {eventsInMonth.map((event) => (
                   <div
                     key={event.event_id}
-                    className="event-card rounded-lg w-72 bg-blue-500 text-white flex flex-col mx-4 my-2"
+                    className="event-card rounded-lg w-72 bg-customRed text-white flex flex-col mx-4 my-2"
                     style={{ transition: 'transform 0.3s ease' }}
                     onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
                     onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -88,4 +88,4 @@ export default function ShowAllEvents() {
       )}
     </div>
   );
-                }  
+}  
