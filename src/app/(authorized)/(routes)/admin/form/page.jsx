@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { getAllUsers } from '@/lib/data';
 import Draggable from '@/components/layout/admin/positions/Draggable';
 import Droppable from '@/components/layout/admin/positions/Droppable';
@@ -32,9 +32,9 @@ export default function page() {
 
 
     return (
-        <main className='flex flex-col justify-center m-auto w-[1000px] items-center h-[600px] border'>
+        <main className='flex flex-col justify-center m-auto w-[1000px] items-center h-[600px] border border-gray-400'>
             <h1 className='text-2xl font-bold py-10'>ESCENARIO</h1>
-            <section className='flex justify-center items-end gap-5'>
+            <section className='flex flex-wrap justify-center items-end gap-5 bg-gray-700 py-5 px-10 rounded-xl w-[800px]'>
                 {voices.map((index) => (
                     <Droppable
                         key={index}

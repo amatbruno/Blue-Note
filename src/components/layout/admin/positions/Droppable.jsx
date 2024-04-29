@@ -15,6 +15,10 @@ export default function Droppable() {
     e.preventDefault();
   };
 
+  const sendVoiceData = () => {
+    console.log(droppedVoice);
+  }
+
   return (
     <div
       id='droppable'
@@ -22,7 +26,7 @@ export default function Droppable() {
       onDrop={handleDrop}
       onDragOver={handleDragOver}>
       {droppedVoice ? <p className='border-2 border-black bg-white text-center rounded-xl cursor-pointer 
-      transition-all w-[100px] py-12 px-1'>{droppedVoice}</p> : <p className='transition-all text-center w-[100px] py-9 px-1'>Suelta una voz aquí</p>}
+      transition-all w-[100px] py-12 px-1'>{droppedVoice}{sendVoiceData()}</p> : <p className='transition-all text-center w-[100px] py-9 px-1'>Suelta una voz aquí</p>}
     </div>
   )
 }

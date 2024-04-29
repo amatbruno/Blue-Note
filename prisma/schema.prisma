@@ -35,25 +35,41 @@ enum CODE_ROL {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  firstName String
-  lastName  String
-  email     String    @unique
-  password  String
-  type      CODE_TYPE
-  rope      CODE_ROL?
-  color     String
-  gender    String
-  height    Float
-  birthDate DateTime
-  photo     Bytes?
+  id          Int           @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  email       String        @unique
+  password    String
+  type        CODE_TYPE
+  rope        CODE_ROL?
+  color       String
+  gender      String
+  height      Float
+  birthDate   DateTime
+  photo       Bytes?
+  LineupUsers LineupUsers[]
 }
 
 model events {
-  event_id Int @id @default(autoincrement())
-  event_title String
+  event_id          Int           @id @default(autoincrement())
+  event_title       String
   event_description String?
-  date DateTime
-  eventTime String
-  streetAddres String
+  date              DateTime
+  eventTime         String
+  streetAddres      String
+  LineupUsers       LineupUsers[]
+}
+
+model lineup {
+  id          Int    @id @default(autoincrement())
+  description String
+}
+
+model LineupUsers {
+  event   events @relation(fields: [eventId], references: [event_id])
+  eventId Int
+  user    User   @relation(fields: [userId], references: [id])
+  userId  Int
+
+  @@id([eventId, userId])
 }
