@@ -46,7 +46,7 @@ export default function Navigator({ user }) {
                     </div>
                     <a
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className="home-text m-12 ml-1 font-bold text-xl hover:text-red-600 cursor-pointer hover:underline transition-colors duration-300 ease-in-out"
+                        className="home-text-log m-12 ml-1 font-bold text-xl hover:text-red-600 cursor-pointer hover:underline transition-colors duration-300 ease-in-out"
                     >
                         <span>{userName}</span>
                     </a>

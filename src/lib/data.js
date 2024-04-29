@@ -13,9 +13,8 @@ export async function generateCodeByType(prevState, data) {
         const randomCode = Math.floor(Math.random() * 100000);
         const resultCode = randomCode.toString();
         const usesLeft = data.get("uses");
-        const singerRol = data.get("rol");
 
-        if (singerRol === "undefined" || codeType === "undefined") {
+        if (codeType === "undefined") {
             return `¡Elige un rol válido!`;
         }
 
@@ -24,8 +23,7 @@ export async function generateCodeByType(prevState, data) {
         await prisma.codigoActivacion.create({
             data: {
                 activationCode: hashedResultCode,
-                type: codeType.toUpperCase(),
-                singer_rol: singerRol,
+                type: codeType.toUpperCase(),   
                 usesLeft: parseInt(usesLeft, 10),
             }
         });
@@ -69,7 +67,6 @@ export async function codeAuthorization(prevState, data) {
 
                 if (match) {
                     const userType = storedCode.type;
-                    const singerRol = storedCode.singer_rol
                     const usesCodeLeft = storedCode.usesLeft - 1;
 
                     if (usesCodeLeft === 0) {
@@ -404,6 +401,47 @@ export async function getEventById(eventId) {
         return event;
     } catch (error) {
         return "Error al cargar evento"
+    }
+}
+
+export async function passwordResend(prevState, data) {
+    try {
+        const email = data.get("email");
+
+        const emailMatch = await prisma.user.findFirst({
+            where: {
+                email: email,
+            },
+        });
+
+        if(!email || !emailMatch) {
+            return "Tu email no concide"
+        }
+
+        await SendEmail('Cambiar la contraseña', `
+            <div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
+            <div style="margin:50px auto;width:70%;padding:20px 0">
+            <div style="border-bottom:1px solid #eee">
+                <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Your Brand</a>
+            </div>
+            <p style="font-size:1.1em">Hi,</p>
+            <p>Thank you for choosing Your Brand. Use the following OTP to complete your Sign Up procedures. OTP is valid for 5 minutes</p>
+            <span>Utilice este codigo para completar su registro en <a style={{ color: "#EF4444", marginLeft: "0.25rem", textDecoration: "none" }}
+            href="http://localhost:3000/updatePassword">el siguiente enlace</a></span>
+            <p style="font-size:0.9em;">Regards,<br />Your Brand</p>
+            <hr style="border:none;border-top:1px solid #eee" />
+            <div style="float:right;padding:8px 0;color:#aaa;font-size:0.8em;line-height:1;font-weight:300">
+                <p>Your Brand Inc</p>
+                <p>1600 Amphitheatre Parkway</p>
+                <p>California</p>
+            </div>
+            </div>
+        </div>
+        `)
+
+        return `Email enviado ${email}`;
+    } catch (error) {
+        return `¡Vaya! Algo salió mal, ${error}`;
     }
 }
 //optimizacion del codigo

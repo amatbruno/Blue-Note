@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    scroll-behavior: smooth;
-}
-
 
 .animated-icon {
     animation: moveUpDown 2s ease-in-out infinite;
@@ -492,17 +488,24 @@ h1, p, a, label, input {
 
 }
 
-.home-text {
+.home-text-about,
+.home-text-event,
+.home-text-contact,
+.home-text-shows,
+.home-text-log
+{
     color: white;
+}
+
+.home-text-about:focus {
+    color: green;
 }
 
 .auth-a-password {
     color: #860012;
 }
 
-.no-scroll {
-    overflow-y: hidden;
-}
+
 
 .section-about {
     background-color: #1E2126;

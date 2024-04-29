@@ -1,0 +1,11 @@
+import UpdatePassword from "@/components/layout/guest/updatePassword/update-password"
+
+export default function Page() {
+    return <section>
+         <img src="/images/background-verificationCode.png" className="absolute z-0 inset-0 object-cover w-full h-full" />
+         <div className="absolute top-20 left-0 w-full flex justify-center">
+            <img src="/images/Logo-negro.png" className="z-10 w-1/6 h-1/6 logo_navbar" />
+        </div>
+        <UpdatePassword />
+    </section>
+}

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default async function Page() {
 
-    return <section className="flex justify-center items-center border h-screen gap-10">
+    return  <section className="flex justify-center items-center border gap-10">
         <Link
             href="/admin/codes"
         >

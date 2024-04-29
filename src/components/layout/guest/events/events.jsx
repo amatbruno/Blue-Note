@@ -4,7 +4,7 @@ import ShowAllEvents from './showAllEvents';
 export default async function Events() {
 
     return (
-        <main className="fixed h-screen">
+        <main>
             <NavBar />
             <ShowAllEvents />
         </main>
