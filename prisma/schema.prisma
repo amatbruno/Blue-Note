@@ -13,13 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model codigoActivacion {
-  id             Int       @id @default(autoincrement())
-  activationCode String    @unique
-  type           CODE_TYPE
-  usesLeft       Int
-}
-
 enum CODE_TYPE {
   ADMIN
   DIRECTOR
@@ -34,6 +27,15 @@ enum CODE_ROL {
   BAJO
 }
 
+//CODIGO ACTIVACIÓN
+model codigoActivacion {
+  id             Int       @id @default(autoincrement())
+  activationCode String    @unique
+  type           CODE_TYPE
+  usesLeft       Int
+}
+
+//USUARIOS
 model User {
   id          Int           @id @default(autoincrement())
   firstName   String
@@ -48,8 +50,10 @@ model User {
   birthDate   DateTime
   photo       Bytes?
   LineupUsers LineupUsers[]
+  Assists     Assists[]
 }
 
+//EVENTOS
 model events {
   event_id          Int           @id @default(autoincrement())
   event_title       String
@@ -58,8 +62,10 @@ model events {
   eventTime         String
   streetAddres      String
   LineupUsers       LineupUsers[]
+  Assists           Assists[]
 }
 
+//CONTACT FORM
 model contactForm {
   id          Int           @id @default(autoincrement())
   proposal    String
@@ -70,18 +76,33 @@ model contactForm {
   LineupUsers LineupUsers[]
 }
 
+//FORMACIONES
 model lineup {
-  id          Int    @id @default(autoincrement())
+  id          Int           @id @default(autoincrement())
   description String
+  LineupUsers LineupUsers[]
 }
 
+//FORMACION USERS
 model LineupUsers {
   event         events       @relation(fields: [eventId], references: [event_id])
   eventId       Int
   user          User         @relation(fields: [userId], references: [id])
   userId        Int
+  lineup        lineup       @relation(fields: [lineupId], references: [id])
+  lineupId      Int
   contactForm   contactForm? @relation(fields: [contactFormId], references: [id])
   contactFormId Int?
+
+  @@id([eventId, userId, lineupId])
+}
+
+//ASISTENCIAS
+model Assists {
+  event   events @relation(fields: [eventId], references: [event_id])
+  eventId Int
+  user    User   @relation(fields: [userId], references: [id])
+  userId  Int
 
   @@id([eventId, userId])
 }
