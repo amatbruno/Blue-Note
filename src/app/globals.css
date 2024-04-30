@@ -483,7 +483,11 @@
     src: url('/fonts/nexaLight.otf');
 }
 
-h1, p, a, label, input {
+h1,
+p,
+a,
+label,
+input {
     font-family: Nexa;
 
 }
@@ -492,8 +496,7 @@ h1, p, a, label, input {
 .home-text-event,
 .home-text-contact,
 .home-text-shows,
-.home-text-log
-{
+.home-text-log {
     color: white;
 }
 
@@ -513,4 +516,30 @@ h1, p, a, label, input {
 
 .logo_navbar {
     filter: invert(1);
+}
+
+.aboutus_startext_letter {
+    font-size: 25px;
+    color:#c26700;
+}
+
+.aboutus_text {
+    font-size: 20px;
+    text-indent: 15px;  
+    margin-left: 10px;
+}
+
+.parallax1 {
+    background-image:url("/images/aboutusparallax1.jpg");
+    min-height: 200px;  
+    background-attachment: fixed;
+    background-position: 0 -350px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.divisor_paralax1{
+    height:3px;
+    margin: 0 auto;
+    background-color:black;
+    width: 25%;
 }
