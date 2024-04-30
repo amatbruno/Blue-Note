@@ -40,7 +40,7 @@ export default function Home() {
     return (
         <main className="relative overflow-hidden h-screen">
             {showLogin && (
-                <div className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50">
+                <div className="fixed inset-0 z-50 flex justify-center items-center bckg_filters_logins">
                     <div ref={loginRef}>
                         <Login />
                     </div>
@@ -53,10 +53,10 @@ export default function Home() {
                         <h1 className="home-text-about m-12 ml-1 font-bold text-xl hover:text-customOrange cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Sobre nosotros</h1>
                     </Link>
                     <Link href="/events" className='z-10'>
-                        <h1 className="home-text-event m-12 mr-10 font-bold text-xl hover:text-customYellow cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Eventos</h1>
+                        <h1 className="home-text-event m-12 mr-10 font-bold text-xl hover:text-customRed cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Eventos</h1>
                     </Link>
                     <Link href="/gallery" className='z-10'>
-                        <h1 className="home-text-shows m-12 mr-10 font-bold text-xl hover:text-customOrange cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Galería</h1>
+                        <h1 className="home-text-shows m-12 mr-10 font-bold text-xl hover:text-customYellow cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Galería</h1>
                     </Link>
                     <Link href="/contact" className='z-10'>
                         <h1 className="home-text-contact m-12 mr-10 font-bold text-xl hover:text-customRed cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Contacto</h1>
