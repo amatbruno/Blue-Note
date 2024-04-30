@@ -51,28 +51,23 @@ model User {
 }
 
 model events {
-<<<<<<< HEAD
-  event_id          Int      @id @default(autoincrement())
-=======
   event_id          Int           @id @default(autoincrement())
->>>>>>> 10eea51796f4027186e90c274b8a2cc163bf8e8a
   event_title       String
   event_description String?
   date              DateTime
   eventTime         String
   streetAddres      String
-<<<<<<< HEAD
+  LineupUsers       LineupUsers[]
 }
 
 model contactForm {
-  id Int @id @default(autoincrement())
-  proposal String
-  title String
+  id          Int           @id @default(autoincrement())
+  proposal    String
+  title       String
   description String
-  email String
-  phone Int
-=======
-  LineupUsers       LineupUsers[]
+  email       String
+  phone       Int
+  LineupUsers LineupUsers[]
 }
 
 model lineup {
@@ -81,11 +76,12 @@ model lineup {
 }
 
 model LineupUsers {
-  event   events @relation(fields: [eventId], references: [event_id])
-  eventId Int
-  user    User   @relation(fields: [userId], references: [id])
-  userId  Int
+  event         events       @relation(fields: [eventId], references: [event_id])
+  eventId       Int
+  user          User         @relation(fields: [userId], references: [id])
+  userId        Int
+  contactForm   contactForm? @relation(fields: [contactFormId], references: [id])
+  contactFormId Int?
 
   @@id([eventId, userId])
->>>>>>> 10eea51796f4027186e90c274b8a2cc163bf8e8a
 }
