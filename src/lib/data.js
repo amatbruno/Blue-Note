@@ -533,4 +533,5 @@ export async function Contact(prevState, data) {
         return `error ${error}`
     }
 }
+
 //optimizacion del codigo

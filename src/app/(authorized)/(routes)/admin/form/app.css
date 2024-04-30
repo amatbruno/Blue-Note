@@ -1,0 +1,5 @@
+.clicked {
+    background: rgb(153 27 27);
+    color: white;
+    transition:0.8s ease-in-out;
+}
