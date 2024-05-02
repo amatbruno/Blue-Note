@@ -62,7 +62,7 @@ export default function Home() {
                         <h1 className="home-text-contact m-12 mr-10 font-bold text-xl hover:text-customRed cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Contacto</h1>
                     </Link>
                 </div>
-                <div className="flex flex-end mr-24 mt-2">
+                <div className="flex flex-end mr-16 mt-2">
                     {!user ? (
                         <button onClick={toggleLogin} className="z-10">
                             <h1 className="home-text-log text-red-700 m-12 mr-1 font-bold text-xl hover:text-customYellow cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Login</h1>

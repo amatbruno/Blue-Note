@@ -14,7 +14,7 @@ export default async function NavBar({color}) {
                     </Link>
                 </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center mr-8">
                 <Link href="/aboutus" className='z-10'>
                     <h1 className="home-text-about m-8 font-bold text-xl hover:text-customOrange focus:text-customOrange cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Sobre nosotros</h1>
                 </Link>

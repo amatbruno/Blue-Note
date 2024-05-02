@@ -22,8 +22,6 @@ export default async function AboutUs() {
                     Estamos seguros de que este proyecto será un éxito, y que nos ayudará a alcanzar a aún más personas con nuestra música.
                 </div>
             </div>
-
-
             <hr className='divisor_paralax1' />
             <div className="flex justify-center">
             </div>
@@ -36,55 +34,6 @@ export default async function AboutUs() {
                     Cuando cantamos, no solo estamos cantando canciones, estamos contando historias, compartiendo nuestras experiencias y transmitiendo un mensaje de esperanza y amor.
                 </p>
             </div>
-            <h1>sdsd</h1>
-
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>            <h1>sdsd</h1>
-
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>            <h1>sdsd</h1>
-
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>            <h1>sdsd</h1>
-
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>            <h1>sdsd</h1>
-
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>            <h1>sdsd</h1>
-
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
-            <h1>sdsd</h1>
         </main>
     )
 }
