@@ -530,30 +530,20 @@ input {
     text-align: center;
 }
 
+.aboutus_text2 {
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
 .parallax1 {
     background-image: url("/images/aboutusparallax1.jpg");
     min-height: 300px;
     background-attachment: fixed;
-    background-position: 0 -100px;
+    background-position: 0 -550px;
     background-repeat: no-repeat;
     background-size: cover;
-    mask-image: linear-gradient(
-        black 97%,
-        transparent
-    );
-}
-
-.parallax2 {
-    background-image: url("/images/aboutusparallax2.jpg");
-    min-height: 300px;
-    background-attachment: fixed;
-    background-position: 0 -100px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    mask-image: linear-gradient(
-        black 97%,
-        transparent
-    );
 }
 
 .divisor_paralax1 {
@@ -568,7 +558,7 @@ input {
     font-size: 40px;
     /*     color: #c26700;
  */
-        font-weight: 800;
+    font-weight: 800;
 }
 
 
@@ -578,8 +568,14 @@ input {
     align-items: center;
 }
 
-.textaboutus_type1 {
+.textaboutus_type1 {    
     margin-top: 50px;
+}
+
+.textaboutus_type2 {
+    margin-top: 0px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .aboutus_titletext2 {
@@ -588,7 +584,7 @@ input {
     font-weight: 800;
 }
 
-.bckg_filters_logins{
- background-color: rgb(0, 0, 0, 0.5);
- filter: blur();
+.bckg_filters_logins {
+    background-color: rgb(0, 0, 0, 0.5);
+    filter: blur();
 }

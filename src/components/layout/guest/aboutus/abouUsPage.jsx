@@ -7,33 +7,52 @@ export default async function AboutUs() {
             <NavBar color={color} />
             <div className='parallax1'>
             </div>
-            <div className='aboutus_text columns-2'>
-                <div className='w-1/2 titletext_container'>
-                    <div>
-                        <h1 className='font-bold text-4xl mt-12'>MAS GOSPEL</h1>
-                        <h1 className='aboutus_titletext2'>LET <span className='text-customOrange'>REVIVAL</span> COME</h1>
-                    </div>
+            <div className='aboutus_text2'>
+                <div className='titletext_container'>
+                    <h1 className='aboutus_titletext2'><i>¿QUIENES SOMOS?</i></h1>
+                </div>
+                <div className='mt-5 text-center'>
+                    <p className='w-1/2 text-center text_aboutus textaboutus_type2'>
+                        Somos un vibrante coro que cuenta con entre 20 y 40 voces, dirigidas por el talentoso músico, compositor, arreglista y productor <span className="text-customOrange font-bold">Gerson Gelabert</span>.
+                        Dedicados al gospel contemporáneo, nuestro repertorio combina elementos modernos con el espíritu tradicional del gospel.
+                        Invitamos a todos a disfrutar de una experiencia musical única, donde la pasión y la energía del grupo se traducen en la esencia pura de nuestro espíritu. ¡Ven a sentirlo con nosotros!
+                    </p>
+                </div>
+            </div>
 
-                </div>
-                <div className='w-1/3 mt-5 textaboutus_type1 text-justify'>
-                    Nuestro proyecto "Let Revival Come" es un ejemplo perfecto de lo que nos hace especiales.
-                    Con este proyecto, queremos llevar la música gospel a más personas y compartir el mensaje de Dios con el mundo.
-                    Estamos organizando una serie de conciertos y eventos especiales, y también estamos trabajando en un nuevo álbum.
-                    Estamos seguros de que este proyecto será un éxito, y que nos ayudará a alcanzar a aún más personas con nuestra música.
-                </div>
-            </div>
+
             <hr className='divisor_paralax1' />
-            <div className="flex justify-center">
+
+            <div className='aboutus_text2'>
+                <div className='titletext_container'>
+                    <h1 className='aboutus_titletext2'><i>NUESTRA TRAYECTORIA</i></h1>
+                </div>
+                <div className='mt-5 text-center'>
+                    <p className='w-1/2 text-center text_aboutus textaboutus_type2'>
+                        Empezamos en 2012 como un modesto grupo amateur y hemos crecido exponencialmente desde entonces.
+                        Bajo la batuta de <span className="text-customOrange font-bold">Gerson Gelabert</span> desde noviembre de 2019, hemos superado desafíos como la pandemia global,
+                        lo que ha reforzado nuestra misión de llegar al corazón de la gente a través del inspirador poder del gospel.
+                    </p>
+                </div>
             </div>
-            <div className='text-center mt-12'>
-                <h1 className='text-4xl'>Somos más que un simple coro, somos</h1>
-                <h1 className='text-5xl text-customOrange font-bold'>FAMILIA</h1>
+
+
+            <hr className='divisor_paralax1' />
+
+            <div className='aboutus_text2'>
+                <div className='titletext_container'>
+                    <h1 className='aboutus_titletext2'><i>NUESTRO COMPROMISO</i></h1>
+                </div>
+                <div className='mt-5 text-center'>
+                    <p className='w-1/2 text-center text_aboutus textaboutus_type2 text-left'>
+                        Desde nuestros inicios, hemos actuado en una amplia variedad de escenarios como teatros, festivales, y eventos privados, además de contribuir en actos benéficos.
+                        Comprometidos firmemente con causas solidarias, colaboramos de manera activa con organizaciones sin ánimo de lucro para organizar eventos que mejoran su visibilidad y recaudan fondos para diversos proyectos.
+                        En esta línea, hemos colaborado con entidades como <span className="text-customOrange font-bold">La marató de TV3</span>, <span className="text-customOrange font-bold">Banc dels Aliments</span>, y el <span className="text-customOrange font-bold">Casal dels Infants del Raval</span>, entre otros.
+                        Nuestra música ha resonado también en centros penitenciarios y residencias para ancianos, demostrando el poder transformador del gospel en todos los entornos.
+                    </p>
+                </div>
             </div>
-            <div className='aboutus_text'>
-                <p className=''>
-                    Cuando cantamos, no solo estamos cantando canciones, estamos contando historias, compartiendo nuestras experiencias y transmitiendo un mensaje de esperanza y amor.
-                </p>
-            </div>
+
         </main>
     )
 }
