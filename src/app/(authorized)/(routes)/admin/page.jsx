@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export default async function Page() {
 
-    return <section className="flex justify-center items-center border gap-10">
+    return <section className="flex h-[85vh] justify-center items-center border gap-10">
         <Link
             href="/admin/events"
         >
             <DashboardBtn>
-                <p className="py-10 text-2xl w-52">CREAR EVENTOS</p>
+                <p className="py-10 text-2xl w-52">GESTIONAR EVENTOS</p>
             </DashboardBtn>
         </Link>
         <Link
@@ -35,4 +35,5 @@ export default async function Page() {
             </DashboardBtn>
         </Link>
     </section>
+
 }

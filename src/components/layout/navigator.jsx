@@ -51,7 +51,7 @@ export default function Navigator({ user }) {
                         <span>{userName}</span>
                     </a>
                     {menuOpen && (
-                        <div ref={menuRef} className="absolute right-4 mt-32 w-48 bg-white rounded-md shadow-lg rounded flex flex-col">
+                        <div ref={menuRef} className="absolute right-4 mt-32 w-48 bg-white rounded-md shadow-lg flex flex-col">
                             <Link href={`/settings/${userName}`}>
                                 <button onClick={closeMenu} className="block w-full px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-300 ease-in-out">Ajustes</button>
                             </Link>
