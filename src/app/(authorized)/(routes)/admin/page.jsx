@@ -1,4 +1,4 @@
-import DashboardBtn from "@/components/ui/DashboardBtn";
+import DashboardBtn from "@/components/ui/dashboardBtn";
 import Link from "next/link";
 
 export default async function Page() {
