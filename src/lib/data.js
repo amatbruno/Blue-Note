@@ -470,9 +470,9 @@ export async function addEvent(prevState, data) {
             }
         })
 
-        return `Evento creado ${title}`;
+        return true
     } catch (error) {
-        return `Error al crear evento ${error}`
+        return `* Error al crear evento ${error}`
     }
 }
 

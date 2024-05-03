@@ -1,9 +1,12 @@
 "use client"
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFormState } from "react-dom";
 import { addEvent } from '@/lib/data';
 import Button from '@/components/ui/button';
+import AWN from 'awesome-notifications';
+
+const notifier = new AWN();
 
 export default function CreateEvents({
     title,
@@ -13,11 +16,25 @@ export default function CreateEvents({
     address
 }) {
     const [state, dispatch] = useFormState(addEvent, undefined);
+    const [isEventCreated, setIsEventCreated] = useState(false);
+
+    useEffect(() => {
+        if (state) {
+            setIsEventCreated(true);
+        }
+    }, [state]);
+
+    useEffect(() => {
+        if (isEventCreated) {
+            notifier.success('Evento creado');
+            setIsEventCreated(false);
+        }
+    }, [isEventCreated]);
 
     return (
         <article className="max-w-lg mx-auto">
             <h1 className="text-3xl font-bold mb-4">Crea tus propios eventos</h1>
-            {state && <p className='text-red-500'>* {state}</p>}
+            {state && <p className='text-red-500'>{state}</p>}
             <form action={dispatch} className="space-y-4">
                 <div className="flex flex-col">
                     <label htmlFor="title" className="mb-1">Título:</label>

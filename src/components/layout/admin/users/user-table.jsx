@@ -105,7 +105,7 @@ export default function UserTable() {
                                 {filteredData.map((user) => (
                                     <tr className='border h-fit w-[150px]' key={user.id}>
                                         <td className='w-[500px]'>
-                                            <img src={user.photo === null ? `data:image/jpeg;base64,${user.photo}` : `/images/${user.gender}.png`} alt={user.firstName} />
+                                            <img src={user.photo !== null ? `data:image/jpeg;base64,${user.photo}` : `/images/${user.gender}.png`} alt={user.firstName} />
                                         </td>
                                         <div className='flex flex-col justify-center items-center border h-full py-5'>
                                             <td className="">{user.firstName + ' ' + user.lastName}</td>

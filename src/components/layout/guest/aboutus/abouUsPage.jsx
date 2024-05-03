@@ -5,8 +5,7 @@ export default async function AboutUs() {
     return (
         <main className="w-full overflow-y-hidden overflow-x-hidden">
             <NavBar color={color} />
-            <div className='parallax1'>
-            </div>
+            <div className='parallax' style={{ backgroundImage: "url('/images/aboutusparallax1.jpg')" }} />
             <div className='aboutus_text2'>
                 <div className='titletext_container'>
                     <h1 className='aboutus_titletext2'><i>¿QUIENES SOMOS?</i></h1>
