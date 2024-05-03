@@ -543,6 +543,10 @@ input {
     background-position: 0 -100px;
     background-repeat: no-repeat;
     background-size: cover;
+    mask-image: linear-gradient(
+        black 97%,
+        transparent
+    );
 }
 
 .divisor_paralax1 {
