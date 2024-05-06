@@ -28,9 +28,9 @@ export default function FormContact({
                         className="border border-gray-300 px-3 py-2 rounded-lg"
                         required
                     >
-                        <option value="colaborar">Quieres colaborar causa solidaria</option>
-                        <option value="cantar">Quieres cantar</option>
-                        <option value="contratar">Quieres contratar</option>
+                        <option value="colaborar">Tienes alguna causa solidaria</option>
+                        <option value="cantar">Solicutod de union al coro</option>
+                        <option value="contratar">Contratacion para eventos</option>
                         <option value="otros">Otros</option>
                     </select>
                 </div>
