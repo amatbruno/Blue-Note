@@ -42,7 +42,7 @@ export default async function AboutUs() {
                 <div className='titletext_container'>
                     <h1 className='aboutus_titletext2'><i>NUESTRO COMPROMISO</i></h1>
                 </div>
-                <div className='mt-5 text-center'>
+                <div className='mt-5 text-center mb-5'>
                     <p className='w-1/2 text-center text_aboutus textaboutus_type2 text-left'>
                         Desde nuestros inicios, hemos actuado en una amplia variedad de escenarios como teatros, festivales, y eventos privados, además de contribuir en actos benéficos.
                         Comprometidos firmemente con causas solidarias, colaboramos de manera activa con organizaciones sin ánimo de lucro para organizar eventos que mejoran su visibilidad y recaudan fondos para diversos proyectos.

@@ -29,7 +29,7 @@ export default function FormContact({
                         required
                     >
                         <option value="colaborar">Tienes alguna causa solidaria</option>
-                        <option value="cantar">Solicutod de union al coro</option>
+                        <option value="cantar">¿Quiertes cantar con nosotrso?</option>
                         <option value="contratar">Contratacion para eventos</option>
                         <option value="otros">Otros</option>
                     </select>
