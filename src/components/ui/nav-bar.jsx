@@ -8,7 +8,7 @@ export default async function NavBar({color}) {
     return (
         <div className="flex justify-between h-28 section-about w-screen">
             <div className="flex items-center">
-                <div className="ml-10">
+            <div className="ml-10">
                     <Link href="/" className='z-10'>
                         <img src={logoSrc} draggable="false" className="h-20 left-0" />
                     </Link>

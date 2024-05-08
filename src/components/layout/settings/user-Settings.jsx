@@ -14,8 +14,8 @@ export default function UserSettings() {
     const [verificationCompleted, setVerificationCompleted] = useState(false);
     const [isRope, setIsRope] = useState(false);
     const [user, setUser] = useState(null);
-    const [showNotification, setShowNotification] = useState(false)
-    const [showErrorRopeNotification, setShowErrorRopeNotification] = useState(false)
+    const [showNotification, setShowNotification] = useState(false);
+    const [showErrorRopeNotification, setShowErrorRopeNotification] = useState(false);
 
     const fetchUserData = async () => {
         const user = await getUserSession();
@@ -32,6 +32,8 @@ export default function UserSettings() {
         if (!user.rope) {
             setIsRope(true);
         }
+
+        console.log(user.photo)
     };
 
     useEffect(() => {
@@ -44,13 +46,7 @@ export default function UserSettings() {
         if (state === 'Usuario modificado') {
             setShowNotification(true);
             setShowErrorRopeNotification(false);
-        } else if (state === 'Las contraseñas no coinciden') {
-            setShowNotification(false);
-            setShowErrorRopeNotification(true);
-        } else if (state === 'Los gmail conciden') {
-            setShowNotification(false);
-            setShowErrorRopeNotification(true);
-        } else if (state === 'Error eliga una cuerda') {
+        } else if (state === 'Las contraseñas no coinciden' || state === 'Los gmail conciden' || state === 'Error eliga una cuerda') {
             setShowNotification(false);
             setShowErrorRopeNotification(true);
         }
@@ -77,7 +73,11 @@ export default function UserSettings() {
                 <>
                     <table className={`table-fixed border-8 shadow-lg rounded-xl ${user.gender === 'masculino' ? 'border-blue-300' : 'border-green-300'}`}>
                         <tbody>
-                            <img src={`/images/${user.gender === 'masculino' ? 'masculino' : 'femenino'}.png`} className="h-2/6 z-3" />
+                            <tr className='row'>
+                                <td className="text-left px-4 py-2 text-center">
+                                    <img src={user.photo} alt="Profile Image" className="h-2/6 z-3" />
+                                </td>
+                            </tr>
                             <tr className='row'>
                                 <td className="text-left px-4 py-2 text-center">{user.gender === 'masculino' ? 'Sr.' : 'Sra.'} {user.firstName} {user.lastName}</td>
                             </tr>
@@ -104,7 +104,7 @@ export default function UserSettings() {
                                 {user.type === 'SINGER' && isRope && (
                                     <div className="flex flex-col mt-2 mb-2">
                                         <label>
-                                            ¿Que tipo de cantate es?:
+                                            ¿Qué tipo de cantante es?:
                                             <select name="rope">
                                                 <option value="undefined">Undefined</option>
                                                 <option value="SOPRANO">Soprano</option>
@@ -136,5 +136,4 @@ export default function UserSettings() {
             )}
         </div>
     );
-
 }

@@ -4,12 +4,12 @@ añadir colores originales y organizar todos los colores
 cambiar logo por seccion 
 hambruguesa cunado esta mas pèqueño
 
-lunes:
-imagen passwordUpdate Santi
-
 extra
 sobre nosotros
 contacto (falta mandar el email necesito dominio)
 
 mas adelante
 sacar calendario y correo electronico
+
+
+acabar la rope del usuario cantate

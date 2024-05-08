@@ -7,12 +7,13 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { decodeToken, generateAccessToken, generateUpdatePasswordToken } from "./jwt";
 
-export async function generateCodeByType(prevState, data) {
+export async function generateCodeByType(prevState, data, res) {
     try {
         const codeType = data.get("type");
         const randomCode = Math.floor(Math.random() * 100000);
         const resultCode = randomCode.toString();
         const usesLeft = data.get("uses");
+        const rope = data.get("singerRol");
 
         if (codeType === "undefined") {
             return `¡Elige un rol válido!`;
@@ -25,6 +26,7 @@ export async function generateCodeByType(prevState, data) {
                 activationCode: hashedResultCode,
                 type: codeType.toUpperCase(),
                 usesLeft: parseInt(usesLeft, 10),
+                rope: rope !== "" ? rope : null
             }
         });
 
@@ -68,6 +70,7 @@ export async function codeAuthorization(prevState, data) {
                 if (match) {
                     const userType = storedCode.type;
                     const usesCodeLeft = storedCode.usesLeft - 1;
+                    const rope = storedCode.rope;
 
                     if (usesCodeLeft === 0) {
                         await prisma.codigoActivacion.delete({
@@ -86,7 +89,7 @@ export async function codeAuthorization(prevState, data) {
                         });
                     }
 
-                    return `${userType}`
+                    return `${userType}, ${rope}`
                 }
             }
 
@@ -114,7 +117,9 @@ export async function registerForm(prevState, data, res) {
         const height = parseFloat(heightString);
         const birthDate = data.get("birthDate");
         const birthDateWithTime = `${birthDate}T00:00:00Z`;
+        const rope = data.get("rope").toString().trim();
 
+        console.log(rope)
         if (!name || !secondName || !email || !password || !repeatPassword || !type || !gender || !height || !birthDate) {
             return 'Por favor rellene todos los campos'
         }
@@ -154,6 +159,8 @@ export async function registerForm(prevState, data, res) {
                 height: height,
                 birthDate: birthDateWithTime,
                 color: 'amarillo',
+                photo: `/images/${gender}.png`,
+                rope: rope !== null ? rope : undefined
             }
         });
 
@@ -346,21 +353,24 @@ export async function settingsUser(prevState, data, res) {
         const email = data.get("email");
         const password = data.get("password");
         const repeatPassword = data.get("repeatPassword");
-        const rope = data.get("rope");
+        const photo = data.get("photo");
+        console.log("Photo value:", photo);
 
         const user = await prisma.user.findFirst({
             where: {
                 id: id
             }
-        })
+        });
 
         if (password != repeatPassword) {
-            return "Las contraseñas no coinciden"
+            return "Las contraseñas no coinciden";
         }
 
         if (email === user.email) {
-            return "Los gmail conciden"
+            return "Los correos electrónicos coinciden";
         }
+
+        let photoPath = null;
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -371,16 +381,16 @@ export async function settingsUser(prevState, data, res) {
             data: {
                 email: email !== "" ? email : user.email,
                 password: password !== "" ? hashedPassword : user.password,
-                rope: user.rope !== null ? user.rope : rope,
+                photo: photoPath !== null ? photoPath : user.photo // Si se proporcionó una nueva imagen, actualizamos la ruta de la imagen en la base de datos
             }
         });
 
         return 'Usuario modificado';
     } catch (error) {
-        return `Error eliga una cuerda`;
+        console.log(error);
+        return `Error: ${error.message}`;
     }
 }
-
 export async function getAllEvents() {
     try {
         const event = await prisma.events.findMany()
