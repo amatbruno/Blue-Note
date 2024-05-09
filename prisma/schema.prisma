@@ -13,13 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model codigoActivacion {
-  id             Int       @id @default(autoincrement())
-  activationCode String    @unique
-  type           CODE_TYPE
-  usesLeft       Int
-}
-
 enum CODE_TYPE {
   ADMIN
   DIRECTOR
@@ -34,26 +27,83 @@ enum CODE_ROL {
   BAJO
 }
 
-model User {
-  id        Int       @id @default(autoincrement())
-  firstName String
-  lastName  String
-  email     String    @unique
-  password  String
-  type      CODE_TYPE
-  rope      CODE_ROL?
-  color     String
-  gender    String
-  height    Float
-  birthDate DateTime
-  photo     Bytes?
+//CODIGO ACTIVACIÓN
+model codigoActivacion {
+  id             Int       @id @default(autoincrement())
+  activationCode String    @unique
+  type           CODE_TYPE
+  usesLeft       Int
+  rope          CODE_ROL
 }
 
+//USUARIOS
+model User {
+  id          Int           @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  email       String        @unique
+  password    String
+  type        CODE_TYPE
+  rope        CODE_ROL?
+  color       String
+  gender      String
+  height      Float
+  birthDate   DateTime
+  photo       String?
+  LineupUsers LineupUsers[]
+  Assists     Assists[]
+}
+
+//EVENTOS
 model events {
-  event_id Int @id @default(autoincrement())
-  event_title String
+  event_id          Int           @id @default(autoincrement())
+  event_title       String
   event_description String?
-  date DateTime
-  eventTime String
-  streetAddres String
+  date              DateTime
+  eventTime         String
+  streetAddres      String
+  LineupUsers       LineupUsers[]
+  Assists           Assists[]
+}
+
+//CONTACT FORM
+model contactForm {
+  id          Int           @id @default(autoincrement())
+  proposal    String
+  title       String
+  description String
+  email       String
+  phone       Int
+  LineupUsers LineupUsers[]
+}
+
+//FORMACIONES
+model lineup {
+  id          Int           @id @default(autoincrement())
+  description String
+  LineupUsers LineupUsers[]
+}
+
+//FORMACION USERS
+model LineupUsers {
+  event         events       @relation(fields: [eventId], references: [event_id])
+  eventId       Int
+  user          User         @relation(fields: [userId], references: [id])
+  userId        Int
+  lineup        lineup       @relation(fields: [lineupId], references: [id])
+  lineupId      Int
+  contactForm   contactForm? @relation(fields: [contactFormId], references: [id])
+  contactFormId Int?
+
+  @@id([eventId, userId, lineupId])
+}
+
+//ASISTENCIAS
+model Assists {
+  event   events @relation(fields: [eventId], references: [event_id])
+  eventId Int
+  user    User   @relation(fields: [userId], references: [id])
+  userId  Int
+
+  @@id([eventId, userId])
 }

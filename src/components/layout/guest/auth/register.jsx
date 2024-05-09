@@ -14,9 +14,11 @@ export default function Register({
     userType,
     gender,
     height,
-    birthDate   
+    birthDate,
+    rope  
 }) {
     const [state, dispatch] = useFormState(registerForm, undefined);
+    const [userTypeValue, ropeValue] = userType.split(',');
 
     return (
         <article className="mt-20">
@@ -76,8 +78,19 @@ export default function Register({
                         <label htmlFor="userType">Tipo</label>
                         <Input
                             placeholder="Tipo"
-                            value={userType}
+                            value={userTypeValue}
                             name="userType"
+                            readOnly
+                            style={{ cursor: 'not-allowed' }}
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <label htmlFor="rope">Cuerda</label>
+                        <Input
+                            placeholder="Cuerda"
+                            value={ropeValue}
+                            name="rope"
                             readOnly
                             style={{ cursor: 'not-allowed' }}
                         />

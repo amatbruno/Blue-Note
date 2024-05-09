@@ -16,6 +16,7 @@ module.exports = {
         customYellow: '#F2C200',
         customOrange: '#B84000',
         customRed: '#860012',
+        customBlack: '#1E2126',
       },
     },
   },

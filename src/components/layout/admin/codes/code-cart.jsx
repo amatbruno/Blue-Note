@@ -17,48 +17,53 @@ export default function CodeCart({
         setType(event.target.value);
     };
 
-    return <article className="border p-5 flex flex-col gap-5 rounded">
+    return (
+        <article className="border p-5 flex flex-col gap-5 rounded">
+            <form action={dispatch}>
+                <div>
+                    <label>
+                        Seleccionar Rol:
+                        <select value={codeType} name="type" onChange={handleCodeTypeChange}>
+                            <option value="undefined">Undefined</option>
+                            <option value="admin">admin</option>
+                            <option value="director">director</option>
+                            <option value="singer">singer</option>
+                            <option value="temp">temp</option>
+                        </select>
+                    </label>
+                </div>
 
-        <form
-            action={dispatch}
-        >
-            <div>
-                <label>
-                    Seleccionar Rol:
-                    <select value={codeType} name="type" onChange={handleCodeTypeChange}>
-                        <option value="undefined">Undefined</option>
-                        <option value="admin">admin</option>
-                        <option value="director">director</option>
-                        <option value="singer">singer</option>
-                        <option value="temp">temp</option>
-                    </select>
-                </label>
-            </div>
+                {type === "singer" && (
+                    <div>
+                        <label>
+                            Opción de cuerda:
+                            <select value={singerRol} name="singerRol" onChange="">
+                                <option value="SOPRANO">SOPRANO</option>
+                                <option value="ALTO">ALTO</option>
+                                <option value="TENOR">TENOR</option>
+                                <option value="BAJO">BAJO</option>
+                            </select>
+                        </label>
+                    </div>
+                )}
 
-            <div>
-                <label>
-                    Veces util:
-                    <select value={usesLeft} name="uses">
-                        {[...Array(10).keys()].map((number) => (
-                            <option key={number + 1} value={number + 1}>
-                                {number + 1}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-            </div>
+                <div>
+                    <label>
+                        Veces util:
+                        <select value={usesLeft} name="uses">
+                            {[...Array(10).keys()].map((number) => (
+                                <option key={number + 1} value={number + 1}>
+                                    {number + 1}
+                                </option>
+                            ))}
+                        </select>
+                    </label>
+                </div>
 
-            {
-                state && <p className="text-red-500">
-                    * {state}
-                </p>
-            }
+                {state && <p className="text-red-500">* {state}</p>}
 
-            <Button
-                type="submit"
-            >
-                Generar código
-            </Button>
-        </form>
-    </article>
+                <Button type="submit">Generar código</Button>
+            </form>
+        </article>
+    );
 }

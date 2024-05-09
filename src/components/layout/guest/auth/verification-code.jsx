@@ -16,7 +16,7 @@ export default function VerificationCode({
 
     useEffect(() => {
         if (state) {
-            if (state === "ADMIN" || state === "DIRECTOR" || state === "SINGER" || state === "TEMP") {
+            if (state === "ADMIN" || state === "DIRECTOR" || state === "TEMP" || state.includes("SINGER")) {
                 setShowAdditionalInputs(false);
             }
         }

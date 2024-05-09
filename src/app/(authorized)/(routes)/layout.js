@@ -11,7 +11,7 @@ export default async function Layout({
         return redirect('/');
     }
 
-    return <main>
+    return <main className="overflow-hidden">
         <Navigator user={user}/>
 
         { children }
