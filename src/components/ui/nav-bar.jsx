@@ -27,6 +27,7 @@ export default async function NavBar({color}) {
                 <Link href="/contact" className='z-10'>
                     <h1 className="home-text-contact m-8 font-bold text-xl hover:text-customOrange focus:text-customOrange cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Contacto</h1>
                 </Link>
+                
                 <div className="flex flex-end">
                     {user && (
                         <Link href={`/${user.type.toLowerCase()}`} className='z-10'>

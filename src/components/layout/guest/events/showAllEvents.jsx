@@ -68,7 +68,7 @@ export default function ShowAllEvents() {
                       <div className="">
                         <p className="font-bold text-xl">{event.event_title}</p>
                         <hr className="border-white w-full mb-2" />
-                        <div className="opacity-80 mb-2 mr-2">{event.event_description}</div>
+                        <div className="opacity-80 mb-2 mr-2 text-justify">{event.event_description}</div>
                         <div className="flex">
                           <span className="fa-regular fa-clock text-lg mt-1 text-white hover:text-yellow-600 cursor-pointer text-2xl transition-colors duration-300 ease-in-out hover:scale-110"></span>
                           <div className="ml-2">{event.eventTime}</div>
