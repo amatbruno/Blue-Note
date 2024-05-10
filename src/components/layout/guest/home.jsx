@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useEffect, useRef } from 'react';
 import Login from '@/components/layout/guest/auth/login';
 import Icons from '@/components/ui/icons';
-import Link from 'next/link';
 import { getUserSession } from "@/lib/data";
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {
     const [showLogin, setShowLogin] = useState(false);
@@ -46,8 +46,18 @@ export default function Home() {
                     </div>
                 </div>
             )}
-            <img src="/images/imagen.png" draggable="false" className="absolute z-0 inset-0 object-cover w-full " />
-            <div className="flex justify-between ml-20">
+            <img src="/images/imagen.png" draggable="false" className="bckg_img hidden_in_mobile" />
+            <div className='bckg_img2'>
+                <div className='mt-4 ml-4 navbar_phone hidden_in_pc'>
+                    <div className='bar_burger'>
+                    </div>
+                    <div className='bar_burger'>
+                    </div>
+                    <div className='bar_burger'>
+                    </div>
+                </div>
+            </div>
+            <div className="flex justify-between ml-20 hidden_in_mobile">
                 <div className="flex justify-center items-center">
                     <Link href="/aboutus" className='z-10'>
                         <h1 className="home-text-about m-12 ml-1 font-bold text-xl hover:text-customOrange cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Sobre nosotros</h1>
