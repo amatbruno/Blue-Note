@@ -50,7 +50,7 @@ export default function ShowAllEvents() {
           {Object.entries(groupedEvents).map(([monthYear, eventsInMonth]) => (
             <div key={monthYear} className="mb-8">
               <h2 className="text-2xl opacity-50 ml-3 font-semibold mb-4">{new Date(eventsInMonth[0].date).toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
-              <hr className='border-black w-96 ml-3'/>
+              <hr className='border-black w-96 ml-3' />
               <div className="flex flex-wrap">
                 {eventsInMonth.map((event) => (
                   <div
@@ -89,6 +89,5 @@ export default function ShowAllEvents() {
         </div>
       )}
     </div>
+  )
 }
-
-}  
