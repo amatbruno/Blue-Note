@@ -36,7 +36,7 @@ export default function Navigator({ user }) {
         <nav className="flex justify-between h-28 section-about w-screen">
             <div className="ml-10 mt-5">
                 <Link href="/">
-                    <img src="/images/Logo-rojo.png" draggable="false" className="h-20 left-0 " />
+                    <img src="/images/Logo-naranja.png" draggable="false" className="h-20 left-0 " />
                 </Link>
             </div>
             <div className="flex items-center w-full text-center relative">

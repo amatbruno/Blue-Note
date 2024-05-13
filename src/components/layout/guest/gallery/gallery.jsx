@@ -31,7 +31,7 @@ export default async function Gallery() {
                     <div className='w-1/2 titletext_container'>
                         <div>
                             <h1 className='font-bold text-4xl mt-12'>MAS GOSPEL</h1>
-                            <h1 className='aboutus_titletext2'>LET <span className='text-customOrange'>REVIVAL</span> COME</h1>
+                            <h1 className='aboutus_titletext2'>LET <span className='text-customYellow'>REVIVAL</span> COME</h1>
                             <h1 className="">2024</h1>
                         </div>
                     </div>
@@ -53,7 +53,7 @@ export default async function Gallery() {
                     <div className='w-1/2 titletext_container'>
                         <div>
                             <h1 className='font-bold text-4xl mt-12'>MAS GOSPEL</h1>
-                            <h1 className='aboutus_titletext2'>MOVING <span className='text-customRed'>FORWARD</span></h1>
+                            <h1 className='aboutus_titletext2'>MOVING <span className='text-customYellow'>FORWARD</span></h1>
                             <h1 className="">2023</h1>
                         </div>
                     </div>
