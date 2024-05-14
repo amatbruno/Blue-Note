@@ -544,4 +544,32 @@ export async function Contact(prevState, data) {
     }
 }
 
+export async function JoinEvents(prevState, data) {
+    try {
+        const eventId = parseInt(data.get("eventId"));
+        const userId = parseInt(data.get("userId"));
+        const date = new Date(data.get("dateEvent"));
+
+        await prisma.assists.create({
+            data: {
+                eventId: eventId,
+                userId: userId,
+                dateEvent: date,
+            }
+        });
+
+    } catch (error) {
+        console.log(error)
+        return `error ${error}`;
+    }
+}
+
+export async function GetAllJoinEvents() {
+    try {
+        const assists = await prisma.assists.findMany();
+        return assists;
+    } catch (error) {
+        return "Error al cargar usuarios";
+    }
+}
 //optimizacion del codigo
