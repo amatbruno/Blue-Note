@@ -9,17 +9,31 @@ import { useEffect, useRef, useState } from 'react';
 export default function Home() {
     const [showLogin, setShowLogin] = useState(false);
     const [user, setUser] = useState(null);
+    const [navBarPhone, setNavBarPhone] = useState(false);
     const loginRef = useRef(null);
+    const navBarRef = useRef(null)
 
     const toggleLogin = () => {
         setShowLogin(!showLogin);
     };
 
+
     const handleClickOutside = (event) => {
         if (loginRef.current && !loginRef.current.contains(event.target)) {
             setShowLogin(false);
         }
+        if (event.srcElement.className != "bar_burger" && !navBarPhone && event.target.localName != "h1") {
+            setNavBarPhone(false);
+        }
+        if (event.srcElement.id == "closelogin" && !showLogin) {
+            setShowLogin(false);
+        }
+        console.log(event.srcElement.id, showLogin);
     };
+
+    const handleNavBarPhone = () => {
+        setNavBarPhone(!navBarPhone);
+    }
 
     useEffect(() => {
         async function fetchUserSession() {
@@ -40,20 +54,45 @@ export default function Home() {
     return (
         <main className="relative overflow-hidden h-screen">
             {showLogin && (
-                <div className="fixed inset-0 z-50 flex justify-center items-center bckg_filters_logins">
+                <div className="fixed inset-0 z-50 flex justify-center items-center bckg_filters_logins h-32s">
                     <div ref={loginRef}>
                         <Login />
                     </div>
                 </div>
             )}
             <img src="/images/imagen.png" draggable="false" className="bckg_img hidden_in_mobile" />
-            <div className='bckg_img2'>
-                <div className='mt-4 ml-4 navbar_phone hidden_in_pc'>
-                    <div className='bar_burger'>
+
+            <div id="bckg_phone" className={`bckg_img2 ${navBarPhone ? 'shown' : 'hiddenbar'}`} >
+
+                <div className={` w-[50px] mt-4 ml-5 navbar_phone hidden_in_pc`} onClick={handleNavBarPhone}>
+                    <div className='bar_burger' ref={navBarRef}>
+                        <Link href="/aboutus" className='z-10'>
+                            <h1 className="navBar_text_orange">Sobre nosotros</h1>
+                        </Link>
                     </div>
-                    <div className='bar_burger'>
+                    <div className='bar_burger' ref={navBarRef}>
+                        <Link href="/events" className='z-10'>
+                            <h1 className="navBar_text_yellow">Eventos</h1>
+                        </Link>
                     </div>
-                    <div className='bar_burger'>
+                    <div className='bar_burger' ref={navBarRef}>
+                        <Link href="/gallery" className='z-10'>
+                            <h1 className="navBar_text_red">Galería</h1>
+                        </Link>
+                    </div>
+                    <div className='bar_burger' ref={navBarRef}>
+                        <Link href="/contact" className='z-10'>
+                            <h1 className="navBar_text_orange">Contacto</h1>
+                        </Link>
+                    </div>
+                    <div className='bar_burger' ref={navBarRef}>
+                        {!user ? (
+                            <h1 onClick={toggleLogin} className="login_phone z-10">Login</h1>
+                        ) : (
+                            <Link href={`/${user.type.toLowerCase()}`} className='z-10'>
+                                <h1 className="login_phone">Portal</h1>
+                            </Link>
+                        )}
                     </div>
                 </div>
             </div>
