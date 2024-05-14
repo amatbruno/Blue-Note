@@ -16,6 +16,8 @@ export default function UserBanner() {
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [joined, setJoined] = useState([])
 
+    const [state, dispatch] = useFormState(JoinEvents, undefined);
+    
     const onChange = (date) => {
         setDate(date);
     };
@@ -36,7 +38,7 @@ export default function UserBanner() {
         };
 
         fetchData();
-    }, []);
+    }, [state]);
 
     const joinEvent = (event) => {
         setSelectedEvent(event);
@@ -77,8 +79,6 @@ export default function UserBanner() {
         }
         return null;
     };
-
-    const [state, dispatch] = useFormState(JoinEvents, undefined);
 
     if (!verificationCompleted) {
         return <Spinner />;

@@ -558,6 +558,7 @@ export async function JoinEvents(prevState, data) {
             }
         });
 
+        return true;
     } catch (error) {
         console.log(error)
         return `error ${error}`;
