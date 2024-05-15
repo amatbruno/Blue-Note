@@ -104,6 +104,6 @@ model Assists {
   eventId Int
   user    User   @relation(fields: [userId], references: [id])
   userId  Int
-
+  dateEvent DateTime
   @@id([eventId, userId])
 }
