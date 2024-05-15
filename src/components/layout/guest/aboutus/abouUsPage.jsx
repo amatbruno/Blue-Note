@@ -1,7 +1,7 @@
 import NavBar from '@/components/ui/nav-bar';
 
 export default async function AboutUs() {
-    let color = "naranja"
+    let color = "dorado"
     return (
         <main className="w-full overflow-y-hidden overflow-x-hidden">
             <NavBar color={color} />

@@ -10,7 +10,7 @@ export default async function NavBar({color}) {
             <div className="flex items-center">
             <div className="ml-10">
                     <Link href="/" className='z-10'>
-                        <img src={logoSrc} draggable="false" className="h-20 left-0" />
+                        <img src={logoSrc} draggable="false" className="w-32 left-0" />
                     </Link>
                 </div>
             </div>
