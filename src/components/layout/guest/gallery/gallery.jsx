@@ -2,7 +2,7 @@ import Carousel from '@/components/ui/carousel';
 import NavBar from '@/components/ui/nav-bar';
 
 export default async function Gallery() {
-    let color = "dorado"
+    let color = "Yellow"
 
     const itemsRevival = [
         { type: 'image', src: '/images/carousel/LRC/image1.jpg' },

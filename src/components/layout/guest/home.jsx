@@ -63,7 +63,7 @@ export default function Home() {
             <img src="/images/homepage.jpg" draggable="false" className="bckg_img hidden_in_mobile" />
 
             <div id="bckg_phone" className={`bckg_img2 ${navBarPhone ? 'shown' : 'hiddenbar'}`} >
-
+            {/* BARRA PARA EL MOVIL */}
                 <div className={` w-[50px] mt-4 ml-5 navbar_phone hidden_in_pc`} onClick={handleNavBarPhone}>
                     <div className='bar_burger' ref={navBarRef}>
                         <Link href="/aboutus" className='z-10'>
@@ -96,19 +96,20 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            {/* BARRA PARA EL PC */}
             <div className="flex justify-between ml-7 hidden_in_mobile">
                 <div className="flex justify-center items-center">
                     <Link href="/aboutus" className='z-10'>
-                        <h1 className="home-text-about m-12 ml-1 font-bold text-xl bg-red-700 px-6 py-1 rounded-lg bg-transparent border-2 hover:bg-[#860012] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">Sobre nosotros</h1>
+                        <h1 className="home-text-about m-12 ml-1 font-bold text-xl px-6 py-1 rounded-lg bg-transparent border-2 hover:bg-customOrange hover:text-black cursor-pointer transition-colors duration-300 ease-in-out">Sobre nosotros</h1>
                     </Link>
                     <Link href="/events" className='z-10'>
-                        <h1 className="home-text-event m-12 mr-10 font-bold text-xl bg-red-700 px-6 py-1 rounded-lg bg-transparent border-2 hover:bg-[#B84000] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">Eventos</h1>
+                        <h1 className="home-text-event m-12 mr-10 font-bold text-xl px-6 py-1 rounded-lg bg-transparent border-2 hover:bg-customRed hover:text-black cursor-pointer transition-colors duration-300 ease-in-out">Eventos</h1>
                     </Link>
                     <Link href="/gallery" className='z-10'>
-                        <h1 className="home-text-shows m-12 mr-10 font-bold text-xl bg-red-700 px-6 py-1 rounded-lg bg-transparent border-2 hover:bg-[#B84000] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">Galería</h1>
+                        <h1 className="home-text-shows m-12 mr-10 font-bold text-xl px-6 py-1 rounded-lg bg-transparent border-2 hover:bg-customYellow hover:text-black cursor-pointer transition-colors duration-300 ease-in-out">Galería</h1>
                     </Link>
                     <Link href="/contact" className='z-10'>
-                        <h1 className="home-text-contact m-12 mr-10 font-bold text-xl bg-red-700 px-6 py-1 rounded-lg bg-transparent border-2 hover:bg-[#B84000] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">Contacto</h1>
+                        <h1 className="home-text-contact m-12 mr-10 font-bold text-xl px-6 py-1 rounded-lg bg-transparent border-2 hover:bg-customRed hover:text-black cursor-pointer transition-colors duration-300 ease-in-out">Contacto</h1>
                     </Link>
                 </div>
                 <div className="flex flex-end mr-16 mt-2">
