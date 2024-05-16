@@ -77,7 +77,7 @@ export default function UserBanner() {
                     );
                 });
                 if (isJoinedEvent) {
-                      return <div style={{ backgroundColor: 'green', borderRadius: '50%', width: '10px', height: '10px' }} />;
+                    return <div style={{ backgroundColor: 'green', borderRadius: '50%', width: '10px', height: '10px' }} />;
                 } else {
                     return <div style={{ backgroundColor: 'red', borderRadius: '50%', width: '10px', height: '10px' }} />;
                 }

@@ -26,7 +26,7 @@ export async function generateCodeByType(prevState, data, res) {
                 activationCode: hashedResultCode,
                 type: codeType.toUpperCase(),
                 usesLeft: parseInt(usesLeft, 10),
-                rope: rope !== "" ? rope : "null"
+                rope: codeType === "SINGER" ? rope : "null"
             }
         });
 
@@ -353,7 +353,7 @@ export async function settingsUser(prevState, data, res) {
         const email = data.get("email");
         const password = data.get("password");
         const repeatPassword = data.get("repeatPassword");
-        const photo = data.get("photo");
+        const photo = data.get("imageName");
         console.log("Photo value:", photo);
 
         const user = await prisma.user.findFirst({
@@ -381,7 +381,7 @@ export async function settingsUser(prevState, data, res) {
             data: {
                 email: email !== "" ? email : user.email,
                 password: password !== "" ? hashedPassword : user.password,
-                photo: photoPath !== null ? photoPath : user.photo // Si se proporcionó una nueva imagen, actualizamos la ruta de la imagen en la base de datos
+                photo: photoPath !== null ? photoPath : user.photo 
             }
         });
 
@@ -391,6 +391,7 @@ export async function settingsUser(prevState, data, res) {
         return `Error: ${error.message}`;
     }
 }
+
 export async function getAllEvents() {
     try {
         const event = await prisma.events.findMany()
@@ -573,5 +574,4 @@ export async function GetAllJoinEvents() {
         return "Error al cargar usuarios";
     }
 }
-
 //optimizacion del codigo

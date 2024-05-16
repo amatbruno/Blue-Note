@@ -1,11 +1,10 @@
 "use client"
 
 import { useEffect, useState } from 'react';
-import { getUserSession } from '@/lib/data';
+import { getUserSession, settingsUser } from '@/lib/data';
 import { useFormState } from "react-dom";
 import Spinner from '@/components/ui/spinner';
 import Button from '@/components/ui/button';
-import { settingsUser } from '@/lib/data';
 import AWN from 'awesome-notifications';
 
 const notifier = new AWN();
@@ -16,6 +15,8 @@ export default function UserSettings() {
     const [user, setUser] = useState(null);
     const [showNotification, setShowNotification] = useState(false);
     const [showErrorRopeNotification, setShowErrorRopeNotification] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imageName, setImageName] = useState('');
 
     const fetchUserData = async () => {
         const user = await getUserSession();
@@ -32,8 +33,6 @@ export default function UserSettings() {
         if (!user.rope) {
             setIsRope(true);
         }
-
-        console.log(user.photo)
     };
 
     useEffect(() => {
@@ -67,15 +66,43 @@ export default function UserSettings() {
         }
     }, [showErrorRopeNotification]);
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            console.log(file.name)
+            setImageName(file.name)
+            const reader = new FileReader();
+            reader.onload = () => {
+                setSelectedImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+   
+
     return (
         <div className="flex items-center ml-80 mt-56">
+            <p>{imageName}</p>
             {verificationCompleted ? (
                 <>
                     <table className={`table-fixed border-8 shadow-lg rounded-xl ${user.gender === 'masculino' ? 'border-blue-300' : 'border-green-300'}`}>
                         <tbody>
                             <tr className='row'>
                                 <td className="text-left px-4 py-2 text-center">
-                                    <img src={user.photo} alt="Profile Image" className="h-2/6 z-3" />
+                                    <img
+                                        src={selectedImage || user.photo}
+                                        alt="Profile Image"
+                                        className="h-56 z-3 cursor-pointer"
+                                        onClick={() => document.getElementById('fileInput').click()}
+                                    />
+                                    <input
+                                        type="file"
+                                        id="fileInput"
+                                        style={{ display: 'none' }}
+                                        accept="image/*"
+                                        onChange={handleImageChange}
+                                    />
                                 </td>
                             </tr>
                             <tr className='row'>
@@ -128,6 +155,7 @@ export default function UserSettings() {
                                     <Button type="submit">Submit</Button>
                                 </div>
                             </div>
+                            <input type="hidden" value={imageName} name="imageName"/>
                         </form>
                     </div>
                 </>
