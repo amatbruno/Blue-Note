@@ -26,7 +26,7 @@ export async function generateCodeByType(prevState, data, res) {
                 activationCode: hashedResultCode,
                 type: codeType.toUpperCase(),
                 usesLeft: parseInt(usesLeft, 10),
-                rope: rope !== "" ? rope : null
+                rope: rope !== "" ? rope : "null"
             }
         });
 

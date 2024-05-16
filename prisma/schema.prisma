@@ -25,6 +25,7 @@ enum CODE_ROL {
   ALTO
   TENOR
   BAJO
+  null
 }
 
 //CODIGO ACTIVACIÓN
