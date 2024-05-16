@@ -96,7 +96,7 @@ export default function UserBanner() {
                 <Plataforms />
                 <div className="flex ml-36 mb-28 justify-center items-center">
                     <div>
-                        <h1 className="text-3xl font-bold mb-6">Agenda</h1>
+                        <h1 className="text-3xl font-bold mb-6 font-[GoodBrush]">Agenda</h1>
                         <Calendar
                             onChange={onChange}
                             value={date}

@@ -16,7 +16,7 @@ export default function FormContact({
 
     return (
         <article className="max-w-lg mx-auto">
-            <h1 className="text-3xl font-bold mb-4 mt-32">Contactanos</h1>
+            <h1 className="text-3xl font-bold mb-4 mt-32 font-[GoodBrush]">Contactanos</h1>
             {state && <p className='text-red-500'>* {state}</p>}
             <form action={dispatch} className="space-y-4">
                 <div className="flex flex-col">

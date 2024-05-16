@@ -650,6 +650,11 @@
         src: url('/fonts/nexaLight.otf');
     }
 
+    @font-face {
+        font-family: "GoodBrush";
+        src: url('/fonts/GoodBrush.otf');
+    }
+
     h1,
     p,
     a,

@@ -30,9 +30,9 @@ export default async function Gallery() {
                 <div className='aboutus_text columns-2'>
                     <div className='w-1/2 titletext_container'>
                         <div>
-                            <h1 className='font-bold text-4xl mt-12'>MAS GOSPEL</h1>
-                            <h1 className='aboutus_titletext2'>LET <span className='text-customYellow'>REVIVAL</span> COME</h1>
-                            <h1 className="">2024</h1>
+                            <h1 className='font-bold text-4xl mt-12 font-[GoodBrush]'>MAS GOSPEL</h1>
+                            <h1 className='aboutus_titletext2 font-[GoodBrush]'>LET <span className='text-customYellow font-[GoodBrush]'>REVIVAL</span> COME</h1>
+                            <h1 className="font-[GoodBrush]">2024</h1>
                         </div>
                     </div>
                     <div className='w-1/3 mt-5 textaboutus_type1 text-justify'>
@@ -52,9 +52,9 @@ export default async function Gallery() {
                 <div className='aboutus_text columns-2'>
                     <div className='w-1/2 titletext_container'>
                         <div>
-                            <h1 className='font-bold text-4xl mt-12'>MAS GOSPEL</h1>
-                            <h1 className='aboutus_titletext2'>MOVING <span className='text-customYellow'>FORWARD</span></h1>
-                            <h1 className="">2023</h1>
+                            <h1 className='font-bold text-4xl mt-12 font-[GoodBrush]'>MAS GOSPEL</h1>
+                            <h1 className='aboutus_titletext2 font-[GoodBrush]'>MOVING <span className='text-customYellow font-[GoodBrush]'>FORWARD</span></h1>
+                            <h1 className="font-[GoodBrush]">2023</h1>
                         </div>
                     </div>
                     <div className='w-1/3 mt-5 textaboutus_type1 text-justify'>
