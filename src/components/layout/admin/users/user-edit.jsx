@@ -51,14 +51,13 @@ export default function UserEditTable({
             setShowNotification(true);
         }
     }, [state, onEditSuccess]);
-
+    
     useEffect(() => {
         if (showNotification) {
             notifier.success('User edited');
-            setShowNotification(false);
         }
     }, [showNotification]);
-
+    
     return (
         <div>
             {state &&
