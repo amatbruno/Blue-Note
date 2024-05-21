@@ -101,7 +101,6 @@ export async function codeAuthorization(prevState, data) {
     }
 }
 
-
 export async function registerForm(prevState, data, res) {
     let route;
 
@@ -191,7 +190,6 @@ export async function registerForm(prevState, data, res) {
 
     redirect('/' + route);
 }
-
 
 export async function loginForm(prevState, data, res) {
     let route;
@@ -381,7 +379,7 @@ export async function settingsUser(prevState, data, res) {
             data: {
                 email: email !== "" ? email : user.email,
                 password: password !== "" ? hashedPassword : user.password,
-                photo: photoPath !== null ? photoPath : user.photo 
+                photo: photoPath !== null ? photoPath : user.photo
             }
         });
 
@@ -572,6 +570,24 @@ export async function GetAllJoinEvents() {
         return assists;
     } catch (error) {
         return "Error al cargar usuarios";
+    }
+}
+
+export async function insertUserLineup(data) {
+    try {
+        const eventId = parseInt(data.eventId);
+        const userId = parseInt(data.userId);
+
+        await prisma.lineupUsers.create({
+            data: {
+                eventId: eventId,
+                userId: userId
+            },
+        });
+        return true;
+    } catch (error) {
+        console.error(error)
+        return `error ${error}`;
     }
 }
 //optimizacion del codigo

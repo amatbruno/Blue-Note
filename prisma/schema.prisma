@@ -34,7 +34,7 @@ model codigoActivacion {
   activationCode String    @unique
   type           CODE_TYPE
   usesLeft       Int
-  rope          CODE_ROL
+  rope           CODE_ROL
 }
 
 //USUARIOS
@@ -79,11 +79,11 @@ model contactForm {
 }
 
 //FORMACIONES
-model lineup {
-  id          Int           @id @default(autoincrement())
-  description String
-  LineupUsers LineupUsers[]
-}
+// model lineup {
+//   id          Int           @id @default(autoincrement())
+//   description String
+//   LineupUsers LineupUsers[]
+// }
 
 //FORMACION USERS
 model LineupUsers {
@@ -91,20 +91,19 @@ model LineupUsers {
   eventId       Int
   user          User         @relation(fields: [userId], references: [id])
   userId        Int
-  lineup        lineup       @relation(fields: [lineupId], references: [id])
-  lineupId      Int
   contactForm   contactForm? @relation(fields: [contactFormId], references: [id])
   contactFormId Int?
 
-  @@id([eventId, userId, lineupId])
+  @@id([eventId, userId])
 }
 
 //ASISTENCIAS
 model Assists {
-  event   events @relation(fields: [eventId], references: [event_id])
-  eventId Int
-  user    User   @relation(fields: [userId], references: [id])
-  userId  Int
+  event     events   @relation(fields: [eventId], references: [event_id])
+  eventId   Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
   dateEvent DateTime
+
   @@id([eventId, userId])
 }
