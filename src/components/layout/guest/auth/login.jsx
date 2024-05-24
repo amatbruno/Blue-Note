@@ -13,33 +13,33 @@ export default function Register({
 
     return (
         <div className="flex items-center justify-center h-screen" id="closelogin">
-            <article id="login" className="z-10 bg-black border border-white bg-opacity-65 rounded-lg p-6">
+            <article id="login" className="z-10 bg-black border border-white bg-opacity-65 rounded-lg py-20 px-10 w-[500px]">
+                <h1 className="text-white mb-9 text-center text-3xl font-semibold">Acceso Miembros</h1>
                 <form action={dispatch}>
-                    {state && <p className="text-red-600 text-xl text-center mb-4">* {state}</p>}
+                    {state && <p className="text-red-600 text-xl flex flex-col justify-start mb-4">* {state}</p>}
 
-                    <div className="mb-4 ml-10">
-                        <label htmlFor="email" className="block text-white mr-16 text-3xl mb-4">Correo electronico</label>
+                    <div className="mb-7">
+                        <label htmlFor="email" className="block text-white mr-16 text-xl mb-2">Correo electrónico:</label>
                         <Input
-                            placeholder="Email"
+                            placeholder="Tu correo aquí"
                             value={email}
                             name="email"
                             type="email"
-                            className="text-red-500"
                         />
                     </div>
 
-                    <div className="mb-3 ml-10">
-                        <label htmlFor="password" className="block text-white text-3xl mb-4 ml-7">Contraseña</label>
+                    <div className="mb-4">
+                        <label htmlFor="password" className="block text-white text-xl mb-2">Contraseña:</label>
                         <Input
-                            placeholder="Password"
+                            placeholder="Tu contraseña aquí"
                             value={password}
                             name="password"
                             type="password"
                         />
                     </div>
-                    <div className="flex mb-4">
+                    <div className="flex mb-8">
                         <Link href="updatePassword">
-                            <p className="text-xl mt-4 ml-8 text-customYellow mr-1 hover:text-customOrange cursor-pointer hover:underline transition-colors duration-300 ease-in-out">
+                            <p className="text-md underline mt-4 text-customYellow mr-1 hover:text-customOrange cursor-pointer transition-colors duration-200 ease-in-out">
                                 ¿Has olvidado la contraseña?
                             </p>
                         </Link>
@@ -47,9 +47,9 @@ export default function Register({
                     <div className="flex justify-center">
                         <button
                             type="submit"
-                            className="font-bold py-2 px-4 rounded"
+                            className="font-medium py-2 px-4 w-full rounded-lg text-white text-md bg-[#b84000] hover:bg-[#b84000c5] transition-all duration-200 ease-in-out"
                         >
-                            <p className="text-white text-2xl mr-8 font-bold">Iniciar sesión</p>
+                            Iniciar sesión
                         </button>
                     </div>
                 </form>

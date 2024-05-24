@@ -60,7 +60,7 @@ export default function Home() {
                     </div>
                 </div>
             )}
-            <img src="/images/homepage.jpg" draggable="false" className="bckg_img hidden_in_mobile" />
+            <img src="/images/homepageRetocada.jpg" draggable="false" className="bckg_img hidden_in_mobile" />
 
             <div id="bckg_phone" className={`bckg_img2 ${navBarPhone ? 'shown' : 'hiddenbar'}`} >
             {/* BARRA PARA EL MOVIL */}
@@ -87,7 +87,7 @@ export default function Home() {
                     </div>
                     <div className='bar_burger' ref={navBarRef}>
                         {!user ? (
-                            <h1 onClick={toggleLogin} className="login_phone z-10">Login</h1>
+                            <h1 onClick={toggleLogin} className="login_phone z-10">Acceso Miembros</h1>
                         ) : (
                             <Link href={`/${user.type.toLowerCase()}`} className='z-10'>
                                 <h1 className="login_phone">Portal</h1>
@@ -115,11 +115,11 @@ export default function Home() {
                 <div className="flex flex-end mr-16 mt-2">
                     {!user ? (
                         <button onClick={toggleLogin} className="z-10">
-                            <h1 className="text-white m-12 mr-1 font-bold text-lg cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Login</h1>
+                            <h1 className="text-white m-12 mr-1 font-bold text-lg cursor-pointer rounded-lg px-6 py-1 border-2 hover:bg-white hover:text-black  transition-colors duration-300 ease-in-out">Acceso Miembros</h1>
                         </button>
                     ) : (
                         <Link href={`/${user.type.toLowerCase()}`} className='z-10'>
-                            <h1 className="text-white m-12 mr-1 font-bold text-lg cursor-pointer hover:underline transition-colors duration-300 ease-in-out">Mi coro</h1>
+                            <h1 className="text-white m-12 mr-1 font-bold text-lg cursor-pointer rounded-lg px-6 py-1 border-2 hover:bg-white hover:text-black transition-colors duration-300 ease-in-out">Mi coro</h1>
                         </Link>
                     )}
                 </div>

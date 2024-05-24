@@ -745,7 +745,7 @@
     }
 
     .bckg_filters_logins {
-        background-color: rgb(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.849);
         filter: blur();
     }
 }
