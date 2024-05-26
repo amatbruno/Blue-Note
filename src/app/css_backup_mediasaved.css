@@ -1,0 +1,615 @@
+/* IPHONE SE */
+@media (min-width:340px) and (min-height:640px) {
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/imagen.png');
+        background-position: 640px;
+        background-size: 1000px;
+    }
+
+
+
+    @keyframes swap {
+        0% {
+            height: 0px;
+            width: 50px;
+            border-bottom: 0px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+
+        100% {
+            height: calc(10vw);
+            width: 120px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+    }
+
+    @keyframes swap2 {
+        0% {
+            height: calc(10vw);
+            width: 120px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+
+        100% {
+            height: 0px;
+            width: 50px;
+            border-bottom: 0px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+    }
+
+    @keyframes swap3 {
+        0% {
+            height: 0px;
+            width: 100px;
+            border: 0px solid white;
+            border-bottom: 0px solid white;
+            opacity: 0;
+        }
+
+        1% {
+            border-radius: 0px;
+        }
+
+        100% {
+            height: calc(10vw);
+            width: 140px;
+            border: 0px solid white;
+            border-bottom: px solid white;
+            opacity: 1;
+        }
+    }
+}
+
+/* IPHONE XR */
+@media (min-width:390px) and (min-height:870px) {
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_phone.png');
+        background-position: 1215px -410px;
+        background-size: 2000px;
+    }
+
+    .bar_burger h1 {
+        @apply text-lg;
+    }
+
+}
+
+/* IPHONE 12 PRO*/
+@media (min-width:360px) and (min-height:810px) {
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_phone.png');
+        background-position: 1150px -390px;
+        background-size: 1900px;
+    }
+
+    .bar_burger h1 {
+        @apply text-lg;
+    }
+
+}
+
+/* IPHONE 14 PRO MAX*/
+@media (min-width:400px) and (min-height:900px) {
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_phone.png');
+        background-position: 1270px -450px;
+        background-size: 2100px;
+    }
+
+    .bar_burger h1 {
+        @apply text-lg;
+    }
+
+}
+
+/* PIXEL 7*/
+@media (min-width:390px) and (min-height:990px) {
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_phone.png');
+        background-position: 1214px -400px;
+        background-size: 2000px;
+    }
+
+    .bar_burger h1 {
+        @apply text-lg;
+    }
+
+}
+
+/* SAMSUNG GALAXY S8+ */
+@media (min-width:330px) and (min-height:710px) {
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_phone.png');
+        background-position: 1040px -355px;
+        background-size: 1700px;
+    }
+
+    .bar_burger h1 {
+        @apply text-lg;
+    }
+}
+
+/* IPAD MINI*/
+@media (min-width:730px) and (min-height:990px) {
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_tablet.png');
+        background-position: 1200px -400px;
+        background-size: 2000px;
+    }
+
+
+
+    #icons_div {
+        @apply text-5xl;
+    }
+
+    .bar_burger {
+        border: 3px solid white;
+        width: 70px;
+    }
+
+    .bar_burger h1 {
+        @apply text-2xl text-center mt-[10px];
+    }
+
+    @keyframes swap {
+        0% {
+            height: 0px;
+            width: 90px;
+            border-bottom: 0px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+
+        100% {
+            height: calc(8vw);
+            width: 190px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+    }
+
+    @keyframes swap2 {
+        0% {
+            height: calc(8vw);
+            width: 190px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+
+        100% {
+            height: 0px;
+            width: 90px;
+            border-bottom: 0px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+    }
+
+    @keyframes swap3 {
+        0% {
+            height: 0px;
+            width: 190px;
+            border: 0px solid white;
+            border-bottom: 0px solid white;
+            opacity: 0;
+        }
+
+        1% {
+            border-radius: 0px;
+        }
+
+        100% {
+            height: calc(8vw);
+            width: 90px;
+            border: 0px solid white;
+            border-bottom: px solid white;
+            opacity: 1;
+        }
+    }
+}
+
+/* IPAD AIR*/
+@media (min-width:790px) and (min-height:1150px) {
+
+    @keyframes swap {
+        0% {
+            height: 0px;
+            width: 90px;
+            border-bottom: 0px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+
+        100% {
+            height: calc(8vw);
+            width: 190px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+    }
+
+    @keyframes swap2 {
+        0% {
+            height: calc(8vw);
+            width: 190px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+
+        100% {
+            height: 0px;
+            width: 90px;
+            border-bottom: 0px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+    }
+
+    @keyframes swap3 {
+        0% {
+            height: 0px;
+            width: 190px;
+            border: 0px solid white;
+            border-bottom: 0px solid white;
+            opacity: 0;
+        }
+
+        1% {
+            border-radius: 0px;
+        }
+
+        100% {
+            height: calc(8vw);
+            width: 90px;
+            border: 0px solid white;
+            border-bottom: px solid white;
+            opacity: 1;
+        }
+    }
+
+    .bar_burger h1 {
+        @apply text-2xl text-center mt-[10px];
+    }
+
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_tablet.png');
+        background-position: 1315px -400px;
+        background-size: 2200px;
+    }
+
+    #icons_div {
+        @apply text-5xl;
+    }
+
+    .bar_burger {
+        border: 3px solid white;
+        width: 70px;
+    }
+
+
+}
+
+/* SURFACE PRO 7 */
+@media (min-width:1000px) and (min-height:1330px) {
+
+    @keyframes swap {
+        0% {
+            height: 0px;
+            width: 120px;
+            border-bottom: 0px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+
+        100% {
+            height: calc(8vw);
+            width: 220px;
+            border-bottom: 6px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+    }
+
+    @keyframes swap2 {
+        0% {
+            height: calc(8vw);
+            width: 220px;
+            border-bottom: 6px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+
+        100% {
+            height: 0px;
+            width: 120px;
+            border-bottom: 0px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+    }
+
+    @keyframes swap3 {
+        0% {
+            height: 0px;
+            width: 220px;
+            border: 0px solid white;
+            border-bottom: 0px solid white;
+            opacity: 0;
+        }
+
+        1% {
+            border-radius: 0px;
+        }
+
+        100% {
+            height: calc(8vw);
+            width: 120px;
+            border: 0px solid white;
+            border-bottom: px solid white;
+            opacity: 1;
+        }
+    }
+
+    .bar_burger h1 {
+        @apply text-3xl text-center mt-[10px];
+    }
+
+    .navbar_phone div {
+        border: 6px solid white;
+        @apply mt-2;
+    }
+
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_tablet.png');
+        background-position: 1580px -500px;
+        background-size: 2600px;
+    }
+
+    #icons_div {
+        @apply text-5xl;
+    }
+
+    .bar_burger {
+        border: 3px solid white;
+        width: 70px;
+    }
+}
+
+/* SURFACE DUO */
+@media (min-width:890px) and (min-height:1330px) {
+
+    @keyframes swap {
+        0% {
+            height: 0px;
+            width: 120px;
+            border-bottom: 0px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+
+        100% {
+            height: calc(8vw);
+            width: 250px;
+            border-bottom: 6px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+    }
+
+    @keyframes swap2 {
+        0% {
+            height: calc(8vw);
+            width: 250px;
+            border-bottom: 6px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+
+        100% {
+            height: 0px;
+            width: 120px;
+            border-bottom: 0px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+    }
+
+    @keyframes swap3 {
+        0% {
+            height: 0px;
+            width: 250px;
+            border: 0px solid white;
+            border-bottom: 0px solid white;
+            opacity: 0;
+        }
+
+        1% {
+            border-radius: 0px;
+        }
+
+        100% {
+            height: calc(8vw);
+            width: 120px;
+            border: 0px solid white;
+            border-bottom: px solid white;
+            opacity: 1;
+        }
+    }
+
+    .bar_burger h1 {
+        @apply text-3xl text-center mt-[10px];
+    }
+
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_tablet.png');
+        background-position: 1520px -500px;
+        background-size: 2600px;
+    }
+
+    #icons_div {
+        @apply text-5xl;
+    }
+
+    .bar_burger {
+        border: 3px solid white;
+        width: 70px;
+    }
+
+    .navbar_phone div {
+        border: 6px solid white;
+        @apply mt-2;
+    }
+}
+
+/* GALAXY FOLD */
+@media (min-width:510px) and (min-height:690px) {
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_phone.png');
+        background-position: 1050px -320px;
+        background-size: 1550px;
+    }
+
+    .bar_burger h1 {
+        @apply text-lg text-center;
+    }
+}
+
+/* ASUS ZENBOOK FOLD */
+@media (min-width:250px) and (min-height:620px) {
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_phone.png');
+        background-position: 790px -220px;
+        background-size: 1300px;
+    }
+
+
+
+    #icons_div {
+        @apply ml-[80px] text-3xl;
+    }
+}
+
+/* SAMSUNG GALAXY A51/71*/
+@media (min-width:820px) and (min-height:1250px) {
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_tablet.png');
+        background-position: 1370px -400px;
+        background-size: 2400px;
+    }
+
+
+
+    #icons_div {
+        @apply text-5xl;
+    }
+
+    .bar_burger {
+        border: 3px solid white;
+        width: 70px;
+    }
+
+    .navbar_phone {
+        @apply mt-12 ml-12;
+    }
+}
+
+/* NEST HUB */
+@media (min-width:390px) and (min-height:890px) {
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_phone.png');
+        background-position: 1200px -400px;
+        background-size: 2000px;
+    }
+
+    .bar_burger h1 {
+        @apply text-lg;
+    }
+}
+
+/* NEST HUB MAX  */
+@media (min-width:990px) and (min-height:570px) {
+    @keyframes swap {
+        0% {
+            height: 0px;
+            width: 100px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+
+        1% {
+            border-radius: 0px;
+        }
+
+        100% {
+            height: calc(5vw);
+            width: 140px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+    }
+
+    @keyframes swap2 {
+        0% {
+            height: calc(5vw);
+            width: 140px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+
+        99% {
+            border-radius: 20px;
+        }
+
+        100% {
+            height: 0px;
+            width: 100px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+    }
+
+    @keyframes swap3 {
+        0% {
+            height: 0px;
+            width: 100px;
+            border: 0px solid white;
+            border-bottom: 3px solid white;
+            opacity: 0;
+        }
+
+        1% {
+            border-radius: 0px;
+        }
+
+        100% {
+            height: calc(5vw);
+            width: 140px;
+            border: 0px solid white;
+            border-bottom: 0px solid white;
+            opacity: 1;
+        }
+    }
+
+    .hidden_in_nest {
+        display: none;
+    }
+
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_nest.png');
+        background-position: 1550px -375px;
+        background-size: 2000px;
+    }
+
+
+    .bar_burger h1 {
+        @apply text-lg;
+    }
+
+}

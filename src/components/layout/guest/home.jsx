@@ -63,7 +63,7 @@ export default function Home() {
             <img src="/images/homepage.jpg" draggable="false" className="bckg_img hidden_in_mobile" />
 
             <div id="bckg_phone" className={`bckg_img2 ${navBarPhone ? 'shown' : 'hiddenbar'}`} >
-            {/* BARRA PARA EL MOVIL */}
+                {/* BARRA PARA EL MOVIL */}
                 <div className={` w-[50px] mt-4 ml-5 navbar_phone hidden_in_pc`} onClick={handleNavBarPhone}>
                     <div className='bar_burger' ref={navBarRef}>
                         <Link href="/aboutus" className='z-10'>
