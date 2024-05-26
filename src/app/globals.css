@@ -746,7 +746,7 @@
 }
 
 /* IPHONE SE */
-@media (width:375px) and (height:667px) {
+@media (min-width:340px) and (min-height:640px) and (max-width:400px) and (max-height:700px) {
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/imagen.png');
@@ -812,7 +812,7 @@
 }
 
 /* IPHONE XR */
-@media (width:414px) and (height:896px) {
+@media (min-width:390px) and (min-height:870px) and (max-width:420px) and (max-height:930px) {
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/bckg_phone.png');
@@ -827,7 +827,7 @@
 }
 
 /* IPHONE 12 PRO*/
-@media (width:390px) and (height:844px) {
+@media (min-width:360px) and (min-height:810px) and (max-width:420px) and (max-height:870px) {
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/bckg_phone.png');
@@ -842,7 +842,7 @@
 }
 
 /* IPHONE 14 PRO MAX*/
-@media (width:430px) and (height:932px) {
+@media (min-width:400px) and (min-height:900px) and (max-width:460px) and (max-height:960px) {
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/bckg_phone.png');
@@ -857,7 +857,7 @@
 }
 
 /* PIXEL 7*/
-@media (width:412px) and (height:915px) {
+@media (min-width:390px) and (min-height:990px) and (max-width:450px) and (max-height:950px) {
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/bckg_phone.png');
@@ -872,7 +872,7 @@
 }
 
 /* SAMSUNG GALAXY S8+ */
-@media (width:360px) and (height:740px) {
+@media (min-width:330px) and (min-height:710px) and (max-width:390px) and (max-height:770px) {
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/bckg_phone.png');
@@ -886,7 +886,7 @@
 }
 
 /* IPAD MINI*/
-@media (width:768px) and (height:1024px) {
+@media (min-width:730px) and (min-height:990px) and (max-width:890px) and (max-height:1050px) {
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/bckg_tablet.png');
@@ -965,7 +965,7 @@
 }
 
 /* IPAD AIR*/
-@media (width:820px) and (height:1180px) {
+@media (min-width:790px) and (min-height:1150px) and (max-width:850px) and (max-height:1210px) {
 
     @keyframes swap {
         0% {
@@ -1045,7 +1045,7 @@
 }
 
 /* SURFACE PRO 7 */
-@media (width:1024px) and (height:1366px) {
+@media (min-width:1000px) and (min-height:1330px) and (max-width:1060px) and (max-height:1390px) {
 
     @keyframes swap {
         0% {
@@ -1128,7 +1128,7 @@
 }
 
 /* SURFACE DUO */
-@media (width:912px) and (height:1368px) {
+@media (min-width:890px) and (min-height:1330px) and (max-width:950px) and (max-height:1390px) {
 
     @keyframes swap {
         0% {
@@ -1211,7 +1211,7 @@
 }
 
 /* GALAXY FOLD */
-@media (width:540px) and (height:720px) {
+@media (min-width:510px) and (min-height:690px) and (max-width:570px) and (max-height:750px) {
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/bckg_phone.png');
@@ -1225,7 +1225,7 @@
 }
 
 /* ASUS ZENBOOK FOLD */
-@media (width:280PX) and (height:653px) {
+@media (min-width:250px) and (min-height:620px) and (max-width:310px) and (max-height:680px) {
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/bckg_phone.png');
@@ -1241,7 +1241,7 @@
 }
 
 /* SAMSUNG GALAXY A51/71*/
-@media (width:853px) and (height:1280px) {
+@media (min-width:820px) and (min-height:1250px) and (max-width:880px) and (max-height:1310px) {
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/bckg_tablet.png');
@@ -1266,7 +1266,7 @@
 }
 
 /* NEST HUB */
-@media (width:412px) and (height:914px) {
+@media (min-width:390px) and (min-height:890px) and (max-width:450px) and (max-height:950px) {
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/bckg_phone.png');
@@ -1280,7 +1280,7 @@
 }
 
 /* NEST HUB MAX  */
-@media (width:1024px) and (height:600px) {
+@media (min-width:990px) and (min-height:570px) and(max-width:1050px) and (max-height:630px) {
     @keyframes swap {
         0% {
             height: 0px;
