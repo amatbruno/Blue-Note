@@ -3,23 +3,126 @@
 @tailwind utilities;
 
 
-.bar_burger {
-    width: 30px;
-    border-radius: 20px;
-
-}
-
-.parallax1 {
-    background-image: url("/images/aboutusparallax1.jpg");
+.parallax {
     min-height: 300px;
     background-attachment: fixed;
-    background-position: 0 -550px;
+    background-position: 0 -50px;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 /* GENERAL PHONE */
 @media (max-width: 1024px) {
+
+    @keyframes swap {
+        0% {
+            height: 0px;
+            width: 100px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+
+        1% {
+            border-radius: 0px;
+        }
+
+        100% {
+            height: calc(10vw);
+            width: 140px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+    }
+
+    @keyframes swap2 {
+        0% {
+            height: calc(10vw);
+            width: 140px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0.5);
+        }
+
+        99% {
+            border-radius: 20px;
+        }
+
+        100% {
+            height: 0px;
+            width: 100px;
+            border-bottom: 3px solid white;
+            background-color: rgb(0, 0, 0, 0);
+        }
+    }
+
+    @keyframes swap3 {
+        0% {
+            height: 0px;
+            width: 100px;
+            border: 0px solid white;
+            border-bottom: 3px solid white;
+            opacity: 0;
+        }
+
+        1% {
+            border-radius: 0px;
+        }
+
+        100% {
+            height: calc(10vw);
+            width: 140px;
+            border: 0px solid white;
+            border-bottom: 0px solid white;
+            opacity: 1;
+        }
+    }
+
+    .bckg_img2 {
+        @apply absolute z-0 h-full w-full object-cover;
+        background-image: url('/images/bckg_phone.png');
+        background-position: 960px -175px;
+        background-size: 1520px;
+    }
+
+
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .bar_burger {
+        width: 30px;
+        border-radius: 20px;
+    }
+
+
+    .shown div div {
+        animation: swap3 1s;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .shown div div h1 {
+        animation: swap 1s;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .hiddenbar div div h1 {
+        animation: swap2 1s;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        display: none;
+    }
+
+    .hiddenbar div div {
+        animation: swap2 1s;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
     .hidden_in_mobile {
         display: none;
     }
@@ -37,6 +140,22 @@
 
     #icons_div {
         @apply text-3xl;
+    }
+
+    .login_phone {
+        @apply text-sm font-bold hover:text-customYellow cursor-pointer hover:underline transition-colors duration-300 ease-in-out;
+    }
+
+    .navBar_text_red {
+        @apply home-text-event font-bold text-sm hover:text-customRed cursor-pointer hover:underline transition-colors duration-300 ease-in-out;
+    }
+
+    .navBar_text_yellow {
+        @apply home-text-event font-bold text-sm hover:text-customYellow cursor-pointer hover:underline transition-colors duration-300 ease-in-out;
+    }
+
+    .navBar_text_orange {
+        @apply home-text-event font-bold text-sm hover:text-customOrange cursor-pointer hover:underline transition-colors duration-300 ease-in-out;
     }
 }
 
@@ -595,7 +714,7 @@
     .divisor_paralax1 {
         height: 3px;
         margin: 0 auto;
-        background-color: black;
+        background-color: rgb(0, 0, 0, 0.7);
         width: 25%;
         margin-top: 50px;
     }
@@ -633,280 +752,3 @@
         filter: blur();
     }
 }
-
-/* IPHONE SE */
-@media (width:375px) and (height:667px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/imagen.png');
-        background-position: 640px;
-        background-size: 1000px;
-    }
-
-    body {
-        background-color: green;
-    }
-}
-
-/* IPHONE XR */
-@media (width:414px) and (height:896px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_phone.png');
-        background-position: 1215px -410px;
-        background-size: 2000px;
-    }
-
-    body {
-        background-color: green;
-    }
-}
-
-/* IPHONE 12 PRO*/
-@media (width:390px) and (height:844px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_phone.png');
-        background-position: 1150px -390px;
-        background-size: 1900px;
-    }
-
-    body {
-        background-color: green;
-    }
-}
-
-/* IPHONE 14 PRO MAX*/
-@media (width:430px) and (height:932px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_phone.png');
-        background-position: 1270px -450px;
-        background-size: 2100px;
-    }
-
-    body {
-        background-color: green;
-    }
-}
-
-/* PIXEL 7*/
-@media (width:412px) and (height:915px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_phone.png');
-        background-position: 1214px -400px;
-        background-size: 2000px;
-    }
-
-    body {
-        background-color: green;
-    }
-}
-
-/* SAMSUNG GALAXY S8+ */
-@media (width:360px) and (height:740px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_phone.png');
-        background-position: 1040px -355px;
-        background-size: 1700px;
-    }
-
-    body {
-        background-color: green;
-    }
-}
-
-/* SAMSUNG GALAXY S20 ULTRA*/
-@media (width:768px) and (height:1024px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_tablet.png');
-        background-position: 1200px -400px;
-        background-size: 2000px;
-    }
-
-    body {
-        background-color: green;
-    }
-
-    #icons_div {
-        @apply text-5xl;
-    }
-
-    .bar_burger {
-        border: 3px solid white;
-        width: 70px;
-
-    }
-}
-
-/* IPAD MINI*/
-@media (width:820px) and (height:1180px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_tablet.png');
-        background-position: 1315px -400px;
-        background-size: 2200px;
-    }
-
-    body {
-        background-color: green;
-    }
-
-    #icons_div {
-        @apply text-5xl;
-    }
-
-    .bar_burger {
-        border: 3px solid white;
-        width: 70px;
-
-    }
-}
-
-/* IPAD AIR*/
-@media (width:1024px) and (height:1366px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_tablet.png');
-        background-position: 1580px -500px;
-        background-size: 2600px;
-    }
-
-    body {
-        background-color: green;
-    }
-
-    #icons_div {
-        @apply text-5xl;
-    }
-
-    .bar_burger {
-        border: 3px solid white;
-        width: 70px;
-
-    }
-}
-
-/* SURFACE PRO 7 */
-@media (width:912px) and (height:1368px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_tablet.png');
-        background-position: 1520px -500px;
-        background-size: 2600px;
-    }
-
-    body {
-        background-color: green;
-    }
-
-    #icons_div {
-        @apply text-5xl;
-    }
-
-    .bar_burger {
-        border: 3px solid white;
-        width: 70px;
-
-    }
-}
-
-/* SURFACE DUO */
-@media (width:540px) and (height:720px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_phone.png');
-        background-position: 1050px -320px;
-        background-size: 1550px;
-    }
-
-    body {
-        background-color: green;
-    }
-}
-
-/* GALAXY FOLD */
-@media (width:280PX) and (height:653px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_phone.png');
-        background-position: 790px -220px;
-        background-size: 1300px;
-    }
-
-    body {
-        background-color: green;
-    }
-
-    #icons_div {
-        @apply ml-[80px] text-3xl;
-    }
-}
-
-/* ASUS ZENBOOK FOLD */
-@media (width:853px) and (height:1280px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_tablet.png');
-        background-position: 1370px -400px;
-        background-size: 2400px;
-    }
-
-    body {
-        background-color: green;
-    }
-
-    #icons_div {
-        @apply text-5xl;
-    }
-
-    .bar_burger {
-        border: 3px solid white;
-        width: 70px;
-    }
-
-    .navbar_phone {
-        @apply mt-12 ml-12;
-    }
-}
-
-/* SAMSUNG GALAXY A51/71*/
-@media (width:412px) and (height:914px) {
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_phone.png');
-        background-position: 1200px -400px;
-        background-size: 2000px;
-    }
-
-    body {
-        background-color: green;
-    }
-}
-
-/* NEST HUB */
-@media (width:1024px) and (height:600px) {
-    .hidden_in_nest {
-        display: none;
-    }
-
-    .nav_bar_nest {
-        @apply flex justify-between ml-80 hidden_in_mobile
-    }
-
-    .bckg_img2 {
-        @apply absolute z-0 h-full w-full object-cover;
-        background-image: url('/images/bckg_nest.png');
-        background-position: 1550px -375px;
-        background-size: 2000px;
-    }
-
-    body {
-        background-color: green;
-    }
-}
-
-/* NEST HUB MAX  */

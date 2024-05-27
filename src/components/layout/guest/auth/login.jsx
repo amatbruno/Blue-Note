@@ -1,9 +1,9 @@
 "use client"
 
 import Input from "@/components/ui/input";
-import { useFormState } from "react-dom";
 import { loginForm } from "@/lib/data";
 import Link from "next/link";
+import { useFormState } from "react-dom";
 
 export default function Register({
     email,
@@ -12,8 +12,8 @@ export default function Register({
     const [state, dispatch] = useFormState(loginForm, undefined);
 
     return (
-        <div className="flex items-center justify-center h-screen">
-            <article className="z-10 bg-black border border-white bg-opacity-65 rounded-lg p-6">
+        <div className="flex items-center justify-center h-screen" id="closelogin">
+            <article id="login" className="z-10 bg-black border border-white bg-opacity-65 rounded-lg p-6">
                 <form action={dispatch}>
                     {state && <p className="text-red-600 text-xl text-center mb-4">* {state}</p>}
 
