@@ -577,9 +577,9 @@ export async function GetAllJoinEvents() {
 
 export async function insertUserLineup(data) {
     try {
-        const eventId = parseInt(data.eventId);
-        const userId = parseInt(data.userId);
-        const lineupId = parseInt(data.lineupId);
+        const eventId = parseInt(data.get("eventId"));
+        const userId = parseInt(data.get("userId"));
+        const lineupId = parseInt(data.get('lineupId'));
 
         await prisma.lineupUsers.create({
             data: {

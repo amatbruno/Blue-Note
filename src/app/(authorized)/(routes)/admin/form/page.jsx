@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { getAllEvents, getAllUsers, insertUserLineup } from '@/lib/data';
 import Draggable from '@/components/layout/admin/positions/Draggable';
@@ -41,6 +43,8 @@ export default function Page() {
                 ...prevItems,
                 [index]: voiceName
             }));
+
+            console.log('Inserting lineup:', { eventId: 1, userId: voice.id });
 
             try {
                 const success = await insertUserLineup({
