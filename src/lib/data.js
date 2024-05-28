@@ -381,7 +381,7 @@ export async function settingsUser(prevState, data, res) {
             data: {
                 email: email !== "" ? email : user.email,
                 password: password !== "" ? hashedPassword : user.password,
-                photo: photoPath !== null ? photoPath : user.photo 
+                photo: photoPath !== null ? photoPath : user.photo
             }
         });
 
@@ -572,6 +572,27 @@ export async function GetAllJoinEvents() {
         return assists;
     } catch (error) {
         return "Error al cargar usuarios";
+    }
+}
+
+export async function insertUserLineup(data) {
+    try {
+        const eventId = parseInt(data.eventId);
+        const userId = parseInt(data.userId);
+        const lineupId = parseInt(data.lineupId);
+
+        await prisma.lineupUsers.create({
+            data: {
+                eventId: eventId,
+                userId: userId,
+                lineupId: lineupId,
+            },
+        });
+        return true;
+
+    } catch (error) {
+        console.error(error)
+        return `error ${error}`;
     }
 }
 //optimizacion del codigo
