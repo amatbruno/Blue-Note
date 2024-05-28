@@ -69,30 +69,29 @@ model events {
 
 //CONTACT FORM
 model contactForm {
-  id          Int           @id @default(autoincrement())
+  id          Int    @id @default(autoincrement())
   proposal    String
   title       String
   description String
   email       String
   phone       Int
-  LineupUsers LineupUsers[]
 }
 
 //FORMACIONES
-// model lineup {
-//   id          Int           @id @default(autoincrement())
-//   description String
-//   LineupUsers LineupUsers[]
-// }
+model lineup {
+  id          Int           @id @default(autoincrement())
+  description String
+  LineupUsers LineupUsers[]
+}
 
 //FORMACION USERS
 model LineupUsers {
-  event         events       @relation(fields: [eventId], references: [event_id])
-  eventId       Int
-  user          User         @relation(fields: [userId], references: [id])
-  userId        Int
-  contactForm   contactForm? @relation(fields: [contactFormId], references: [id])
-  contactFormId Int?
+  event    events  @relation(fields: [eventId], references: [event_id])
+  eventId  Int
+  user     User    @relation(fields: [userId], references: [id])
+  userId   Int
+  lineup   lineup? @relation(fields: [lineupId], references: [id])
+  lineupId Int?
 
   @@id([eventId, userId])
 }

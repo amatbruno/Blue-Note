@@ -46,9 +46,9 @@ export default function Page() {
 
             try {
                 const success = await insertUserLineup({
-                    eventId: 5, // Reemplazar con el ID del evento correspondiente
+                    eventId: 5,
                     userId: voice.id,
-                    lineupId: 1 // Reemplazar con el ID de la formación correspondiente
+                    lineupId: 1
                 });
 
                 if (success) {

@@ -577,11 +577,13 @@ export async function insertUserLineup(data) {
     try {
         const eventId = parseInt(data.eventId);
         const userId = parseInt(data.userId);
+        const lineupId = parseInt(data.lineupId);
 
         await prisma.lineupUsers.create({
             data: {
                 eventId: eventId,
-                userId: userId
+                userId: userId,
+                lineupId: lineupId
             },
         });
         return true;
