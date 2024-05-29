@@ -1,5 +1,6 @@
 import Carousel from '@/components/ui/carousel';
 import NavBar from '@/components/ui/nav-bar';
+import NavBarPhone from '@/components/ui/nav-bar_phone';
 
 export default async function Gallery() {
     let color = "Yellow"
@@ -24,7 +25,12 @@ export default async function Gallery() {
 
     return (
         <main className=" h-screen overflow-x-hidden">
-            <NavBar color={color} />
+            <div className="hidden_in_mobile">
+                <NavBar color={color} />
+            </div>
+            <div className="hidden_in_pc">
+                <NavBarPhone color={color} />
+            </div>
             <div className='parallax' style={{ backgroundImage: "url('/images/aboutusparallax2.jpg')" }} />
             <div className="w-full">
                 <div className='aboutus_text columns-2'>

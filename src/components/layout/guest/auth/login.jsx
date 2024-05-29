@@ -18,7 +18,7 @@ export default function Register({
                     {state && <p className="text-red-600 text-xl text-center mb-4">* {state}</p>}
 
                     <div className="mb-4 ml-10">
-                        <label htmlFor="email" className="block text-white mr-16 text-3xl mb-4">Correo electronico</label>
+                        <label htmlFor="email" className="phone-center-login block text-white mr-16 text-3xl mb-4">Correo electronico</label>
                         <Input
                             placeholder="Email"
                             value={email}

@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { getUserSession } from "@/lib/data";
+import Link from 'next/link';
 
 export default async function NavBar({color}) {
     const user = await getUserSession();

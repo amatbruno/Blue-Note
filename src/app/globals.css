@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "Nexa";
+    src: url('/fonts/nexaLight.otf');
+}
+
+h1,
+p,
+a,
+label,
+input {
+    font-family: Nexa;
+
+}
 
 .parallax {
     min-height: 300px;
@@ -11,13 +24,87 @@
     background-size: cover;
 }
 
+.parallax_aboutus_phone {
+    min-height: 200px;
+    z-index: 50;
+    background-attachment: fixed;
+    background-position: -550px -200px;
+    background-repeat: no-repeat;
+    background-size: 1000px;
+}
+
+.section-about {
+    background-color: #1E2126;
+}
+
+.home-text-about,
+.home-text-event,
+.home-text-contact,
+.home-text-shows,
+.home-text-log {
+    color: white;
+}
+
+.home-text-about:focus {
+    color: green;
+}
+
+
+.aboutus_starletter {
+    font-size: 25px;
+    color: #c26700;
+}
+
+.aboutus_text {
+    font-size: 20px;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+}
+
+.aboutus_text2 {
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.aboutus_titletext {
+    font-size: 40px;
+    /*     color: #c26700;
+ */
+    font-weight: 800;
+}
+
+
+.textaboutus_type1 {
+    margin-top: 50px;
+}
+
+.aboutus_titletext2 {
+    font-size: 50px;
+    margin-top: -10px;
+    font-weight: 800;
+}
+
 /* GENERAL PHONE */
 @media (max-width: 1024px) {
+
+    /* height x width */
+    @media(min-width: 600px) {
+        .bar_burger {
+            width: 30px;
+        }
+    }
+
+    .phone-center-login {
+        @apply text-center;
+    }
 
     @keyframes swap {
         0% {
             height: 0px;
-            width: 100px;
+            width: 60px;
             border-bottom: 3px solid white;
             background-color: rgb(0, 0, 0, 0);
         }
@@ -28,7 +115,7 @@
 
         100% {
             height: calc(10vw);
-            width: 140px;
+            width: 90px;
             border-bottom: 3px solid white;
             background-color: rgb(0, 0, 0, 0.5);
         }
@@ -37,7 +124,7 @@
     @keyframes swap2 {
         0% {
             height: calc(10vw);
-            width: 140px;
+            width: 90px;
             border-bottom: 3px solid white;
             background-color: rgb(0, 0, 0, 0.5);
         }
@@ -48,7 +135,7 @@
 
         100% {
             height: 0px;
-            width: 100px;
+            width: 60px;
             border-bottom: 3px solid white;
             background-color: rgb(0, 0, 0, 0);
         }
@@ -57,7 +144,7 @@
     @keyframes swap3 {
         0% {
             height: 0px;
-            width: 100px;
+            width: 60px;
             border: 0px solid white;
             border-bottom: 3px solid white;
             opacity: 0;
@@ -69,17 +156,18 @@
 
         100% {
             height: calc(10vw);
-            width: 140px;
+            width: 90px;
             border: 0px solid white;
             border-bottom: 0px solid white;
             opacity: 1;
         }
     }
 
+
     .bckg_img2 {
         @apply absolute z-0 h-full w-full object-cover;
         background-image: url('/images/bckg_phone.png');
-        background-position: 960px -175px;
+        background-position: 945px -175px;
         background-size: 1520px;
     }
 
@@ -156,6 +244,19 @@
 
     .navBar_text_orange {
         @apply home-text-event font-bold text-sm hover:text-customOrange cursor-pointer hover:underline transition-colors duration-300 ease-in-out;
+    }
+
+    .p-about_us_section {
+        @apply ml-6 text-left w-80;
+    }
+
+
+    .divisor_paralax1 {
+        height: 3px;
+        margin: 0 auto;
+        background-color: rgb(0, 0, 0, 0.7);
+        width: 60%;
+        margin-top: 50px;
     }
 }
 
@@ -653,62 +754,12 @@
         box-sizing: border-box
     }
 
-    @font-face {
-        font-family: "Nexa";
-        src: url('/fonts/nexaLight.otf');
-    }
-
-    h1,
-    p,
-    a,
-    label,
-    input {
-        font-family: Nexa;
-
-    }
-
-    .home-text-about,
-    .home-text-event,
-    .home-text-contact,
-    .home-text-shows,
-    .home-text-log {
-        color: white;
-    }
-
-    .home-text-about:focus {
-        color: green;
-    }
-
     .auth-a-password {
         color: #860012;
     }
 
-
-    .section-about {
-        background-color: #1E2126;
-    }
-
     .logo_navbar {
         filter: invert(1);
-    }
-
-    .aboutus_startext_letter {
-        font-size: 25px;
-        color: #c26700;
-    }
-
-    .aboutus_text {
-        font-size: 20px;
-        margin: 0 auto;
-        display: flex;
-        text-align: center;
-    }
-
-    .aboutus_text2 {
-        font-size: 20px;
-        margin: 0 auto;
-        text-align: center;
-        margin-top: 20px;
     }
 
     .divisor_paralax1 {
@@ -719,36 +770,29 @@
         margin-top: 50px;
     }
 
-    .aboutus_titletext {
-        font-size: 40px;
-        /*     color: #c26700;
-     */
-        font-weight: 800;
-    }
-
     .titletext_container {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .textaboutus_type1 {
-        margin-top: 50px;
-    }
-
-    .textaboutus_type2 {
-        margin-top: 0px;
-        margin: 0 auto;
-    }
-
-    .aboutus_titletext2 {
-        font-size: 50px;
-        margin-top: -10px;
-        font-weight: 800;
-    }
-
     .bckg_filters_logins {
         background-color: rgb(0, 0, 0, 0.5);
         filter: blur();
+    }
+
+    .aboutustext1 {
+        @apply w-1/2 text-center;
+
+    }
+
+    .about_us_text_container {
+        @apply mt-5 text-center;
+    }
+
+    .p-about_us_section {
+        @apply w-1/2 text-center text-left;
+        margin-top: 0px;
+        margin: 0 auto;
     }
 }
