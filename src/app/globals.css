@@ -247,16 +247,7 @@ input {
     }
 
     .p-about_us_section {
-        @apply ml-6 text-left w-80;
-    }
-
-
-    .divisor_paralax1 {
-        height: 3px;
-        margin: 0 auto;
-        background-color: rgb(0, 0, 0, 0.7);
-        width: 60%;
-        margin-top: 50px;
+        @apply text-left ml-6 w-80;
     }
 }
 
@@ -750,39 +741,9 @@ input {
         background: #c26700
     }
 
-[class^=awn-] {
-    box-sizing: border-box
-}
-
-@font-face {
-    font-family: "Nexa";
-    src: url('/fonts/nexaLight.otf');
-}
-
-h1,
-p,
-a,
-label,
-<<<<<<<<< Temporary merge branch 1
-input {
-=========
-input, span {
->>>>>>>>> Temporary merge branch 2
-    font-family: Nexa;
-
-}
-
-.home-text-about,
-.home-text-event,
-.home-text-contact,
-.home-text-shows,
-.home-text-log {
-    color: white;
-}
-
-.home-text-about:focus {
-    color: green;
-}
+    [class^=awn-] {
+        box-sizing: border-box
+    }
 
     .auth-a-password {
         color: #860012;
@@ -806,27 +767,23 @@ input, span {
         align-items: center;
     }
 
-.textaboutus_type1 {    
-    margin-top: 50px;
-}
+    .bckg_filters_logins {
+        background-color: rgb(0, 0, 0, 0.5);
+        filter: blur();
+    }
 
-.textaboutus_type2 {
-    margin-top: 0px;
-    text-align: center;
-    margin: 0 auto;
-}
+    .aboutustext1 {
+        @apply w-1/2 text-center;
 
-.aboutus_titletext2 {
-    font-size: 50px;
-    margin-top: -10px;
-    font-weight: 800;
-}
+    }
 
-.bckg_filters_logins {
-    background-color: rgb(0, 0, 0, 0.5);
-    filter: blur();
-<<<<<<<<< Temporary merge branch 1
+    .about_us_text_container {
+        @apply mt-5 text-center;
+    }
+
+    .p-about_us_section {
+        @apply w-1/2 text-center text-left;
+        margin-top: 0px;
+        margin: 0 auto;
+    }
 }
-=========
-}
->>>>>>>>> Temporary merge branch 2
