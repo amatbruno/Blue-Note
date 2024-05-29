@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Button from "@/components/ui/button";
 import { generateCodeByType } from "@/lib/data";
@@ -30,82 +30,105 @@ export default function CodeCart({
         }
     };
 
-    const handleRemoveEmailClick = () => {
-        setEmails((prevEmails) => {
-            // Retorna todos los correos electrónicos excepto el último
-            return prevEmails.slice(0, -1);
-        });
+    const handleRemoveEmailClick = (index) => {
+        setEmails((prevEmails) => prevEmails.filter((_, i) => i !== index));
     };
 
     return (
-        <article className="border p-5 flex flex-col gap-5 rounded">
-            <form action={dispatch}>
-                <div>
-                    <label>
-                        Seleccionar Rol:
-                        <select value={codeType} name="type" onChange={handleCodeTypeChange}>
-                            <option value="undefined">Undefined</option>
-                            <option value="admin">admin</option>
-                            <option value="singer">singer</option>
-                            <option value="temp">temp</option>
-                        </select>
-                    </label>
-                </div>
-
-                {type === "singer" && (
+        <div className="relative min-h-screen flex items-start justify-center pt-20 bg-gradient">
+            <article className="relative z-10 border p-5 flex flex-col gap-5 rounded shadow-lg bg-white max-w-md mx-auto">
+                <form action={dispatch} className="flex flex-col gap-5">
                     <div>
-                        <label>
-                            Opción de cuerda:
-                            <select value={singerRol} name="singerRol" onChange={() => {}}>
-                                <option value="SOPRANO">SOPRANO</option>
-                                <option value="ALTO">ALTO</option>
-                                <option value="TENOR">TENOR</option>
-                                <option value="BAJO">BAJO</option>
+                        <label className="block mb-2 text-gray-700">
+                            Seleccionar Rol:
+                            <select
+                                value={codeType}
+                                name="type"
+                                onChange={handleCodeTypeChange}
+                                className="block w-full mt-1 p-2 border border-gray-300 rounded"
+                            >
+                                <option value="undefined">Undefined</option>
+                                <option value="admin">Admin</option>
+                                <option value="singer">Singer</option>
+                                <option value="temp">Temp</option>
                             </select>
                         </label>
                     </div>
-                )}
 
-                <div>
-                    <label>
-                        Veces util:
-                        <select value={usesLeft} name="uses">
-                            {[...Array(10).keys()].map((number) => (
-                                <option key={number + 1} value={number + 1}>
-                                    {number + 1}
-                                </option>
-                            ))}
-                        </select>
-                    </label>
-                </div>
-
-                <div>
-                    <label>
-                        Correos electrónicos:
-                        <div className="email-input-container">
-                            {emails.map((email, index) => (
-                                <div key={index} className="email-bubble">
-                                    {email}
-                                    <button type="button" onClick={() => handleRemoveEmailClick(index)}></button>
-                                </div>
-                            ))}
-                            <input
-                                type="text"
-                                value={emailInput}
-                                onChange={handleEmailInputChange}
-                                onKeyDown={handleEmailInputKeyDown}
-                                placeholder="Añadir correos electrónicos"
-                                className="email-input"
-                            />
+                    {type === "singer" && (
+                        <div>
+                            <label className="block mb-2 text-gray-700">
+                                Opción de cuerda:
+                                <select
+                                    value={singerRol}
+                                    name="singerRol"
+                                    onChange={() => {}}
+                                    className="block w-full mt-1 p-2 border border-gray-300 rounded"
+                                >
+                                    <option value="SOPRANO">Soprano</option>
+                                    <option value="ALTO">Alto</option>
+                                    <option value="TENOR">Tenor</option>
+                                    <option value="BAJO">Bajo</option>
+                                </select>
+                            </label>
                         </div>
-                    </label>
-                </div>
+                    )}
 
-                {state && <p className="text-red-500">* {state}</p>}
+                    <div>
+                        <label className="block mb-2 text-gray-700">
+                            Veces util:
+                            <select
+                                value={usesLeft}
+                                name="uses"
+                                className="block w-full mt-1 p-2 border border-gray-300 rounded"
+                            >
+                                {[...Array(10).keys()].map((number) => (
+                                    <option key={number + 1} value={number + 1}>
+                                        {number + 1}
+                                    </option>
+                                ))}
+                            </select>
+                        </label>
+                    </div>
 
-                <Button type="submit">Generar código</Button>
-            </form>
+                    <div>
+                        <label className="block mb-2 text-gray-700">
+                            Correos electrónicos:
+                            <div className="email-input-container mt-1 flex flex-wrap items-center p-2 border border-gray-300 rounded">
+                                {emails.map((email, index) => (
+                                    <div key={index} className="email-bubble mr-2 mb-2 flex items-center bg-gray-200 px-2 py-1 rounded-full">
+                                        {email}
+                                        <button
+                                            type="button"
+                                            onClick={() => handleRemoveEmailClick(index)}
+                                            className="ml-2 text-red-500"
+                                        >
+                                            &times;
+                                        </button>
+                                    </div>
+                                ))}
+                                <input
+                                    type="text"
+                                    value={emailInput}
+                                    onChange={handleEmailInputChange}
+                                    onKeyDown={handleEmailInputKeyDown}
+                                    placeholder="Añadir correos electrónicos"
+                                    className="email-input flex-grow p-1 outline-none border-none"
+                                />
+                            </div>
+                        </label>
+                    </div>
+
+                    {state && <p className="text-red-500">* {state}</p>}
+
+                    <Button type="submit" className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors duration-300">
+                        Generar código
+                    </Button>
+                </form>
+            </article>
+
             <style jsx>{`
+              
                 .email-input-container {
                     display: flex;
                     flex-wrap: wrap;
@@ -122,16 +145,10 @@ export default function CodeCart({
                     padding: 0.2rem 0.5rem;
                 }
                 .email-bubble button {
-                    background: var(--customRed);
-                    color: white;
+                    background: none;
+                    color: red;
                     border: none;
-                    border-radius: 50%;
                     cursor: pointer;
-                    height: 1rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 0;
                 }
                 .email-input {
                     border: none;
@@ -139,6 +156,6 @@ export default function CodeCart({
                     flex-grow: 1;
                 }
             `}</style>
-        </article>
+        </div>
     );
 }

@@ -1,8 +1,10 @@
-import Carousel from '@/components/ui/carousel';
+'use client';
+
+import CustomCarousel from '@/components/ui/Carousel';
 import NavBar from '@/components/ui/nav-bar';
 
-export default async function Gallery() {
-    let color = "Yellow"
+export default function Gallery() {
+    const color = "Yellow";
 
     const itemsRevival = [
         { type: 'image', src: '/images/carousel/LRC/image1.jpg' },
@@ -23,7 +25,7 @@ export default async function Gallery() {
     ];
 
     return (
-        <main className=" h-screen overflow-x-hidden">
+        <main className="h-screen overflow-x-hidden bg-gray-200">
             <NavBar color={color} />
             <div className='parallax' style={{ backgroundImage: "url('/images/aboutusparallax2.jpg')" }} />
             <div className="w-full">
@@ -44,10 +46,10 @@ export default async function Gallery() {
                 </div>
 
                 <div className="flex justify-center items-center mt-20 mb-20">
-                    <Carousel items={itemsRevival} />
+                    <CustomCarousel items={itemsRevival} />
                 </div>
 
-                <hr class="border-black w-96 mx-auto mt-8" />
+                <hr className="border-black w-96 mx-auto mt-8" />
 
                 <div className='aboutus_text columns-2'>
                     <div className='w-1/2 titletext_container'>
@@ -66,9 +68,19 @@ export default async function Gallery() {
                 </div>
 
                 <div className="flex justify-center items-center mt-20 mb-20">
-                    <Carousel items={itemsForward} />
+                    <CustomCarousel items={itemsForward} />
                 </div>
             </div>
+
+            <style jsx>{`
+                .parallax {
+                    background-attachment: fixed;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 400px;
+                }
+            `}</style>
         </main>
-    )
+    );
 }

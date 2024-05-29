@@ -29,8 +29,8 @@ export default function FormContact({
                         required
                     >
                         <option value="colaborar">Tienes alguna causa solidaria</option>
-                        <option value="cantar">¿Quiertes cantar con nosotrso?</option>
-                        <option value="contratar">Contratacion para eventos</option>
+                        <option value="cantar">¿Quieres cantar con nosotros?</option>
+                        <option value="contratar">Contratación para eventos</option>
                         <option value="otros">Otros</option>
                     </select>
                 </div>

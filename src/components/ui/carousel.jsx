@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from 'react';
 
@@ -20,23 +20,23 @@ function Carousel({ items }) {
                     const item = items[index % items.length];
                     if (item.type === 'image') {
                         return (
-                            <img
-                                key={index}
-                                src={item.src}
-                                alt={`Image ${index + 1}`}
-                                className="w-1/3 h-56 m-10 transition-transform transform hover:scale-110 cursor-pointer"
-                            />
+                            <div key={index} className="zoom-container w-1/3 m-10">
+                                <img
+                                    src={item.src}
+                                    alt={`Image ${index + 1}`}
+                                    className="zoom-image w-full h-full object-cover transition-transform transform hover:scale-110 cursor-pointer"
+                                />
+                            </div>
                         );
                     } else if (item.type === 'video') {
                         return (
-                            <div key={index} className="w-1/3 h-56 m-10 transition-transform transform hover:scale-110 cursor-pointer">
-                                <iframe 
-                                    width="100%" 
-                                    height="100%" 
-                                    src={item.src} 
+                            <div key={index} className="zoom-container w-1/3 m-10">
+                                <iframe
+                                    className="zoom-image w-full h-full"
+                                    src={item.src}
                                     title={`Video ${index + 1}`}
-                                    frameBorder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowFullScreen
                                 ></iframe>
                             </div>
@@ -54,6 +54,26 @@ function Carousel({ items }) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
             </button>
+
+            <style jsx>{`
+                .zoom-container {
+                    overflow: hidden;
+                    position: relative;
+                    height: 300px; /* Ajusta la altura según sea necesario */
+                }
+                .zoom-image {
+                    transition: transform 0.5s ease, opacity 0.5s ease;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                .zoom-container:hover .zoom-image {
+                    transform: scale(1.2);
+                }
+                iframe.zoom-image {
+                    height: 100%;
+                }
+            `}</style>
         </div>
     );
 }

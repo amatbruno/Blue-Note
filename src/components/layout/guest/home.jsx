@@ -5,18 +5,19 @@ import Icons from '@/components/ui/icons';
 import { getUserSession } from "@/lib/data";
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import Footer from '@/components/ui/Footer'; // Actualiza la ruta de importación
 
 export default function Home() {
     const [showLogin, setShowLogin] = useState(false);
     const [user, setUser] = useState(null);
     const [navBarPhone, setNavBarPhone] = useState(false);
+    const [showFooter, setShowFooter] = useState(false);
     const loginRef = useRef(null);
-    const navBarRef = useRef(null)
+    const navBarRef = useRef(null);
 
     const toggleLogin = () => {
         setShowLogin(!showLogin);
     };
-
 
     const handleClickOutside = (event) => {
         if (loginRef.current && !loginRef.current.contains(event.target)) {
@@ -33,7 +34,15 @@ export default function Home() {
 
     const handleNavBarPhone = () => {
         setNavBarPhone(!navBarPhone);
-    }
+    };
+
+    const handleScroll = () => {
+        if (window.scrollY > 0) {
+            setShowFooter(true);
+        } else {
+            setShowFooter(false);
+        }
+    };
 
     useEffect(() => {
         async function fetchUserSession() {
@@ -51,8 +60,15 @@ export default function Home() {
         };
     }, []);
 
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <main className="relative overflow-hidden h-screen">
+        <main className="relative overflow-auto min-h-screen">
             {showLogin && (
                 <div className="fixed inset-0 z-50 flex justify-center items-center bckg_filters_logins h-32s">
                     <div ref={loginRef}>
@@ -125,6 +141,8 @@ export default function Home() {
                 </div>
             </div>
             <Icons />
+            <div className="min-h-[800px]"></div> {/* Espacio adicional para permitir el scroll */}
+            {showFooter && <Footer />}
         </main>
     )
 }

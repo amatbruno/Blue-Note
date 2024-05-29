@@ -65,37 +65,16 @@ export default function UserTable() {
     };
 
     return (
-        <main className='flex'>
-            <section className="flex gap-5 mt-20">
-                <article className='border border-black px-10 py-10 h-fit w-fit rounded-xl'>
-                    <h1 className='text-2xl font-semibold text-center'>Panel de filtros</h1>
-
-                    <div className="flex justify-start items-center mt-8 gap-2">
+        <main className='flex flex-col items-center justify-center min-h-screen pt-5'>
+            <section className="flex gap-5 mt-5">
+                <div className='w-full flex justify-center'>
+                    <div className="flex items-center gap-2">
                         <img width="30" src="/images/icons/search.png" alt="" />
                         <input placeholder="Nombre de voz" onChange={handleSearch} value={search} className="border border-gray-600 rounded-md w-[250px] px-1 py-0.5" type="text" />
                     </div>
-
-                    <div className='flex flex-col justify-center gap-3 mt-8'>
-                        <div className="flex justify-start gap-3">
-                            <input type="checkbox" name="soprano" id="soprano" className="w-4" />
-                            <label className="text-lg" htmlFor="soprano">Soprano</label>
-                        </div>
-                        <div className="flex justify-start gap-3">
-                            <input type="checkbox" name="tenor" id="tenor" className="w-4" />
-                            <label className="text-lg" htmlFor="tenor">Tenor</label>
-                        </div>
-                        <div className="flex justify-start gap-3">
-                            <input type="checkbox" name="contralto" id="contralto" className="w-4" />
-                            <label className="text-lg" htmlFor="contralto">Contralto</label>
-                        </div>
-                        <div className="flex justify-start gap-3">
-                            <input type="checkbox" name="bajo" id="bajo" className="w-4" />
-                            <label className="text-lg" htmlFor="bajo">Bajo</label>
-                        </div>
-                    </div>
-                </article>
+                </div>
             </section>
-            <article className="border p-5 flex gap-5 rounded">
+            <article className="border p-5 flex flex-col items-center gap-5 rounded mt-5">
                 {loading ? (
                     <Spinner />
                 ) : (
@@ -105,7 +84,7 @@ export default function UserTable() {
                                 {filteredData.map((user) => (
                                     <tr className='border h-fit w-[150px]' key={user.id}>
                                         <td className='w-[500px]'>
-                                            <img src={user.photo}/>
+                                            <img src={user.photo} />
                                         </td>
                                         <div className='flex flex-col justify-center items-center border h-full py-5'>
                                             <td className="">{user.firstName + ' ' + user.lastName}</td>
@@ -115,7 +94,6 @@ export default function UserTable() {
                                                 <span id='trash' className="mr-2 cursor-pointer" onClick={() => handleDelete(user.id)}>🗑️</span>
                                             </div>
                                         </div>
-
                                     </tr>
                                 ))}
                             </tbody>
