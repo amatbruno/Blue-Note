@@ -18,7 +18,7 @@ export default function Droppable() {
   };
 
   const sendVoiceData = () => {
-    console.log(droppedVoice);
+    //console.log(droppedVoice);
   }
 
   return (

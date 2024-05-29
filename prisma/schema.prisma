@@ -81,7 +81,7 @@ model contactForm {
 //FORMACIONES
 model lineup {
   id          Int           @id @default(autoincrement())
-  description String
+  desc String
   LineupUsers LineupUsers[]
 }
 
