@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useEffect, useState, Suspense } from 'react';
-import { getAllUsers } from '@/lib/data';
 import UserEditTable from '@/components/layout/admin/users/user-edit';
-import { deleteUser } from '@/lib/data';
 import Spinner from '@/components/ui/spinner';
+import { deleteUser, getAllUsers } from '@/lib/data';
 import AWN from 'awesome-notifications';
+import { Suspense, useEffect, useState } from 'react';
 
 const notifier = new AWN();
 
@@ -17,6 +16,18 @@ export default function UserTable() {
     const [selectedUser, setSelectedUser] = useState(null);
     const [loading, setLoading] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
+
+    const fetchData = async () => {
+        try {
+            const usersData = await getAllUsers();
+            setUsers(usersData);
+            setFilteredData(usersData);
+        } catch (error) {
+            console.error('Error fetching users:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const handleSearch = (e) => {
         setSearch(e.target.value);
@@ -34,29 +45,19 @@ export default function UserTable() {
     };
 
     const handleDelete = async (userid) => {
-        deleteUser(userid);
-        await deleteUser();
+        await deleteUser(userid);
         fetchData();
         setShowNotification(true);
     };
 
-    if (showNotification) {
-        notifier.success('Usuario borrado');
-        setShowNotification(false);
-    }
+    useEffect(() => {
+        if (showNotification) {
+            notifier.success('Usuario borrado');
+            setShowNotification(false);
+        }
+    }, [showNotification]);
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const usersData = await getAllUsers();
-                setUsers(usersData);
-                setFilteredData(usersData);
-            } catch (error) {
-                console.error('Error fetching users:', error);
-            } finally {
-                setLoading(false);
-            }
-        }
         fetchData();
     }, []);
 
@@ -86,26 +87,21 @@ export default function UserTable() {
                                         <td className='w-[500px]'>
                                             <img src={user.photo} />
                                         </td>
-                                        <div className='flex flex-col justify-center items-center border h-full py-5'>
-                                            <td className="">{user.firstName + ' ' + user.lastName}</td>
-                                            <td className="">{user.type}</td>
+                                        <td className='flex flex-col justify-center items-center border h-full py-5'>
+                                            <span>{user.firstName + ' ' + user.lastName}</span>
+                                            <span>{user.type}</span>
                                             <div id='opt-container' className='mt-2'>
                                                 <span id='pencil' className="cursor-pointer" onClick={() => handleEdit(user.id)}>✏️</span>
                                                 <span id='trash' className="mr-2 cursor-pointer" onClick={() => handleDelete(user.id)}>🗑️</span>
                                             </div>
-                                        </div>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </Suspense>
                     </table>
                 )}
-                {
-                    edit &&
-                    <Suspense fallback={<Spinner />}>
-                        <UserEditTable selectedUser={selectedUser} onEditSuccess={handleEditSuccess} />
-                    </Suspense>
-                }
+                {edit && <UserEditTable selectedUser={selectedUser} onEditSuccess={handleEditSuccess} />}
             </article >
         </main>
     );

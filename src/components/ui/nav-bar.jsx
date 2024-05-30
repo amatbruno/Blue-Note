@@ -1,16 +1,30 @@
-import Link from 'next/link';
+"use client"
 import { getUserSession } from "@/lib/data";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-export default async function NavBar({ color }) {
-    const user = await getUserSession();
+export default function NavBar({ color }) {
+    const [user, setUser] = useState(null);
 
+    useEffect(() => {
+        async function fetchUserSession() {
+            try {
+                const userData = await getUserSession();
+                setUser(userData);
+            } catch (error) {
+                console.error("Error fetching user session:", error);
+            }
+        }
+
+        fetchUserSession();
+    }, []);
 
     return (
         <div className="flex justify-between h-28 section-about w-screen">
             <div className="flex items-center">
                 <div className="ml-10">
                     <Link href="/" className='z-10'>
-                        <img src="/images/Logo-dorado.png" draggable="false" className="w-32 left-0" />
+                        <img src="/images/Logo-dorado.png" className="w-32 left-0" />
                     </Link>
                 </div>
             </div>
@@ -36,7 +50,6 @@ export default async function NavBar({ color }) {
                         )}
                     </div>
                 </div>
-
             </div>
         </div>
     );

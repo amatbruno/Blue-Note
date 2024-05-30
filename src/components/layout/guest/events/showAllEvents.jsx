@@ -1,8 +1,8 @@
 "use client"
 
-import { getAllEvents } from '@/lib/data';
-import { React, useEffect, useState } from 'react';
 import Spinner from '@/components/ui/spinner';
+import { getAllEvents } from '@/lib/data';
+import { useEffect, useState } from 'react';
 
 export default function ShowAllEvents() {
   const [events, setEvents] = useState([]);
@@ -58,7 +58,7 @@ export default function ShowAllEvents() {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex flex-wrap w-3/5 ml-36 h-full" style={{ alignItems: 'stretch' }}>
+        <div className="events_pc_style" style={{ alignItems: 'stretch' }}>
           {Object.keys(groupedEvents).length === 0 ? (
             <p className="text-2xl opacity-50 ml-3 font-semibold mb-4">No hay eventos planificado próximamente</p>
           ) : (

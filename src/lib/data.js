@@ -101,7 +101,6 @@ export async function codeAuthorization(prevState, data) {
     }
 }
 
-
 export async function registerForm(prevState, data, res) {
     let route;
 
@@ -191,7 +190,6 @@ export async function registerForm(prevState, data, res) {
 
     redirect('/' + route);
 }
-
 
 export async function loginForm(prevState, data, res) {
     let route;

@@ -1,11 +1,11 @@
 "use client"
 
 import Login from '@/components/layout/guest/auth/login';
+import Footer from '@/components/ui/Footer'; // Actualiza la ruta de importación
 import Icons from '@/components/ui/icons';
 import { getUserSession } from "@/lib/data";
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import Footer from '@/components/ui/Footer'; // Actualiza la ruta de importación
 
 export default function Home() {
     const [showLogin, setShowLogin] = useState(false);
@@ -142,7 +142,10 @@ export default function Home() {
             </div>
             <Icons />
             <div className="min-h-[800px]"></div> {/* Espacio adicional para permitir el scroll */}
-            {showFooter && <Footer />}
+            <div className='hidden_in_mobile'>
+                {showFooter && <Footer />}
+                <Footer />
+            </div>
         </main>
     )
 }
