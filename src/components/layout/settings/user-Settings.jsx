@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from 'react';
 import { getUserSession, settingsUser } from '@/lib/data';
@@ -79,10 +79,8 @@ export default function UserSettings() {
         }
     };
 
-   
-
     return (
-        <div className="flex items-center ml-80 mt-56">
+        <div className="flex flex-col items-center justify-center min-h-screen">
             <p>{imageName}</p>
             {verificationCompleted ? (
                 <>
@@ -122,8 +120,9 @@ export default function UserSettings() {
                         <form
                             action={dispatch}
                             id="user_table_form"
+                            className="flex flex-col items-center"
                         >
-                            <div>
+                            <div className="flex flex-col items-center gap-4">
                                 <div className="flex flex-col">
                                     <label htmlFor="email">Correo: </label>
                                     <input className="p-2 border" name="email" placeholder={user.email} type='email' />

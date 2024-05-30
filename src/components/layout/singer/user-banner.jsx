@@ -55,8 +55,14 @@ export default function UserBanner() {
     };
 
     const addToCalendar = (event) => {
-        const formattedDate = event.date.toISOString().replace(/-|:|\.\d+/g, "");
-        const url = `https://calendar.google.com/calendar/r/eventedit?text=${encodeURIComponent(event.title)}&dates=${formattedDate}/${formattedDate}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}`;
+        const startDate = new Date(event.date);
+        const endDate = new Date(startDate);
+        endDate.setHours(startDate.getHours() + 1); // Asumiendo que el evento dura 1 hora
+    
+        const formattedStartDate = startDate.toISOString().replace(/-|:|\.\d+/g, "");
+        const formattedEndDate = endDate.toISOString().replace(/-|:|\.\d+/g, "");
+    
+        const url = `https://calendar.google.com/calendar/r/eventedit?text=${encodeURIComponent(event.event_title)}&dates=${formattedStartDate}/${formattedEndDate}&details=${encodeURIComponent(event.event_description)}&location=${encodeURIComponent(event.streetAddres)}`;
         window.open(url, "_blank");
     };
 
@@ -90,7 +96,7 @@ export default function UserBanner() {
                 <Plataforms />
                 <div className="flex ml-36 mb-28 justify-center items-center">
                     <div>
-                        <h1 className="text-3xl font-bold mb-6">Agenda</h1>
+                        <h1 className="text-3xl font-bold mb-6 font-[GoodBrush]">Agenda</h1>
                         <Calendar
                             onChange={onChange}
                             value={date}

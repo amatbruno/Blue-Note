@@ -16,7 +16,7 @@ export default function FormContact({
 
     return (
         <article className="max-w-lg mx-auto">
-            <h1 className="text-3xl font-bold mb-4 mt-32">Contactanos</h1>
+            <h1 className="text-3xl font-bold mb-4 mt-32 font-[GoodBrush] phone-center-title-contact">Contactanos</h1>
             {state && <p className='text-red-500'>* {state}</p>}
             <form action={dispatch} className="space-y-4">
                 <div className="flex flex-col">
@@ -29,8 +29,8 @@ export default function FormContact({
                         required
                     >
                         <option value="colaborar">Tienes alguna causa solidaria</option>
-                        <option value="cantar">¿Quiertes cantar con nosotrso?</option>
-                        <option value="contratar">Contratacion para eventos</option>
+                        <option value="cantar">¿Quieres cantar con nosotros?</option>
+                        <option value="contratar">Contratación para eventos</option>
                         <option value="otros">Otros</option>
                     </select>
                 </div>
@@ -76,7 +76,7 @@ export default function FormContact({
                         required
                     />
                 </div>
-                <Button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg">Crear Evento</Button>
+                <Button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg center-object-custom">Crear Evento</Button>
             </form>
         </article>
     )

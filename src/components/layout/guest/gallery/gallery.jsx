@@ -1,9 +1,11 @@
-import Carousel from '@/components/ui/carousel';
+'use client';
+
+import CustomCarousel from '@/components/ui/Carousel';
 import NavBar from '@/components/ui/nav-bar';
 import NavBarPhone from '@/components/ui/nav-bar_phone';
 
-export default async function Gallery() {
-    let color = "Yellow"
+export default function Gallery() {
+    const color = "Yellow";
 
     const itemsRevival = [
         { type: 'image', src: '/images/carousel/LRC/image1.jpg' },
@@ -24,24 +26,29 @@ export default async function Gallery() {
     ];
 
     return (
-        <main className=" h-screen overflow-x-hidden">
+        <main className="h-screen overflow-x-hidden bg-gray-200">
             <div className="hidden_in_mobile">
                 <NavBar color={color} />
             </div>
             <div className="hidden_in_pc">
                 <NavBarPhone color={color} />
             </div>
-            <div className='parallax' style={{ backgroundImage: "url('/images/aboutusparallax2.jpg')" }} />
+            <div className='hidden_in_pc'>
+                <div className='parallax_gallery_phone' style={{ backgroundImage: "url('/images/aboutusparallax2.jpg')" }} />
+            </div>
+            <div className='hidden_in_mobile'>
+                <div className='parallax' style={{ backgroundImage: "url('/images/aboutusparallax2.jpg')" }} />
+            </div>
             <div className="w-full">
-                <div className='aboutus_text columns-2'>
-                    <div className='w-1/2 titletext_container'>
+                <div className='aboutus_text_pc pc_container_gallery mobile_container_gallery'>
+                    <div className='pc_halfwidth titletext_container'>
                         <div>
-                            <h1 className='font-bold text-4xl mt-12'>MAS GOSPEL</h1>
-                            <h1 className='aboutus_titletext2'>LET <span className='text-customYellow'>REVIVAL</span> COME</h1>
-                            <h1 className="">2024</h1>
+                            <h1 className='font-bold text-4xl mt-12 font-[GoodBrush]'>MAS GOSPEL</h1>
+                            <h1 className='aboutus_titletext2 font-[GoodBrush]'>LET <span className='text-customYellow font-[GoodBrush]'>REVIVAL</span> COME</h1>
+                            <h1 className="font-[GoodBrush]">2024</h1>
                         </div>
                     </div>
-                    <div className='w-1/3 mt-5 textaboutus_type1 text-justify'>
+                    <div className='pc_thirdwidth mobile_gallery_text_width mt-[50px] text-justify_pc'>
                         Nuestro proyecto "Let Revival Come" es un ejemplo perfecto de lo que nos hace especiales.
                         Con este proyecto, queremos llevar la música gospel a más personas y compartir el mensaje de Dios con el mundo.
                         Estamos organizando una serie de conciertos y eventos especiales, y también estamos trabajando en un nuevo álbum.
@@ -49,21 +56,20 @@ export default async function Gallery() {
                     </div>
                 </div>
 
-                <div className="flex justify-center items-center mt-20 mb-20">
-                    <Carousel items={itemsRevival} />
+                <div className="carrousel_pc carrousel_mobile">
+                    <CustomCarousel items={itemsRevival} />
                 </div>
 
-                <hr class="border-black w-96 mx-auto mt-8" />
-
-                <div className='aboutus_text columns-2'>
-                    <div className='w-1/2 titletext_container'>
+                <hr className="border-black w-96 mx-auto mt-8" />
+                <div className='aboutus_text_pc pc_container_gallery mobile_container_gallery'>
+                    <div className='pc_halfwidth titletext_container'>
                         <div>
-                            <h1 className='font-bold text-4xl mt-12'>MAS GOSPEL</h1>
-                            <h1 className='aboutus_titletext2'>MOVING <span className='text-customYellow'>FORWARD</span></h1>
-                            <h1 className="">2023</h1>
+                            <h1 className='font-bold text-4xl mt-12 font-[GoodBrush]'>MAS GOSPEL</h1>
+                            <h1 className='aboutus_titletext2 font-[GoodBrush]'>MOVING <span className='text-customYellow font-[GoodBrush]'>FORWARD</span></h1>
+                            <h1 className="font-[GoodBrush]">2023</h1>
                         </div>
                     </div>
-                    <div className='w-1/3 mt-5 textaboutus_type1 text-justify'>
+                    <div className='pc_thirdwidth mobile_gallery_text_width mt-[50px] text-justify_pc'>
                         Nuestro proyecto "Let Revival Come" es un ejemplo perfecto de lo que nos hace especiales.
                         Con este proyecto, queremos llevar la música gospel a más personas y compartir el mensaje de Dios con el mundo.
                         Estamos organizando una serie de conciertos y eventos especiales, y también estamos trabajando en un nuevo álbum.
@@ -71,10 +77,20 @@ export default async function Gallery() {
                     </div>
                 </div>
 
-                <div className="flex justify-center items-center mt-20 mb-20">
-                    <Carousel items={itemsForward} />
+                <div className="carrousel_pc carrousel_mobile">
+                    <CustomCarousel items={itemsForward} />
                 </div>
             </div>
+
+            <style jsx>{`
+                .parallax {
+                    background-attachment: fixed;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 400px;
+                }
+            `}</style>
         </main>
-    )
+    );
 }

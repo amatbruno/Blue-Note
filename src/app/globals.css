@@ -7,6 +7,17 @@
     src: url('/fonts/nexaLight.otf');
 }
 
+
+@font-face {
+    font-family: "Nexa";
+    src: url('/fonts/nexaLight.otf');
+}
+
+@font-face {
+    font-family: "GoodBrush";
+    src: url('/fonts/GoodBrush.otf');
+}
+
 h1,
 p,
 a,
@@ -20,6 +31,14 @@ input {
     min-height: 300px;
     background-attachment: fixed;
     background-position: 0 -50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax_gallery_phone {
+    min-height: 150px;
+    background-attachment: fixed;
+    background-position: 0 -150px;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -215,6 +234,10 @@ input {
         display: none;
     }
 
+    .item_gallery_phone {
+        margin: 0 auto;
+    }
+
     .navbar_phone {
         display: block;
         color: white;
@@ -249,10 +272,46 @@ input {
     .p-about_us_section {
         @apply text-left ml-6 w-80;
     }
+
+    .phone-move-formcontact {
+        @apply mt-[-130px]
+    }
+
+    .phone-center-title-contact {
+        @apply text-center;
+    }
+
+    .center-object-custom {
+        @apply ml-6;
+    }
+
+    .mobile_container_gallery {
+        @apply ml-3
+    }
+
+    .mobile_gallery_text_width {
+        @apply w-80 mt-[0px] ml-8 text-center;
+    }
+
+    .width_galleryphoto_mobile {
+        @apply w-full;
+        display: none;
+    }
+
+    .carrousel_mobile {
+        @apply flex justify-center items-center;
+    }
 }
 
 /* GENERAL PC */
 @media (min-width: 1025px) {
+    .carrousel_pc {
+        @apply flex justify-center items-center mt-20 mb-20;
+    }
+
+    .text-justify_pc {
+        @apply text-justify;
+    }
 
     .bar_burger {
         display: none;
@@ -745,6 +804,28 @@ input {
         box-sizing: border-box
     }
 
+
+    h1,
+    p,
+    a,
+    label,
+    input {
+        font-family: Nexa;
+
+    }
+
+    .home-text-about,
+    .home-text-event,
+    .home-text-contact,
+    .home-text-shows,
+    .home-text-log {
+        color: white;
+    }
+
+    .home-text-about:focus {
+        color: green;
+    }
+
     .auth-a-password {
         color: #860012;
     }
@@ -768,7 +849,7 @@ input {
     }
 
     .bckg_filters_logins {
-        background-color: rgb(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.849);
         filter: blur();
     }
 
@@ -785,5 +866,28 @@ input {
         @apply w-1/2 text-center text-left;
         margin-top: 0px;
         margin: 0 auto;
+    }
+
+    .events_pc_style {
+        @apply flex flex-wrap w-3/5 ml-36 h-full
+    }
+
+    .pc_container_gallery {
+        @apply columns-2;
+    }
+
+    .pc_halfwidth {
+        @apply w-1/2;
+    }
+
+    .pc_thirdwidth {
+        @apply w-1/3;
+    }
+
+    .aboutus_text_pc {
+        font-size: 20px;
+        margin: 0 auto;
+        display: flex;
+        text-align: center;
     }
 }

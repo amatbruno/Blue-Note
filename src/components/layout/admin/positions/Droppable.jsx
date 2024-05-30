@@ -2,7 +2,24 @@
 
 import React, { useState } from 'react';
 
-export default function Droppable({ id, handleDrop, handleDragOver, children }) {
+export default function Droppable() {
+
+  const [droppedVoice, setDroppedVoice] = useState(null);
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const voiceName = e.dataTransfer.getData('text/plain');
+    setDroppedVoice(voiceName);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const sendVoiceData = () => {
+    //console.log(droppedVoice);
+  }
+
   return (
     <div
       id={id}

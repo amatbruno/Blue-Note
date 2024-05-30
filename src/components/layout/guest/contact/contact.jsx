@@ -12,7 +12,9 @@ export default async function Contact() {
             <div className="hidden_in_pc">
                 <NavBarPhone color={color} />
             </div>
-            <FormContact />
+            <div className='phone-move-formcontact'>
+                <FormContact />
+            </div>
         </main>
     )
 }

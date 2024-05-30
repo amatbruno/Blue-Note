@@ -19,7 +19,7 @@ export default async function AboutUs() {
             </div>
             <div className='aboutus_text2'>
                 <div className='titletext_container'>
-                    <h1 className='aboutus_titletext2'><i>¿QUIENES SOMOS?</i></h1>
+                    <h1 className='aboutus_titletext2 font-[GoodBrush]'><i>¿QUIENES SOMOS?</i></h1>
                 </div>
                 <div className='about_us_text_container'>
                     <p className='p-about_us_section'>
@@ -35,7 +35,7 @@ export default async function AboutUs() {
 
             <div className='aboutus_text2'>
                 <div className='titletext_container'>
-                    <h1 className='aboutus_titletext2'><i>NUESTRA TRAYECTORIA</i></h1>
+                    <h1 className='aboutus_titletext2 font-[GoodBrush]'><i>NUESTRA TRAYECTORIA</i></h1>
                 </div>
                 <div className='about_us_text_container'>
                     <p className='p-about_us_section'>
@@ -51,7 +51,7 @@ export default async function AboutUs() {
 
             <div className='aboutus_text2'>
                 <div className='titletext_container'>
-                    <h1 className='aboutus_titletext2'><i>NUESTRO COMPROMISO</i></h1>
+                    <h1 className='aboutus_titletext2 font-[GoodBrush]'><i>NUESTRO COMPROMISO</i></h1>
                 </div>
                 <div className='about_us_text_container'>
                     <p className='p-about_us_section'>
