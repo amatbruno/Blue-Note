@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState, useEffect } from 'react';
 import { getAllEvents, getAllUsers, insertUserLineup } from '@/lib/data';
 import { getAllEvents, getAllUsers, insertUserLineup } from '@/lib/data';
