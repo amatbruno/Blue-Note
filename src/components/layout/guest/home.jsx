@@ -76,7 +76,7 @@ export default function Home() {
                     </div>
                 </div>
             )}
-            <img src="/images/homepageRetocada.jpg" draggable="false" className="bckg_img hidden_in_mobile" />
+            <img src="/images/homepageRetocada.png" draggable="false" className="bckg_img hidden_in_mobile" />
 
             <div id="bckg_phone" className={`bckg_img2 ${navBarPhone ? 'shown' : 'hiddenbar'}`} >
                 {/* BARRA PARA EL MOVIL */}
