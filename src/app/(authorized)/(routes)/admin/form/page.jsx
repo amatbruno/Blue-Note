@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { getAllEvents, getAllUsers, insertUserLineup } from '@/lib/data';
-import { getAllEvents, getAllUsers, insertUserLineup } from '@/lib/data';
 import Draggable from '@/components/layout/admin/positions/Draggable';
 import Droppable from '@/components/layout/admin/positions/Droppable';
 import './app.css';
